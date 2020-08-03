@@ -1,12 +1,30 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
+  <div> 
+    
+    <home-page> </home-page>
     <p>You must be authenticated to see this</p>
   </div>
 </template>
 
 <script>
+import HomePage from "@/components/HomePage.vue";
+
 export default {
-  name: "home"
-};
+  name: "App",
+ 
+  components: {
+    HomePage
+  }
+}
 </script>
+
+<style>
+#app {  font-family: Avenir, 
+Helvetica, Arial, sans-serif;  
+-webkit-font-smoothing: antialiased;  
+-moz-osx-font-smoothing: grayscale;  
+text-align: center;  
+color: #2c3e50;  
+margin-top: 60px;
+}
+</style>
