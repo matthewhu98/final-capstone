@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Service;
 
 import com.techelevator.model.Landmark;
 
+@Service
 public class LandmarkSqlDAO implements LandmarkDAO {
 	
     private JdbcTemplate jdbcTemplate;
@@ -28,14 +30,27 @@ public class LandmarkSqlDAO implements LandmarkDAO {
 		return landmarks;
 	}
 	
+	@Override
+	public Landmark addLandMark(Landmark landmark) {
+		
+		String sql = "INSERT INTO landmark (landmark_id,name, summary, description, img, address_id) "
+				+ "VALUES (default,?,?,?,?,?) returning landmark_id";
+		
+		Long id = jdbcTemplate.queryForObject(sql, Long.class , landmark.getName(), landmark.getSummery(),landmark.getDiscription(),landmark.getImg(),landmark.getAddressID());
+		landmark.setLandmarkID(id);
+		return landmark;
+	}
+	
     private Landmark mapRowToLandmark(SqlRowSet rs) {
         Landmark landmark = new Landmark();
         landmark.setLandmarkID(rs.getLong("landmark_id"));
         landmark.setName(rs.getString("name"));
-        landmark.setSummery(rs.getString("summery"));
-        landmark.setDiscription(rs.getString("discription"));
+        landmark.setSummery(rs.getString("summary"));
+        landmark.setDiscription(rs.getString("description"));
         landmark.setImg(rs.getString("img"));
         landmark.setAddressID(rs.getInt("address_id"));      
         return landmark;
     }
+
+	
 }
