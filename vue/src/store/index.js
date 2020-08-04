@@ -18,25 +18,26 @@ if (currentToken != null) {
 
 export default new Vuex.Store({
     state: {
-        locations: [{
-                name: "roman thing",
-                address: "roman address",
-                description: "roman description",
-                summary: "roman summary",
-            },
-            {
-                name: "roman thing2",
-                address: "roman address2",
-                description: "roman description2",
-                summary: "roman summary2",
-            },
-            {
-                name: "roman thing3",
-                address: "roman address3",
-                description: "roman description3",
-                summary: "roman summary3",
-            },
-        ],
+        // locations: [{
+        //         name: "roman thing",
+        //         address: "roman address",
+        //         description: "roman description",
+        //         summary: "roman summary",
+        //     },
+        //     {
+        //         name: "roman thing2",
+        //         address: "roman address2",
+        //         description: "roman description2",
+        //         summary: "roman summary2",
+        //     },
+        //     {
+        //         name: "roman thing3",
+        //         address: "roman address3",
+        //         description: "roman description3",
+        //         summary: "roman summary3",
+        //     },
+        // ],
+        locations: [],
         token: currentToken || '',
         user: currentUser || {}
     },
@@ -56,6 +57,9 @@ export default new Vuex.Store({
             state.token = '';
             state.user = {};
             axios.defaults.headers.common = {};
+        },
+        SET_LANDMARKS(state, data){
+            state.locations = data;
         }
     }
 })
