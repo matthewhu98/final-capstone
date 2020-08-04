@@ -7,7 +7,7 @@
 <script>
 import LandmarkDetails from "@/components/LandmarkDetails.vue";
 export default {
-    name: "LandmarkDetails",
+    name: "landmarkdetails",
     components:{
         LandmarkDetails
     }

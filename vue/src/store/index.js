@@ -38,6 +38,13 @@ export default new Vuex.Store({
         //     },
         // ],
         landmarks: [],
+        activeLandmark: {
+            landmarkID: 0,
+            name: '',
+            summery: '',
+            discription: '',
+            img: ''
+          },
         token: currentToken || '',
         user: currentUser || {}
     },
@@ -60,6 +67,9 @@ export default new Vuex.Store({
         },
         SET_LANDMARKS(state, data){
             state.landmarks = data;
+        },
+        SET_ACTIVE_LANDMARK(state , data){
+            state.activeLandmark = data;
         }
     }
 })

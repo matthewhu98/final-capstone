@@ -3,7 +3,7 @@
    <div v-for="landmark in this.$store.state.landmarks"
    v-bind:key="landmark.name">
 <!-- // v-bind:landmark="landmark" -->
-    <router-link v-bind:to="{name: 'LandmarkDetails' , params: {id: landmark.landmarkID}}">{{landmark.name}}</router-link>
+    <router-link v-bind:to="{name: 'landmarkdetails' , params: {id: landmark.landmarkID}}">{{landmark.name}}</router-link>
    </div>
 
   </div>
