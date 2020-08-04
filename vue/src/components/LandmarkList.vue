@@ -1,30 +1,30 @@
 <template>
   <div>
-   <landmark-details v-for="location in landmarkList"
-   v-bind:key="location.name"
-   v-bind:location="location">
+   <div v-for="landmark in this.$store.state.landmarks"
+   v-bind:key="landmark.name">
+<!-- // v-bind:landmark="landmark" -->
+    <router-link v-bind:to="{name: 'LandmarkDetails' , params: {id: landmark.landmarkID}}">{{landmark.name}}</router-link>
+   </div>
 
-   </landmark-details>
   </div>
 </template>
 
 <script>
-import LandmarkDetails from "@/components/LandmarkDetails.vue";
+// import LandmarkDetails from "@/components/LandmarkDetails.vue";
 import LandmarkService from "../services/LandmarkService";
 export default {
   name: "landmark-list",
-  components: {
-      LandmarkDetails
+
+  methods:{
+    getLandmarks(){
+      LandmarkService.list().then(response =>{
+        this.$store.commit("SET_LANDMARKS" , response.data);
+      });
+    }
   },
-  data() {
-    return {
-      landmarks: []
-    };
-  },
+  
   created(){
-    LandmarkService.list().then((response) =>{
-      this.landmarks = response.data;
-    }); 
+    this.getLandmarks();
   },
  // computed: {
       // locationList(){
@@ -34,12 +34,6 @@ export default {
 
       
   //}
-  computed:{
-    landmarkList(){
-      return this.landmarks;
-    }
-    
-  }
 
 
 };

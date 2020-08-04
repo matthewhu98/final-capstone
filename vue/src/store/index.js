@@ -37,7 +37,7 @@ export default new Vuex.Store({
         //         summary: "roman summary3",
         //     },
         // ],
-        locations: [],
+        landmarks: [],
         token: currentToken || '',
         user: currentUser || {}
     },
@@ -59,7 +59,7 @@ export default new Vuex.Store({
             axios.defaults.headers.common = {};
         },
         SET_LANDMARKS(state, data){
-            state.locations = data;
+            state.landmarks = data;
         }
     }
 })

@@ -13,14 +13,14 @@
 <script>
 // import BackgroundImage from "@/assets/homepage-image.jpg";
 
-export default {
-  name: "App",
+//export default {
+  //name: "App",
 
   // data() {
   //   return {BackgroundImage}
   // }
-};
-</script>
+// };
+// </script>
 
 <style>
 

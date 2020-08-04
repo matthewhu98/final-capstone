@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>{{location.name}}</h1>
+      <h1>{{landmark.name}}</h1>
       
 
   </div>
@@ -10,7 +10,7 @@
 export default {
     name: "landmark-details",
     props: [
-        "location"
+        "landmark"
     ]
 
 }

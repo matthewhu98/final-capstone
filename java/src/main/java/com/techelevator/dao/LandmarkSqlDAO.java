@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,6 +9,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
 
 import com.techelevator.model.Landmark;
+
 
 @Service
 public class LandmarkSqlDAO implements LandmarkDAO {
@@ -41,6 +43,22 @@ public class LandmarkSqlDAO implements LandmarkDAO {
 		return landmark;
 	}
 	
+	@Override
+	public Landmark landmarkDetails(long id) {
+		Landmark landmark = null;
+		String sql = "Select * from landmark " + "where landmark_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
+		
+		if (results.next()) {
+    		landmark = mapRowToLandmark(results);
+    	}
+    	
+		return landmark;
+	
+	}
+	
+	
     private Landmark mapRowToLandmark(SqlRowSet rs) {
         Landmark landmark = new Landmark();
         landmark.setLandmarkID(rs.getLong("landmark_id"));
@@ -51,6 +69,8 @@ public class LandmarkSqlDAO implements LandmarkDAO {
         landmark.setAddressID(rs.getInt("address_id"));      
         return landmark;
     }
+
+	
 
 	
 }

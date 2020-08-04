@@ -9,5 +9,7 @@ public interface LandmarkDAO {
 	public List<Landmark> getAllLandmarks();
 	
 	public Landmark addLandMark(Landmark landmark);
+	
+	public Landmark landmarkDetails(long id);
 
 }
