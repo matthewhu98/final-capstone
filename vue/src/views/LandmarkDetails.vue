@@ -1,6 +1,6 @@
 <template>
   <div>
-      <landmark-details v-bind:landmark-id="parseInt($route.params.id)"/>
+      <landmark-details v-bind:landmarkID="parseInt($route.params.id)"/>
   </div>
 </template>
 
