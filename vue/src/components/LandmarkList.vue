@@ -1,18 +1,20 @@
-<template>
+<template class="everything">
   <div class="container">
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
     />
     <div class="card" v-for="landmark in this.$store.state.landmarks" v-bind:key="landmark.name">
-      <div>
-        <img class="image" v-bind:src="getImageUrl(landmark.img)" />
-      </div>
-      <div>
+      <div class="image-div">
         <router-link
           class="title"
-          v-bind:to="{name: 'landmarkdetails' , params: {id: landmark.landmarkID}}"
-        >{{landmark.name}}</router-link>
+          v-bind:to="{name: 'landmarkdetails' 
+          , params: {id: landmark.landmarkID}}">
+          {{landmark.name}}
+          <div class="circle">
+            <img class="image" v-bind:src="getImageUrl(landmark.img)" />
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -38,30 +40,56 @@ export default {
   created() {
     this.getLandmarks();
   }
-  // computed: {
-  // locationList(){
-  //     const locationArray = this.$store.state.locations;
-  //     return locationArray;
-  // }
-
-  //}
 };
 </script>
 
 <style>
-.image {
-  border-radius: 50%;
-  flex: 1;
+/* body {
+  background-color: #EDEAE5;
+
+} */
+
+.circle {
+ border-radius: 50%;
+ height: 21rem;
+ width: 21rem;
+ overflow: hidden;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
+
+.circle:hover {
+  border-radius: 5px 20px 5px;
+  height: 30rem;
+  width: 20rem;
+  filter: drop-shadow(9px 9px 9px black);
+  
+}
+
+.image:hover {
+  height: 520px;
+  filter: contrast(120%);
+  /* height: 75%;
+  width: 75%; */
+}
+
+.image {
+  height: 500px;
+  border-radius: 5px 20px 5px;
+  filter: grayscale(100%) blur(2px);
+}
+
 .title {
   text-decoration: none;
 }
 
 .card {
-  /* display: flex; */
+  
   font-family: "Nanum Gothic", sans-serif;
   font-size: 25px;
-  /* align-items: center;
-  justify-content: center; */
 }
+
+
+
 </style>

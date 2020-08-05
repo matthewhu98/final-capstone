@@ -9,7 +9,7 @@
       <p class="description">{{this.$store.state.activeLandmark.discription}}</p>
     </div>
     <div>
-      <img class="image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" />
+      <img class="single-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" />
     </div>
   </div>
 </template>
@@ -35,18 +35,22 @@ export default {
 </script>
 
 <style>
-.image {
-  height: 43rem;
-  padding: 5%;
+.single-image {
+  height: 40rem;
+  margin: 2rem;
 }
 
 .title {
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: "Nanum Pen Script", cursive;
   font-size: 70px;
 }
 
 .description {
-    font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 45px;
+  border: 1px solid saddlebrown;
+  margin: 3rem;
+  padding: 2rem;
 }
 
 .landmark-explained {
