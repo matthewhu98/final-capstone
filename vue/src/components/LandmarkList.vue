@@ -18,6 +18,9 @@
           <div class="circle">
             <img class="image" v-bind:src="getImageUrl(landmark.img)" />
           </div>
+          <div>
+            
+          </div>
         </router-link>
         <!-- <button v-on:click.prevent="getItinerary(this.$store.state.user.user_id)"></button> -->
       </div>
@@ -60,9 +63,12 @@ export default {
 } */
 
 .circle {
-  border-radius: 50%;
-  height: 21rem;
-  width: 21rem;
+  /* border-radius: 50%; */
+  /* height: 21rem;
+  width: 21rem; */
+  border-radius: 5px 20px 5px;
+  height: 30rem;
+  width: 20rem;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -70,23 +76,22 @@ export default {
 }
 
 .circle:hover {
-  border-radius: 5px 20px 5px;
-  height: 30rem;
-  width: 20rem;
+  
   filter: drop-shadow(9px 9px 9px black);
 }
 
 .image:hover {
   height: 520px;
-  filter: contrast(120%);
+  
   /* height: 75%;
   width: 75%; */
+  filter: grayscale(100%) blur(2px);
 }
 
 .image {
   height: 500px;
   border-radius: 5px 20px 5px;
-  filter: grayscale(100%) blur(2px);
+  filter: contrast(120%);
 }
 
 .title {

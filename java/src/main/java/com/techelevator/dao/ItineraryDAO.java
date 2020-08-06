@@ -9,5 +9,5 @@ public interface ItineraryDAO {
 	
 	public List<Itinerary> getAllItinerary(long id);     // this is the user id
 	
-	public Itinerary createNewItinerary(Itinerary itinerary);
+	public Itinerary createNewItinerary(long id ,Itinerary itinerary);
 }

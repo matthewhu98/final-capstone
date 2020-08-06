@@ -36,9 +36,13 @@ public class ItinerarySqlDAO implements ItineraryDAO {
 	}
 
 	@Override
-	public Itinerary createNewItinerary(Itinerary itinerary) {
-		// TODO Auto-generated method stub
-		return null;
+	public Itinerary createNewItinerary(long id ,Itinerary itinerary) {
+		 String sql = "insert into itinerary (itinerary_id , name , user_id) values (default , ? , ?) returning user_id";
+		 Long itId = jdbcTemplate.queryForObject(sql, Long.class , itinerary.getName() , itinerary.getUserID());
+		 itinerary.setItineraryID(itId);
+		 
+		
+		return itinerary;
 	}
 
 	
