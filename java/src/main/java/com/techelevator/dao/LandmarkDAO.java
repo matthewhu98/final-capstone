@@ -11,5 +11,7 @@ public interface LandmarkDAO {
 	public Landmark addLandMark(Landmark landmark);
 	
 	public Landmark landmarkDetails(long id);
+	
+	public List<Landmark> getLandmarksForItinerary (long id);
 
 }
