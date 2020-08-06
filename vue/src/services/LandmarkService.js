@@ -11,7 +11,7 @@ export default {
     },
     
     getItinerary(userId) {
-      return axios.get(`/itinerary/${userId}`);
+      return axios.get(`/itineraries/${userId}`);
     }
     // detail(id){
     //     return http.get(`/topics/${id}`)

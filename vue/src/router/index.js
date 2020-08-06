@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Landmarks from '../views/Landmarks.vue'
 import LandmarkDetails from '../views/LandmarkDetails.vue'
-import Itinerary from '../views/Itinerary.vue'
+import Itineraries from '../views/Itineraries.vue'
 Vue.use(Router)
 
 /**
@@ -27,7 +27,7 @@ const router = new Router({
         name: 'home',
         component: Home,
         meta: {
-            requiresAuth: false //change back to true once ready
+            requiresAuth: true //change back to true once ready
         }
     },
     {
@@ -71,11 +71,11 @@ const router = new Router({
         }
     },
     {
-        path: '/itineraries/',
-        name: 'itinerary',
-        component: Itinerary,
+        path: '/itineraries/:id',
+        name: 'itineraries',
+        component: Itineraries,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     }]
 })
