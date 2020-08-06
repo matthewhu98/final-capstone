@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Landmarks from '../views/Landmarks.vue'
 import LandmarkDetails from '../views/LandmarkDetails.vue'
-
+import Itinerary from '../views/Itinerary.vue'
 Vue.use(Router)
 
 /**
@@ -23,54 +23,61 @@ const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [{
-            path: '/',
-            name: 'home',
-            component: Home,
-            meta: {
-                requiresAuth: false //change back to true once ready
-            }
-        },
-        {
-            path: "/login",
-            name: "login",
-            component: Login,
-            meta: {
-                requiresAuth: false
-            }
-        },
-        {
-            path: "/logout",
-            name: "logout",
-            component: Logout,
-            meta: {
-                requiresAuth: false
-            }
-        },
-        {
-            path: "/register",
-            name: "register",
-            component: Register,
-            meta: {
-                requiresAuth: false
-            }
-        },
-        {
-            path: "/landmarks",
-            name: "the-landmarks",
-            component: Landmarks,
-            meta: {
-                requiresAuth: false
-            }
-        },
-        {
-            path: '/landmarks/:id',
-            name: 'landmarkdetails',
-            component: LandmarkDetails,
-            meta: {
-                requiresAuth: false
-            }
+        path: '/',
+        name: 'home',
+        component: Home,
+        meta: {
+            requiresAuth: false //change back to true once ready
         }
-    ]
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: Login,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: "/logout",
+        name: "logout",
+        component: Logout,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: "/register",
+        name: "register",
+        component: Register,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: "/landmarks",
+        name: "the-landmarks",
+        component: Landmarks,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: '/landmarks/:id',
+        name: 'landmarkdetails',
+        component: LandmarkDetails,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: '/itineraries/',
+        name: 'itinerary',
+        component: Itinerary,
+        meta: {
+            requiresAuth: false
+        }
+    }]
 })
 
 router.beforeEach((to, from, next) => {

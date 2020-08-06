@@ -7,7 +7,11 @@ export default {
     },
 
     getLandmark(id){
-      return axios.get(`/landmarks/${id}`)
+      return axios.get(`/landmarks/${id}`);
+    },
+    
+    getItinerary(userId) {
+      return axios.get(`/itinerary/${userId}`);
     }
     // detail(id){
     //     return http.get(`/topics/${id}`)
