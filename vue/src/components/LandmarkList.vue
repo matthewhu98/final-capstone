@@ -16,7 +16,7 @@
             <img class="image" v-bind:src="getImageUrl(landmark.img)" />
           </div>
         </router-link>
-        <button v-on:click.prevent="getItinerary(this.$store.state.currentUser.user_id)">{{landmark.inItinerary === false ? "Remove from Itinerary" : "Add to Itinerary"}}</button>
+        <button v-on:click.prevent="getItinerary(this.$store.state.user.id)">{{landmark.inItinerary === false ? "Remove from Itinerary" : "Add to Itinerary"}}</button>
       </div>
     </div>
   </div>
