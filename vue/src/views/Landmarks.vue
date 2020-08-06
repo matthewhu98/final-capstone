@@ -1,5 +1,5 @@
 <template>
-  <div class="title container">
+  <div class="title container landmark-page">
     <div class="card">
       <h1>List of Landmarks in Rome</h1>
       <landmark-list class="landmark-card"></landmark-list>
@@ -12,13 +12,12 @@ import LandmarkList from "@/components/LandmarkList.vue";
 export default {
   name: "the-landmarks",
   components: {
-    LandmarkList
+    LandmarkList,
   }
 };
 </script>
 
 <style>
-
 .title {
   color: black;
 }
@@ -27,7 +26,5 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
-
 </style>

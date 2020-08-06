@@ -1,4 +1,4 @@
-<template>
+<template >
   <div class="landmark-explained">
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
@@ -18,6 +18,7 @@
 import LandmarkService from "../services/LandmarkService";
 export default {
   name: "landmark-details",
+  image: "getImageUrl(this.$store.state.activeLandmark.img)",
   props: {
     landmarkID: Number
   },
@@ -35,6 +36,9 @@ export default {
 </script>
 
 <style>
+/* body{
+  background-image: image;
+} */
 .single-image {
   height: 40rem;
   margin: 2rem;

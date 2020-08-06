@@ -9,12 +9,14 @@
         <router-link
           class="title"
           v-bind:to="{name: 'landmarkdetails' 
-          , params: {id: landmark.landmarkID}}">
+          , params: {id: landmark.landmarkID}}"
+        >
           {{landmark.name}}
           <div class="circle">
             <img class="image" v-bind:src="getImageUrl(landmark.img)" />
           </div>
         </router-link>
+        <button v-on:click.prevent="getItinerary(this.$store.state.currentUser.user_id)">{{landmark.inItinerary === false ? "Remove from Itinerary" : "Add to Itinerary"}}</button>
       </div>
     </div>
   </div>
@@ -30,6 +32,11 @@ export default {
     getLandmarks() {
       LandmarkService.list().then(response => {
         this.$store.commit("SET_LANDMARKS", response.data);
+      });
+    },
+    getItinerary(userId) {
+      LandmarkService.getItinerary(userId).then(response => {
+        this.$store.commit("SET_ITINERARY", response.data);
       });
     },
     getImageUrl(pic) {
@@ -50,13 +57,13 @@ export default {
 } */
 
 .circle {
- border-radius: 50%;
- height: 21rem;
- width: 21rem;
- overflow: hidden;
- display: flex;
- justify-content: center;
- align-items: center;
+  border-radius: 50%;
+  height: 21rem;
+  width: 21rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .circle:hover {
@@ -64,7 +71,6 @@ export default {
   height: 30rem;
   width: 20rem;
   filter: drop-shadow(9px 9px 9px black);
-  
 }
 
 .image:hover {
@@ -85,11 +91,7 @@ export default {
 }
 
 .card {
-  
   font-family: "Nanum Gothic", sans-serif;
   font-size: 25px;
 }
-
-
-
 </style>
