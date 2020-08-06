@@ -24,9 +24,9 @@ export default new Vuex.Store({
             name: '',
             summery: '',
             discription: '',
-            img: '',
-            inItinerary: false
+            img: ''
           },
+          itineraries: [],
         token: currentToken || '',
         user: currentUser || {}
     },
@@ -53,8 +53,8 @@ export default new Vuex.Store({
         SET_ACTIVE_LANDMARK(state , data){
             state.activeLandmark = data;
         },
-        SET_ITINERARY(state){
-            state.landmarks.inItinerary = !state.landmarks.inItinerary;
+        SET_ITINERARIES(state , data){
+            state.itineraries = data;
         }
     }
 })

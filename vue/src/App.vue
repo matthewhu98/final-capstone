@@ -14,13 +14,14 @@
         class="title-home-page"
         v-bind:to="{ name: 'the-landmarks'}"
       >List of Landmarks in Rome</router-link>
-      <router-link class="itinerary-route" v-bind:to="{name: 'itinerary'}">
+      <!-- <router-link class="itinerary-route" v-bind:to="{name: 'itinerary'}">
         <i class="fas fa-clipboard-list"></i>
-      </router-link>
-
+      </router-link> -->
+       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''">Login</router-link>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
     <router-view />
+
   </div>
 </template>
 <script>
@@ -66,6 +67,9 @@
 }
 
 .itinerary-route:hover {
+  color: black;
+}
+h1 {
   color: black;
 }
 </style>

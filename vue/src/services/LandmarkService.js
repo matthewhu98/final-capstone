@@ -11,7 +11,11 @@ export default {
     },
     
     getItinerary(userId) {
-      return axios.get(`/itinerary/${userId}`);
+      return axios.get(`/itineraries/${userId}`);
+    },
+
+    createItinerary(itinerary, userId){
+      return axios.post(`/itineraries/${userId}` , itinerary);
     }
     // detail(id){
     //     return http.get(`/topics/${id}`)

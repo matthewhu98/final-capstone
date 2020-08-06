@@ -1,19 +1,19 @@
 <template>
   <section class="itinerary">
-    <h1 class="text">Your Itinerary</h1>
+    <h1 class="text">Your Itineraries List</h1>
 
     <div>
-      <the-itinerary></the-itinerary>
+      <itinerary-list  ></itinerary-list>
     </div>
   </section>
 </template>
 
 <script>
-import TheItinerary from "@/components/TheItinerary.vue";
+import ItineraryList from "@/components/ItineraryList.vue";
 export default {
-  name: "itinerary",
+  name: "itineraries",
   components: {
-    TheItinerary
+    ItineraryList
   }
 };
 </script>
