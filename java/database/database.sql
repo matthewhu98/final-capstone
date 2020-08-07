@@ -79,9 +79,7 @@ INSERT INTO landmark (name, summary, description, img, address_id) VALUES
 ('Roman Forum', 'Excabated heart of the Roman Empire', 'The Roman Forum, also known by its Latin name Forum Romanum, is a rectangular forum surrounded by the ruins of several important ancient government buildings at the center of the city of Rome. Citizens of the ancient city referred to this space, originally a marketplace, as the Forum Magnum, or simply the Forum.', 'roman-forum-main.jpg', 5),
 ('Sistine Chapel', 'Michelangelo''s iconic painted ceiling', 'The Sistine Chapel is a chapel in the Apostolic Palace, the official residence of the pope, in Vatican City. Originally known as the Cappella Magna, the chapel takes its name from Pope Sixtus IV, who restored it between 1473 and 1481. Since that time, the chapel has served as a place of both religious and functionary papal activity.', 'sistine-chapel-main.jpg', 6),
 ('Piazza Navona','Elegant square with a fountain and bars','Piazza Navona is a public open space in Rome, Italy. It is built on the site of the Stadium of Domitian, built in the 1st century AD, and follows the form of the open space of the stadium. The ancient Romans went there to watch the agones, and hence it was known as "Circus Agonalis".','piazza-navona-main.jpg', 7),
-('Palatine Hill','Historic area with Roman ruins','The Palatine Hill, which is the centremost of the Seven Hills of Rome, is one of the most ancient parts of the city and has been called "the first nucleus of the Roman Empire." The site is now mainly a large open-air museum while the Palatine Museum houses many finds from the excavations here and from other ancient Italian sites.','palatine-hill-main.jpg', 8),
-('Saint Peter''s Square','Religous plaza with a fountain and obelisk','St. Peter''s Square is a large plaza located directly in front of St. Peter''s Basilica in the Vatican City, the papal enclave inside Rome, directly west of the neighborhood or rione of Borgo. Both the square and the basilica are named after Saint Peter, an apostle of Jesus considered by Catholics to be the first Pope.','saint-peters-square-main.jpg', 9),
-('Baths of Caracalla','Ruins of a vast Roman bath complex','The Baths of Caracalla in Rome, Italy, were the city''s second largest Roman public baths, or thermae, likely built between AD 212 and 216/217, during the reigns of emperors Septimius Severus and Caracalla.','baths-of-caracalla-main.jpg', 10);
+('Saint Peter''s Square','Religous plaza with a fountain and obelisk','St. Peter''s Square is a large plaza located directly in front of St. Peter''s Basilica in the Vatican City, the papal enclave inside Rome, directly west of the neighborhood or rione of Borgo. Both the square and the basilica are named after Saint Peter, an apostle of Jesus considered by Catholics to be the first Pope.','saint-peters-square-main.jpg', 8);
 
 INSERT INTO itinerary(name, user_id) VALUES
 ('trip 1', 1),
@@ -136,21 +134,11 @@ INSERT INTO images(landmark_id, image_name) VALUES
 (7, 'piazza-navona-4.jpg'),
 (7, 'piazza-navona-5.jpg'),
 
-(8, 'palatine-hill-1.jpg'),
-(8, 'palatine-hill-2.jpg'),
-(8, 'palatine-hill-3.jpg'),
-(8, 'palatine-hill-4.jpg'),
-(8, 'palatine-hill-5.jpg'),
 
-(9, 'saint-peters-square-1.jpg'),
-(9, 'saint-peters-square-2.jpg'),
-(9, 'saint-peters-square-3.jpg'),
-(9, 'saint-peters-square-4.jpg'),
-(9, 'saint-peters-square-5.jpg'),
+(8, 'saint-peters-square-1.jpg'),
+(8, 'saint-peters-square-2.jpg'),
+(8, 'saint-peters-square-3.jpg'),
+(8, 'saint-peters-square-4.jpg'),
+(8, 'saint-peters-square-5.jpg'),
 
-(10, 'baths-of-caracalla-1.jpg'),
-(10, 'baths-of-caracalla-2.jpg'),
-(10, 'baths-of-caracalla-3.jpg'),
-(10, 'baths-of-caracalla-4.jpg'),
-(10, 'baths-of-caracalla-5.jpg');
 
