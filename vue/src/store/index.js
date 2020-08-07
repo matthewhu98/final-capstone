@@ -25,8 +25,9 @@ export default new Vuex.Store({
             summery: '',
             discription: '',
             img: ''
-          },
-          itineraries: [],
+        },
+        landmarksInItinerary: [],
+        itineraries: [],
         token: currentToken || '',
         user: currentUser || {}
     },
@@ -47,14 +48,17 @@ export default new Vuex.Store({
             state.user = {};
             axios.defaults.headers.common = {};
         },
-        SET_LANDMARKS(state, data){
+        SET_LANDMARKS(state, data) {
             state.landmarks = data;
         },
-        SET_ACTIVE_LANDMARK(state , data){
+        SET_ACTIVE_LANDMARK(state, data) {
             state.activeLandmark = data;
         },
-        SET_ITINERARIES(state , data){
+        SET_ITINERARIES(state, data) {
             state.itineraries = data;
+        },
+        SET_LANDMARKS_IN_ITINERARY(state,data) {
+            state.landmarksInItinerary = data;
         }
     }
 })

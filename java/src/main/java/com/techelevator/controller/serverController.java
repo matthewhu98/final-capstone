@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.dao.ItineraryDAO;
+import com.techelevator.dao.ItineraryLandmarkDAO;
 import com.techelevator.dao.LandmarkDAO;
 import com.techelevator.model.Itinerary;
+import com.techelevator.model.ItineraryLandmark;
 import com.techelevator.model.Landmark;
 
 @RestController
@@ -20,10 +22,12 @@ public class serverController {
 
 	private LandmarkDAO landmarkDao;
 	private ItineraryDAO itDao;
+	private ItineraryLandmarkDAO itlDao;
 	
-	public serverController(LandmarkDAO landDao , ItineraryDAO itDao) {
+	public serverController(LandmarkDAO landDao , ItineraryDAO itDao, ItineraryLandmarkDAO itlDao) {
 		this.landmarkDao = landDao;
 		this.itDao = itDao;
+		this.itlDao = itlDao;
 	}
 	
 	@RequestMapping(path = "/landmarks", method = RequestMethod.GET)
@@ -56,4 +60,8 @@ public class serverController {
 		return itDao.createNewItinerary(id, itinerary);
 	}
 	
+	@RequestMapping(path = "/landmarks/{id}", method = RequestMethod.POST)	
+	public void addLandmarkToItinerary(@RequestBody ItineraryLandmark il) {
+		itlDao.addLandmarkToItinerary(il);
+	}
 }

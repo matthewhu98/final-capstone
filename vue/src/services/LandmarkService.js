@@ -16,9 +16,14 @@ export default {
 
     createItinerary(itinerary, userId){
       return axios.post(`/itineraries/${userId}` , itinerary);
+    },
+
+    addLandmarkToItinerary(landmarkId, itineraryLandmark) {
+      return axios.post(`/landmarks/${landmarkId}`, itineraryLandmark);
+    },
+
+    getItineraryDetails(itineraryId) {
+      return axios.get(`/itinerarydetails/${itineraryId}`);
     }
-    // detail(id){
-    //     return http.get(`/topics/${id}`)
-    // }
   
   }

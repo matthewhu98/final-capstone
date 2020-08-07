@@ -40,11 +40,6 @@ export default {
         this.$store.commit("SET_LANDMARKS", response.data);
       });
     },
-    // getItinerary(userId) {
-    //   LandmarkService.getItinerary(userId).then(response => {
-    //     this.$store.commit("SET_ITINERARY", response.data);
-    //   });
-    // },
     getImageUrl(pic) {
       return require("@/assets/" + pic);
     }

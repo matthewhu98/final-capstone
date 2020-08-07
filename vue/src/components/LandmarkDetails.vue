@@ -5,6 +5,16 @@
       rel="stylesheet"
     />
     <div>
+      <button v-on:click="showListOfItineraries = !showListOfItineraries">{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
+    </div>
+    <div v-if="showListOfItineraries === true">
+      <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
+        <h1>{{itinerary.name}}</h1>
+        <input type="checkbox" @click="addLandmarkToItinerary(itinerary.itineraryID)"/>
+      </div>
+    </div>
+
+    <div>
       <h1 class="title">{{this.$store.state.activeLandmark.name}}</h1>
       <p class="description">{{this.$store.state.activeLandmark.discription}}</p>
     </div>
@@ -15,17 +25,37 @@
 </template>
 
 <script>
-import LandmarkService from "../services/LandmarkService";
+import LandmarkService from "@/services/LandmarkService";
 export default {
   name: "landmark-details",
   image: "getImageUrl(this.$store.state.activeLandmark.img)",
   props: {
     landmarkID: Number
   },
+  data() {
+    return {
+      itineraryLandmark: {
+        landmarkId: this.$store.state.activeLandmark.landmarkID,
+        itineraryId: 0
+      },
+      showListOfItineraries: false
+    };
+  },
   methods: {
     getImageUrl(pic) {
       return require("@/assets/" + pic);
     }
+  },
+  addLandmarkToItinerary(itineraryId) {
+    this.itineraryLandmark.itineraryId = itineraryId;
+    LandmarkService.addLandmarkToItinerary(
+      this.landmarkID,
+      this.itineraryLandmark
+    ).then(response => {
+      if (response.status === 201) {
+        this.$router.push("/landmarks");
+      }
+    });
   },
   created() {
     LandmarkService.getLandmark(this.landmarkID).then(response => {

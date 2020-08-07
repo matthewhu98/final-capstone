@@ -5,17 +5,22 @@
       rel="stylesheet"
     />
     <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
-      <h1>{{itinerary.name}}</h1>
+      <div>
+        <router-link
+          class="itinerary-title"
+          v-bind:to="{name: 'itinerarydetails', params: {id: itinerary.itineraryID}}"
+        >{{itinerary.name}}</router-link>
+      </div>
     </div>
     <div>
-      <button v-on:click="showForm= !showForm">{{showForm === true ? "Cancel": "Create Itinerary"}} </button>
+      <button v-on:click="showForm= !showForm">{{showForm === true ? "Cancel": "Create Itinerary"}}</button>
     </div>
     <div class="form" v-if="showForm === true">
       <form v-on:submit.prevent>
         <label for="title">Itinerary Title</label>
         <input type="text" name="title" v-model="itinerary.name" />
         <div class="actions">
-          <button type="submit" v-on:click="saveItinerary()"> Submit Itinerary</button>
+          <button type="submit" v-on:click="saveItinerary()">Submit Itinerary</button>
         </div>
       </form>
     </div>
@@ -42,26 +47,27 @@ export default {
         this.$store.commit("SET_ITINERARIES", response.data);
       });
     },
-    
+
     saveItinerary() {
-      LandmarkService.createItinerary(this.itinerary , this.itinerary.userID).then((response) =>{
-        if(response.status === 201){
-          
-          this.$router.push('/landmarks');  
+      LandmarkService.createItinerary(
+        this.itinerary,
+        this.itinerary.userID
+      ).then(response => {
+        if (response.status === 201) {
+          this.$router.push("/landmarks");
         }
       });
-      this.showForm =false;
+      this.showForm = false;
       this.reloadPage();
     },
-    reloadPage(){
+    reloadPage() {
       window.location.reload();
     }
-  
   },
   created() {
     this.getItinerary(this.$store.state.user.id);
   }
-}
+};
 </script>
 
 <style>

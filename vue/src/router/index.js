@@ -8,6 +8,7 @@ import store from '../store/index'
 import Landmarks from '../views/Landmarks.vue'
 import LandmarkDetails from '../views/LandmarkDetails.vue'
 import Itineraries from '../views/Itineraries.vue'
+import ItineraryDetails from '../views/ItineraryDetails.vue'
 Vue.use(Router)
 
 /**
@@ -74,6 +75,14 @@ const router = new Router({
         path: '/itineraries/:id',
         name: 'itineraries',
         component: Itineraries,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/itinerarydetails/:id',
+        name: 'itinerarydetails',
+        component: ItineraryDetails,
         meta: {
             requiresAuth: true
         }
