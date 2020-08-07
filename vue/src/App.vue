@@ -35,7 +35,8 @@
 }
 
 #nav {
-  color: white;
+  background-color: 	#b4c2c5;
+  padding-top:2rem;
 }
 
 .title-home-page {
@@ -70,6 +71,9 @@
   color: black;
 }
 h1 {
-  color: black;
+  color: white;
+}
+body{
+  padding: 150px;
 }
 </style>
