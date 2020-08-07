@@ -9,9 +9,6 @@ public class Itinerary {
 	private String name;
 	private int userID;
 	
-	
-	
-	
 	public long getItineraryID() {
 		return itineraryID;
 	}

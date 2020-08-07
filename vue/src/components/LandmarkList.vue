@@ -4,6 +4,12 @@
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
     />
+
+    <div id="search">
+      <label for="name">Where do you want to go?</label>
+      <input type="text" v-model="this.filter.location"/>
+    </div> 
+
     <router-link class="itinerary-route" v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}">
         <i class="fas fa-clipboard-list"></i>
       </router-link>
@@ -33,6 +39,13 @@
 import LandmarkService from "../services/LandmarkService";
 export default {
   name: "landmark-list",
+  data() {
+    return {
+      filter: {
+        location: ""
+      }
+    }
+  },
 
   methods: {
     getLandmarks() {
@@ -42,6 +55,17 @@ export default {
     },
     getImageUrl(pic) {
       return require("@/assets/" + pic);
+    }
+  },
+  computed: {
+    filterLandmark() {
+      let filteredLocation = this.$store.state.landmarks.name;
+        if (this.filter.location != "") {
+          filteredLocation = filteredLocation.filter(location => {
+            location.name.toLowerCase().includes(this.filter.location.toLowerCase())
+          });
+        } 
+        return filteredLocation
     }
   },
 

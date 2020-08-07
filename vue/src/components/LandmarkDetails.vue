@@ -3,23 +3,25 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
-    />
+    >
     <div>
-      <button v-on:click="showListOfItineraries = !showListOfItineraries">{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
+      <button
+        v-on:click="showListOfItineraries = !showListOfItineraries"
+      >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
     </div>
-    <div v-if="showListOfItineraries === true">
+    <div v-show="showListOfItineraries">
       <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
         <h1>{{itinerary.name}}</h1>
-        <input type="checkbox" @click="addLandmarkToItinerary(itinerary.itineraryID)"/>
+        <button type="button" @click="addLandmarkToItinerary(itinerary.itineraryID)">name</button>
       </div>
     </div>
-
+<!-- v-if="showListOfItineraries === true" -->
     <div>
       <h1 class="title">{{this.$store.state.activeLandmark.name}}</h1>
       <p class="description">{{this.$store.state.activeLandmark.discription}}</p>
     </div>
     <div>
-      <img class="single-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" />
+      <img class="single-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)">
     </div>
   </div>
 </template>
@@ -43,19 +45,19 @@ export default {
   },
   methods: {
     getImageUrl(pic) {
-      return require("@/assets/" + pic);
+      return require(`@/assets/${pic}`);
+    },
+    addLandmarkToItinerary(itineraryId) {
+      this.itineraryLandmark.itineraryId = itineraryId;
+      LandmarkService.addLandmarkToItinerary(
+        this.landmarkID,
+        this.itineraryLandmark
+      ).then(response => {
+        if (response.status === 201) {
+          this.$router.push("/landmarks");
+        }
+      });    
     }
-  },
-  addLandmarkToItinerary(itineraryId) {
-    this.itineraryLandmark.itineraryId = itineraryId;
-    LandmarkService.addLandmarkToItinerary(
-      this.landmarkID,
-      this.itineraryLandmark
-    ).then(response => {
-      if (response.status === 201) {
-        this.$router.push("/landmarks");
-      }
-    });
   },
   created() {
     LandmarkService.getLandmark(this.landmarkID).then(response => {
