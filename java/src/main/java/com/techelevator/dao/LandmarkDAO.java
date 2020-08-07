@@ -14,6 +14,5 @@ public interface LandmarkDAO {
 	
 	public List<Landmark> getLandmarksForItinerary (long id);
 	
-	public List<String> getLandmarkImgs(long id); // landmarkID
 
 }

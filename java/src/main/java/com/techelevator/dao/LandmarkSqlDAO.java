@@ -76,8 +76,8 @@ public class LandmarkSqlDAO implements LandmarkDAO {
 		return landmarks;
 	}
 	
-	@Override
-	public List<String> getLandmarkImgs(long id) {
+	
+	private List<String> getLandmarkImgs(long id) {
 		List<String> landmarkImgs = new ArrayList<>();
 		
 		String sql = "select * from images where landmark_id =?";

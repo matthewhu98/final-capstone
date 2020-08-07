@@ -75,9 +75,4 @@ public class serverController {
 	public void deleteLandmarkInItinerary(@RequestBody ItineraryLandmark itineraryLandmark) {
 		itlDao.deleteLandmarkInItinerary(itineraryLandmark);
 	}
-	
-	
-	public List<String> getLandmarkImgs(long id){
-		return landmarkDao.getLandmarkImgs(id);
-	}
 }
