@@ -6,5 +6,5 @@ public interface ItineraryLandmarkDAO {
 	
 	public void addLandmarkToItinerary(ItineraryLandmark il);
 	
-	
+	public void deleteLandmarkInItinerary (ItineraryLandmark itineraryLandmark);
 }

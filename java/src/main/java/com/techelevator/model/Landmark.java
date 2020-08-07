@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Landmark {
 	
 	private long landmarkID;
@@ -8,6 +10,9 @@ public class Landmark {
 	private String discription;
 	private String img;
 	private int addressID;
+	private List<String> moreImgs;
+	
+	
 	
 	public long getLandmarkID() {
 		return landmarkID;
@@ -45,4 +50,12 @@ public class Landmark {
 	public void setAddressID(int addressID) {
 		this.addressID = addressID;
 	}
+	public List<String> getMoreImgs() {
+		return moreImgs;
+	}
+	public void setMoreImgs(List<String> moreImgs) {
+		this.moreImgs = moreImgs;
+	}
+	
+	
 }
