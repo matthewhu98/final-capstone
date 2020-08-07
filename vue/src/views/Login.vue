@@ -1,5 +1,6 @@
 <template>
   <div id="login" class="text-center">
+    
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
@@ -74,3 +75,18 @@ export default {
   }
 };
 </script>
+<style>
+/* body {
+  background-color: red;
+}
+.text-center{
+  background-color: saddlebrown;
+}
+.form-signin{
+  background-color:pink;
+  
+}
+.h3{
+padding:1rem;
+} */
+</style>

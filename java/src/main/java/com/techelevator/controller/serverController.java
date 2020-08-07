@@ -64,4 +64,15 @@ public class serverController {
 	public void addLandmarkToItinerary(@RequestBody ItineraryLandmark il) {
 		itlDao.addLandmarkToItinerary(il);
 	}
+	
+	@RequestMapping(path = "/itineraries/{id}", method = RequestMethod.DELETE)  //itinerary ID
+	public void deleteItinerary(@PathVariable long id) {
+		itDao.deleteItierary(id);
+	}
+	
+	// this method is to delete i specific landmark from Itinerary
+	@RequestMapping(path = "/itinerarydetails/{id}", method = RequestMethod.DELETE)    // itinerary ID 
+	public void deleteLandmarkInItinerary(@RequestBody ItineraryLandmark itineraryLandmark) {
+		itlDao.deleteLandmarkInItinerary(itineraryLandmark);
+	}
 }
