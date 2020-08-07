@@ -27,6 +27,7 @@ public class LandmarkSqlDAO implements LandmarkDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Landmark landmark = mapRowToLandmark(results);
+            landmark.setMoreImgs(getLandmarkImgs(landmark.getLandmarkID()));
             landmarks.add(landmark);
         }
 		return landmarks;
