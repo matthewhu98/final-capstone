@@ -44,6 +44,17 @@ public class ItinerarySqlDAO implements ItineraryDAO {
 		
 		return itinerary;
 	}
+	
+	@Override
+	public void deleteItierary(long id) {   // itinerary ID
+		
+		String firstSql = "delete from itinerary_landmarks where itinerary_id = ?";
+		jdbcTemplate.update(firstSql , id);
+		
+		String sql = "delete from itinerary where itinerary_id = ?";
+		jdbcTemplate.update(sql, id);
+		
+	}
 
 	
 	private Itinerary mapRowToItinerary(SqlRowSet rs) {
@@ -55,4 +66,6 @@ public class ItinerarySqlDAO implements ItineraryDAO {
 		return it;
 		
 	}
+
+	
 }

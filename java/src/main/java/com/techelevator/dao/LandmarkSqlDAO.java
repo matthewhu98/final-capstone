@@ -46,13 +46,14 @@ public class LandmarkSqlDAO implements LandmarkDAO {
 	@Override
 	public Landmark landmarkDetails(long id) {
 		Landmark landmark = null;
-		String sql = "Select * from landmark " + "where landmark_id = ?";
-		
+		String sql = "select * from landmark where landmark_id =?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
 		
 		if (results.next()) {
     		landmark = mapRowToLandmark(results);
     	}
+		
+		landmark.setMoreImgs(getLandmarkImgs(id));
     	
 		return landmark;
 	
@@ -75,17 +76,32 @@ public class LandmarkSqlDAO implements LandmarkDAO {
 		return landmarks;
 	}
 	
+	@Override
+	public List<String> getLandmarkImgs(long id) {
+		List<String> landmarkImgs = new ArrayList<>();
+		
+		String sql = "select * from images where landmark_id =?";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sql , id);
+		
+		while(result.next()) {
+			landmarkImgs.add(result.getString("image_name"));
+		}
+		return landmarkImgs;
+	}
 	
-    private Landmark mapRowToLandmark(SqlRowSet rs) {
+
+	private Landmark mapRowToLandmark(SqlRowSet rs) {
         Landmark landmark = new Landmark();
         landmark.setLandmarkID(rs.getLong("landmark_id"));
         landmark.setName(rs.getString("name"));
         landmark.setSummery(rs.getString("summary"));
         landmark.setDiscription(rs.getString("description"));
         landmark.setImg(rs.getString("img"));
-        landmark.setAddressID(rs.getInt("address_id"));      
+        landmark.setAddressID(rs.getInt("address_id")); 
         return landmark;
     }
+
+	
 
 	
 
