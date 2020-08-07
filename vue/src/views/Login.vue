@@ -24,16 +24,16 @@
         autofocus
       />
       <label for="password" class="sr-only">Password</label>
-      <input
+      <input 
         type="password"
         id="password"
-        class="form-control"
+        class="form-control button"
         placeholder="Password"
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <router-link :to="{ name: 'register' }" class="button">Need an account?</router-link>
+      <button class="button" type="submit">Sign in</button>
     </form>
   </div>
 </template>
@@ -76,6 +76,7 @@ export default {
 };
 </script>
 <style>
+
 /* body {
   background-color: red;
 }

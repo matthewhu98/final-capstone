@@ -2,7 +2,7 @@
   <div>
     <div class="home-page">
       <home-page></home-page>
-      <p>You must be authenticated to see this</p>
+      
     </div>
   </div>
 </template>

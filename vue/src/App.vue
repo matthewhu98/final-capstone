@@ -104,6 +104,6 @@ body {
   color:#b4c2c5;
   background: #fff;
     
-    transition: .4s;
+    transition: .5s;
 }
 </style>

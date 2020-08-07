@@ -18,6 +18,8 @@ export default {
 </script>
 
 <style>
+
+
 .title {
   color: black;
 }
