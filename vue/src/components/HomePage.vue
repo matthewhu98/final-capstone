@@ -1,17 +1,9 @@
 <template>
-
   <div class="homepage">
-    
-    <!-- <div class="header">
-      
-    </div> -->
-   
-    <!-- <div class="left-menu"></div> -->
-    <div class="content"> <h1 class="titlecard">{{title}}</h1></div>
-    <!-- <div class="footer"></div> -->
+    <div class="content">
+      <h1 class="titlecard">{{title}}</h1>
+    </div>
   </div>
-
-
 </template>
 
 
@@ -20,35 +12,32 @@ export default {
   name: "home-page",
   data() {
     return {
-      title: "ROAMING IN ROME"
+      title: "ROAMING IN ROME w/ adult prodigies",
     };
-  }
+  },
 };
 </script>
 
 <style>
- @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap");
+* {
   padding: 0;
   margin: 0;
   border: 0;
 }
 
- /* font-family: 'Open Sans', sans-serif; */
-.titlecard{
-   
-font-family: 'Poiret One', cursive;
-    letter-spacing: 2px;
-    position: relative;
-    text-align: center;
-    top: 1px;
-    font-size: 5vh;
+/* font-family: 'Open Sans', sans-serif; */
+.titlecard {
+  font-family: "Poiret One", cursive;
+  letter-spacing: 2px;
+  position: relative;
+  text-align: center;
+  font-size: 5vh;
+  margin: 20px;
 }
-.homepage{
+.homepage {
   display: block;
-  width: 100%;
-  overflow: auto;
-  margin: 30px auto 0 auto;
+  padding: 5rem;
 }
 /* .header {
   background-color: 	#b4c2c5;   background color
@@ -65,31 +54,30 @@ font-family: 'Poiret One', cursive;
   width:30%;
 } */
 .content {
-  display:flex;
-  height:auto;
-  width:100%;
-  margin:10px auto;
+  display: flex;
+  /*height: auto;
+  width: 100%;
+  margin: 10px auto;
   margin-top: 100px;
   padding-top: 10px;
-  /* padding: 50px; */
+  padding: 50px; */
   justify-content: space-around;
 }
-html{
+html {
   background-image: url(../assets/background-home.jpg);
   /* background-image:url(../assets/homepage-image.jpg); */
   background-repeat: no-repeat;
   background-position: center;
   /* background-size: cover; */
   height: auto;
-  width:100%;
+  width: 100%;
   min-width: 100%;
   position: fixed;
   min-height: 100%;
-  top:0;
+  top: 0;
   left: 0;
   bottom: 0;
-  right:0;
-  background-color: 	#b4c2c5; 
+  right: 0;
+  background-color: #b4c2c5;
 }
-
 </style>

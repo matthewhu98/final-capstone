@@ -1,10 +1,10 @@
 <template>
-  <section>
+  <div>
     <div class="home-page">
       <home-page></home-page>
       <p>You must be authenticated to see this</p>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -13,8 +13,8 @@ import HomePage from "@/components/HomePage.vue";
 export default {
   name: "home",
   components: {
-    HomePage
-  }
+    HomePage,
+  },
 };
 </script>
 
@@ -29,6 +29,7 @@ export default {
 }
 
 .home-page {
-color: black;
+  color: black;
+  padding: 5rem;
 }
 </style>
