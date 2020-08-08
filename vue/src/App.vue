@@ -9,11 +9,12 @@
     <aside class="drop-down-text">
       <dropdown>
         <input id="toggle2" type="checkbox" />
-        <label for="toggle2" class="animate">Menu</label>
+        <label for="toggle2" class="animate menu">Menu</label>
         <ul class="animate">
           <li class="animate">
             <router-link class="home-button button" v-bind:to="{ name: 'home' }">
-              <!-- <i class="fas fa-home"></i> --> HOME
+              <!-- <i class="fas fa-home"></i> -->
+              HOME
             </router-link>
           </li>
           <li class="animate">
@@ -58,19 +59,25 @@
 </script>
 
 <style>
-
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap");
 
 /* #nav {
   background-color: #b4c2c5;
   padding-top: 2rem;
 } */
+
+.menu {
+  color: #b08555;
+  font-family: "Open Sans", sans-serif;
+}
 .drop-down-text {
-  color: gray;
+  /* color: gray; */
   display: flex;
   justify-content: left;
   font-family: "Open Sans", sans-serif;
   font-size: 25px;
+  position: fixed;
+  z-index: 1;
 }
 * {
   padding: 0;
@@ -104,13 +111,13 @@ dropdown ul li {
 
 dropdown label:hover,
 dropdown ul li:hover {
-  background: #1abc9c;
+  background: #5ba1b0;
   color: white;
   cursor: pointer;
 }
 
 dropdown label {
-  color: saddlebrown;
+  color: white;
   /* border: 4px solid saddlebrown;
   border-radius: 10px; */
   position: relative;
@@ -129,56 +136,33 @@ dropdown input ~ ul {
   z-index: 1;
 }
 
-dropdown input:checked + label {
-  background: black;
-  color: white;
-}
-
 dropdown input:checked ~ ul {
   visibility: visible;
   opacity: 1;
   top: 0;
+  background: rgba(255, 255, 255, 0.386);
 }
 
 /* dropdown ul li:nth-child(1) {
   border-left: 4px solid #e74c3c;
 } */
-dropdown ul li:nth-child(1) .fa {
-  color: #e74c3c;
-}
+
 dropdown ul li:nth-child(1):hover {
-  background: #e74c3c;
-  color: white;
-}
-dropdown ul li:nth-child(1):hover .fa {
+  background: white;
   color: white;
 }
 
-dropdown ul li:nth-child(2) {
-  border-left: 4px solid #0072b5;
-}
-dropdown ul li:nth-child(2) .fa {
-  color: #0072b5;
-}
 dropdown ul li:nth-child(2):hover {
-  background: #0072b5;
-  color: white;
-}
-dropdown ul li:nth-child(2):hover .fa {
+  background: white;
   color: white;
 }
 
-dropdown ul li:nth-child(3) {
-  border-left: 4px solid #2c3e50;
-}
-dropdown ul li:nth-child(3) .fa {
-  color: #2c3e50;
-}
 dropdown ul li:nth-child(3):hover {
-  background: #2c3e50;
+  background: white;
   color: white;
 }
-dropdown ul li:nth-child(3):hover .fa {
+dropdown ul li:nth-child(4):hover {
+  background: white;
   color: white;
 }
 
@@ -236,14 +220,14 @@ body {
 }
 
 .button {
-  color: black !important;
+  color: #b18f69;
   text-transform: uppercase;
   font-size: 20px;
   padding: 15px;
   /* border: 4px solid black !important; */
   border-radius: 6px;
   display: inline-block;
-  transition: all 0.3s ease 0s;
+
   text-decoration: none;
   /* margin-left: 1rem;
   margin-right: 1rem; */
@@ -253,12 +237,5 @@ body {
   color: #494949 !important;
   /* border-radius: 50px; */
   /* border-color: #494949 !important; */
-  transition: all 0.3s ease 0s;
-  text-decoration: none;
-
-  color: #b4c2c5;
-  background: #fff;
-
-  transition: 0.5s;
 }
 </style>

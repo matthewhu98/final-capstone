@@ -1,11 +1,12 @@
 <template >
   <div class="container">
     
-    <header>
+   
       <h1>List of Landmarks in Rome</h1>
       <div id="search">
-        <label for="name">Where do you want to go?</label>
-        <input type="text" class="search-bar" v-model="this.filter.landmarkName" />
+        <!-- <label for="name">Where do you want to go?</label> -->
+        <input type="text" class="search-bar" placeholder="Where do you want to go?" v-model="this.filter.landmarkName" />
+        <i class="fas fa-search"></i>
 
       </div>
       <!-- <router-link
@@ -14,7 +15,7 @@
       >
         <i class="fas fa-clipboard-list"></i>
       </router-link> -->
-    </header>
+    
 
     <div class="grid">
       <div
@@ -156,10 +157,24 @@ export default {
   grid-template-rows: 100px auto;
 } */
 .search-bar{
-  border:2px ivory;
+  border:2px solid white;
   border-radius: 10%;
-  border-style:inset;
-  height:1.5vw;
+  
+   height:1.5vw; 
+   width:20vw;
+    border-radius: var(--rad);
+  
+    transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  height: 2.5vw;  
+  background-color: #b4c2c5;
+  padding:10px;
+  margin: 20px;
+
+ 
+  
+  
+  font-family: "Open Sans", sans-serif;
   
 
 }
@@ -180,6 +195,7 @@ h1 {
   font-family: "Poiret One", cursive;
   font-size: 1.5vw;
   font-weight: bold;
+  color: white;
 }
 
 /* .object {
