@@ -10,14 +10,17 @@
       >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
     </div>
    
-    <div v-show="showListOfItineraries">
+   
+    <tr v-show="showListOfItineraries">
       <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
-        <h1>{{itinerary.name}}</h1>
-        <input type="checkbox" v-bind:id="itinerary.itineraryID" v-bind:value="itinerary.itineraryID"  v-model="itineraryLandmark.itineraryID" v-on:click="addLandmarkToIt()"/>
-        
-       
+        <td>{{itinerary.name}}</td>
+        <td>
+        <input type="checkbox" v-bind:id="itinerary.itineraryID" v-bind:value="itinerary.name"  v-model="itineraryLandmark.itineraryId" :checked="addLandmarkToIt()"/>
+        </td>
       </div>
-    </div>
+    </tr>
+
+
 <!-- v-if="showListOfItineraries === true" -->
     <div>
       <h1 class="title">{{this.$store.state.activeLandmark.name}}</h1>
@@ -40,9 +43,12 @@ export default {
   data() {
     return {
       itineraryLandmark: {
-        landmarkId: 0,
+        landmarkId: this.landmarkID,
         itineraryId: 0
+
       },
+        
+        
       showListOfItineraries: false
     };
   },
@@ -61,8 +67,14 @@ export default {
         if(response.status === 201){
             alert("your landmark has been added");
         }
+      })
+      .catch(error => {
+        if (error.response.status == 404) {
+          this.$router.push("/not-found");
+        }
       });
-    }
+  }
+    
   },
   created() {
     LandmarkService.getLandmark(this.landmarkID).then(response => {
