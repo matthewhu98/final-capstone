@@ -24,8 +24,8 @@ export default {
 };
 </script>
 
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap");
+<style >
+/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap"); */
 * {
   padding: 0;
   margin: 0;
@@ -101,7 +101,7 @@ html {
   height: auto;
   width: 100%;
   min-width: 100%;
-  position: fixed;
+  /* position: fixed; */
   min-height: 100%;
   top: 0;
   left: 0;

@@ -1,7 +1,7 @@
 <template>
   <div class="title container landmark-page">
     <div class="card">
-      <h1>List of Landmarks in Rome</h1>
+      
       <landmark-list class="landmark-card"></landmark-list>
     </div>
   </div>

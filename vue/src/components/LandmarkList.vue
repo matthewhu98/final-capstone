@@ -1,39 +1,74 @@
 <template >
   <div class="container">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
-      rel="stylesheet"
-    />
+    
     <header>
+      <h1>List of Landmarks in Rome</h1>
       <div id="search">
         <label for="name">Where do you want to go?</label>
-        <input type="text" v-model="this.filter.landmarkName" />
+        <input type="text" class="search-bar" v-model="this.filter.landmarkName" />
+
       </div>
-      <router-link
+      <!-- <router-link
         class="itinerary-route"
         v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}"
       >
         <i class="fas fa-clipboard-list"></i>
-      </router-link>
+      </router-link> -->
     </header>
 
-    <div class="card" v-for="landmark in this.$store.state.landmarks" v-bind:key="landmark.name">
-      <div class="image-div">
-        <router-link
-          class="title"
-          v-bind:to="{name: 'landmarkdetails' 
+    <div class="grid">
+      <div
+        class="objects container-panel"
+        v-for="landmark in this.$store.state.landmarks"
+        v-bind:key="landmark.name"
+      >
+        <div class="object">
+          <router-link
+            class="title"
+            v-bind:to="{name: 'landmarkdetails' 
           , params: {id: landmark.landmarkID}}"
-        >
-          {{landmark.name}}
-          <div class="circle">
-            <img class="image" v-bind:src="getImageUrl(landmark.img)" />
-          </div>
-          <div></div>
-        </router-link>
-        <!-- <button v-on:click.prevent="getItinerary(this.$store.state.user.user_id)"></button> -->
+          >
+            <!-- {{landmark.name}} -->
+            <div class="card">
+              <img class="image" v-bind:src="getImageUrl(landmark.img)" />
+              {{landmark.name}}
+              
+            </div>
+            <div></div>
+          </router-link>
+          <!-- <button v-on:click.prevent="getItinerary(this.$store.state.user.user_id)"></button> -->
+        </div>
       </div>
     </div>
   </div>
+  <!--
+<div class="container">
+
+  <header>
+    <nav>
+      <search>
+      </search>
+
+      <itinerary-button>
+      </itinerary-button>
+    </nav>
+
+
+  </header>
+  <main>
+
+    <cards>
+
+
+    </cards>
+
+
+  </main>
+
+
+</div>
+
+  -->
 </template>
 
 <script>
@@ -79,77 +114,89 @@ export default {
 };
 </script>
 
-<style>
+
+<style lang="css" scoped>
+.image {
+  --size: 400px;
+  height: calc(var(--size) * 1.15);
+  width: var(--size);
+  border-radius: calc(var(--size) * 0.15);
+  background-image: var(--img);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+ 
+}
+.card {
+  grid-gap: 10px;
+  color: white;
+  filter:grayscale(25%);
+  font-family: 'Open Sans', sans-serif;
+  
+}
+.card:hover {
+  
+  text-decoration: underline;
+  
+  filter: contrast(140%);
+  filter: saturate(150%);
+  
+}
+
 /* body {
-  background-color: #EDEAE5;
-
-} */
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "header header header route-button ."
-    ". image image image ."
-    ".image image image .";
-}
-
-#search {
-}
-.circle {
-  /* border-radius: 50%; */
-  /* height: 21rem;
-  width: 21rem; */
-
-  /* this is the line */
-
-  border-radius: 5px 20px 5px;
-  height: 30rem;
-  width: 20rem;
-  overflow: hidden;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   display: flex;
+  
+  grid-template-rows: 100px auto;
+} */
+.search-bar{
+  border:2px ivory;
+  border-radius: 10%;
+  border-style:inset;
+  height:1.5vw;
+  
+
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 1rem;
+  max-width: 80rem;
+  margin: 5rem auto;
+  padding: 10 5rem;
+}
+
+h1 {
+  font-family: "Poiret One", cursive;
+  font-size: 5vw;
+}
+#search {
+  font-family: "Poiret One", cursive;
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+/* .object {
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: center;
   justify-content: center;
   align-items: center;
 }
 
-.circle:hover {
-  filter: drop-shadow(9px 9px 9px black);
-}
-
-.image:hover {
-  height: 520px;
-
-  /* height: 75%;
-  width: 75%; */
-  filter: grayscale(100%) blur(2px);
-}
-
 .image {
-  height: 500px;
-  border-radius: 5px 20px 5px;
-  filter: contrast(120%);
+  margin: 10px;
+} */
+
+.title{
+  text-decoration:none;
+  font-size: 35px;
 }
 
-.title {
-  text-decoration: none;
-  padding: 15px;
-}
-
-.card {
-  font-family: "Nanum Gothic", sans-serif;
-  /* font-size: 25px; */
-  /* align-items: center; */
-  display: block;
-  padding: 15px;
-}
-.image-div {
- grid-area: image;
-}
-.itinerary-route {
-  grid-area: route-button;
-}
-
-header {
-  /* align-items: flex-start; */
-  grid-area: header;
-}
 </style>

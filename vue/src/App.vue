@@ -9,24 +9,30 @@
     <aside class="drop-down-text">
       <dropdown>
         <input id="toggle2" type="checkbox" />
-        <label for="toggle2" class="animate">
-          Menu
-         
-        </label>
+        <label for="toggle2" class="animate">Menu</label>
         <ul class="animate">
           <li class="animate">
             <router-link class="home-button button" v-bind:to="{ name: 'home' }">
-              <i class="fas fa-home"></i>
+              <!-- <i class="fas fa-home"></i> --> HOME
             </router-link>
-           
           </li>
           <li class="animate">
             <router-link
               class="title-home-page button"
               v-bind:to="{ name: 'the-landmarks'}"
             >Landmarks</router-link>
-            
           </li>
+
+          <li class="animate">
+            <router-link
+              class="itinerary-route button"
+              v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}"
+            >
+              <!-- <i class="fas fa-clipboard-list"></i> -->
+              ITINERARY
+            </router-link>
+          </li>
+
           <li class="animate">
             <router-link
               class="button"
@@ -38,27 +44,12 @@
               v-bind:to="{ name: 'logout' }"
               v-if="$store.state.token != ''"
             >Logout</router-link>
-            
           </li>
         </ul>
       </dropdown>
     </aside>
 
     <router-view />
-    <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-   <div>yo</div>
-
   </div>
 </template>
 <script>
@@ -68,7 +59,7 @@
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap");
 
 /* #nav {
   background-color: #b4c2c5;
@@ -78,19 +69,19 @@
   color: gray;
   display: flex;
   justify-content: left;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 25px;
 }
 * {
   padding: 0;
   margin: 0;
-  
+
   box-sizing: border-box;
 }
 
-.float-right {
+/* .float-right {
   float: right;
-}
+} */
 
 .fa {
   font-size: 0.8em;
@@ -99,7 +90,7 @@
 
 dropdown {
   display: inline-block;
-  
+
   /* margin: 20px 50px; */
 }
 
@@ -120,15 +111,14 @@ dropdown ul li:hover {
 
 dropdown label {
   color: saddlebrown;
-  border: 4px solid  saddlebrown;
-  border-radius: 10px;
+  /* border: 4px solid saddlebrown;
+  border-radius: 10px; */
   position: relative;
   z-index: 2;
 }
 
 dropdown input {
   display: none;
-  
 }
 
 dropdown input ~ ul {
@@ -142,7 +132,6 @@ dropdown input ~ ul {
 dropdown input:checked + label {
   background: black;
   color: white;
-  
 }
 
 dropdown input:checked ~ ul {
@@ -251,19 +240,19 @@ body {
   text-transform: uppercase;
   font-size: 20px;
   padding: 15px;
-  border: 4px solid black !important;
+  /* border: 4px solid black !important; */
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
   text-decoration: none;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem;
+  margin-right: 1rem; */
 }
 
 .button:hover {
   color: #494949 !important;
-  border-radius: 50px;
-  border-color: #494949 !important;
+  /* border-radius: 50px; */
+  /* border-color: #494949 !important; */
   transition: all 0.3s ease 0s;
   text-decoration: none;
 
