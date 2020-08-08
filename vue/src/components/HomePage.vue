@@ -3,6 +3,9 @@
     <div class="content">
       <h1 class="titlecard">{{title}}</h1>
     </div>
+<div class="call-to-action">
+  <h3>Plan a tour</h3>
+</div>
   </div>
 </template>
 
@@ -12,7 +15,7 @@ export default {
   name: "home-page",
   data() {
     return {
-      title: "ROAMING IN ROME w/ adult prodigies",
+      title: "ROAMING IN ROME",
     };
   },
 };
@@ -32,8 +35,9 @@ export default {
   letter-spacing: 2px;
   position: relative;
   text-align: center;
-  font-size: 5vh;
+  font-size: 6vh;
   margin: 20px;
+  
 }
 .homepage {
   display: block;
@@ -63,8 +67,25 @@ export default {
   padding: 50px; */
   justify-content: space-around;
 }
+.call-to-action {             /*make this a router link*/
+color: #494949 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 18px;
+border: 4px solid #494949 !important;
+display: inline-block;
+transition: all 0.4s ease 0s;
+}
+.call-to-action:hover {
+color: #ffffff !important;
+background: #f6b93b;
+border-color: #f6b93b !important;
+transition: all 0.4s ease 0s;
+}
 html {
   background-image: url(../assets/background-home.jpg);
+  filter: contrast(130%);
   /* background-image:url(../assets/homepage-image.jpg); */
   background-repeat: no-repeat;
   background-position: center;
@@ -80,4 +101,5 @@ html {
   right: 0;
   background-color: #b4c2c5;
 }
+
 </style>
