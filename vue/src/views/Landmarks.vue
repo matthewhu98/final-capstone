@@ -20,7 +20,7 @@ export default {
 <style>
 
 
-.title {
+/* .title {
   color: black;
 }
 
@@ -28,5 +28,5 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
+} */
 </style>

@@ -6,7 +6,7 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
-    <div class="drop-down-text">
+    <aside class="drop-down-text">
       <dropdown>
         <input id="toggle2" type="checkbox" />
         <label for="toggle2" class="animate">
@@ -42,9 +42,23 @@
           </li>
         </ul>
       </dropdown>
-    </div>
+    </aside>
 
     <router-view />
+    <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+   <div>yo</div>
+
   </div>
 </template>
 <script>
@@ -63,7 +77,7 @@
 .drop-down-text {
   color: gray;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   font-family: 'Open Sans', sans-serif;
   font-size: 25px;
 }
@@ -229,24 +243,24 @@ h1 {
   color: white;
 }
 body {
-  padding: 150px;
+  padding: 10px;
 }
 
 .button {
   color: black !important;
   text-transform: uppercase;
   font-size: 20px;
-  /* padding: 15px; */
-  /* border: 4px solid black !important; */
+  padding: 15px;
+  border: 4px solid black !important;
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
   text-decoration: none;
-  /* margin-left: 1rem;
-  margin-right: 1rem; */
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-/* .button:hover {
+.button:hover {
   color: #494949 !important;
   border-radius: 50px;
   border-color: #494949 !important;
@@ -257,5 +271,5 @@ body {
   background: #fff;
 
   transition: 0.5s;
-} */
+}
 </style>

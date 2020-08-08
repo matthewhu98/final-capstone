@@ -1,12 +1,14 @@
-<template>
+<template class="home">
   <div class="homepage">
     <div class="content">
-      <h1 class="titlecard">{{title}}</h1>
+      <h1 class="titlecard">ROME-ING IN ROAM</h1>
+      
     </div>
-<div class="call-to-action">
-  <h3>Plan a tour</h3>
-  <div></div>
-</div>
+    <h4>YOUR VIRTUAL TRAVEL PLANNER</h4>
+    <div class="call-to-action">
+      <h3>Plan a tour</h3>
+      <!-- <div></div> -->
+    </div>
   </div>
 </template>
 
@@ -29,6 +31,10 @@ export default {
   margin: 0;
   border: 0;
 }
+.home {
+  display: block;
+  padding: 0;
+}
 
 /* font-family: 'Open Sans', sans-serif; */
 .titlecard {
@@ -38,7 +44,6 @@ export default {
   text-align: center;
   font-size: 6vh;
   margin: 20px;
-  
 }
 .homepage {
   display: block;
@@ -68,22 +73,23 @@ export default {
   padding: 50px; */
   justify-content: space-around;
 }
-.call-to-action {             /*make this a router link*/
-color: #494949 !important;
-text-transform: uppercase;
-text-decoration: none;
-background: #ffffff;
-padding: 18px;
-border: 4px solid #494949 !important;
-display: inline-block;
-transition: all 0.4s ease 0s;
-border-radius: 10px;
+.call-to-action {
+  /*make this a router link*/
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 18px;
+  border: 4px solid #494949 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  border-radius: 10px;
 }
 .call-to-action:hover {
-color: #ffffff !important;
-background: #23b2dc;
-border-color: #23b2dc !important;
-transition: all 0.4s ease 0s;
+  color: #ffffff !important;
+  background: #23b2dc;
+  border-color: #23b2dc !important;
+  transition: all 0.4s ease 0s;
 }
 html {
   background-image: url(../assets/background-home.jpg);
@@ -103,5 +109,4 @@ html {
   right: 0;
   background-color: #b4c2c5;
 }
-
 </style>
