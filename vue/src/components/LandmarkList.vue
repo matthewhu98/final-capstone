@@ -7,7 +7,7 @@
 
     <div id="search">
       <label for="name">Where do you want to go?</label>
-      <input type="text" v-model="this.filter.location"/>
+      <input type="text" v-model="this.filter.landmarkName"/>
     </div> 
 
     <router-link class="itinerary-route" v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}">
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       filter: {
-        location: ""
+        ladmarkName: ""
       }
     }
   },
@@ -59,10 +59,10 @@ export default {
   },
   computed: {
     filterLandmark() {
-      let filteredLocation = this.$store.state.landmarks.name;
-        if (this.filter.location != "") {
-          filteredLocation = filteredLocation.filter(location => {
-            location.name.toLowerCase().includes(this.filter.location.toLowerCase())
+      let filteredLocation = this.$store.state.landmarks;
+        if (this.filter.ladmarkName != "") {
+          filteredLocation = filteredLocation.filter(landmark => {
+            landmark.name.toLowerCase().includes(this.filter.landmarkName.toLowerCase())
           });
         } 
         return filteredLocation
@@ -81,10 +81,16 @@ export default {
 
 } */
 
-.circle {
+
+
+.circle { 
   /* border-radius: 50%; */
   /* height: 21rem;
   width: 21rem; */
+
+
+/* this is the line */
+
   border-radius: 5px 20px 5px;
   height: 30rem;
   width: 20rem;
@@ -120,5 +126,9 @@ export default {
 .card {
   font-family: "Nanum Gothic", sans-serif;
   font-size: 25px;
+}
+
+#search {
+  align-items: center;
 }
 </style>

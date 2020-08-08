@@ -9,10 +9,13 @@
         v-on:click="showListOfItineraries = !showListOfItineraries"
       >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
     </div>
+   
     <div v-show="showListOfItineraries">
       <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
         <h1>{{itinerary.name}}</h1>
-        <button type="button" @click="addLandmarkToItinerary(itinerary.itineraryID)">name</button>
+        <input type="checkbox" v-bind:id="itinerary.itineraryID" v-bind:value="itinerary.itineraryID"  v-model="itineraryLandmark.itineraryID" v-on:click="addLandmarkToIt()"/>
+        
+       
       </div>
     </div>
 <!-- v-if="showListOfItineraries === true" -->
@@ -37,7 +40,7 @@ export default {
   data() {
     return {
       itineraryLandmark: {
-        landmarkId: this.$store.state.activeLandmark.landmarkID,
+        landmarkId: 0,
         itineraryId: 0
       },
       showListOfItineraries: false
@@ -47,24 +50,31 @@ export default {
     getImageUrl(pic) {
       return require(`@/assets/${pic}`);
     },
-    addLandmarkToItinerary(itineraryId) {
-      this.itineraryLandmark.itineraryId = itineraryId;
-      LandmarkService.addLandmarkToItinerary(
-        this.landmarkID,
-        this.itineraryLandmark
-      ).then(response => {
-        if (response.status === 201) {
-          this.$router.push("/landmarks");
+    getItinerary(userId) {
+      LandmarkService.getItinerary(userId).then(response => {
+        this.$store.commit("SET_ITINERARIES", response.data);
+      });
+    },
+  
+    addLandmarkToIt(){
+      LandmarkService.addLandmarkToItinerary(this.landmarkID, this.itineraryLandmark).then(response => {
+        if(response.status === 201){
+            alert("your landmark has been added");
         }
-      });    
+      });
     }
   },
   created() {
     LandmarkService.getLandmark(this.landmarkID).then(response => {
       this.$store.commit("SET_ACTIVE_LANDMARK", response.data);
     });
-  }
+    this.getItinerary(this.$store.state.user.id);
+  }, 
+  
 };
+
+  
+
 </script>
 
 <style>
