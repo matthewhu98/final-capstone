@@ -6,28 +6,44 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
-    <div id="nav">
-      <router-link class="home-button button" v-bind:to="{ name: 'home' }">
-        <i class="fas fa-home"></i>
-      </router-link>
-      <router-link
-        class="title-home-page button"
-        v-bind:to="{ name: 'the-landmarks'}"
-      >List of Landmarks in Rome</router-link>
-      <!-- <router-link class="itinerary-route" v-bind:to="{name: 'itinerary'}">
-        <i class="fas fa-clipboard-list"></i>
-      </router-link>-->
-      <router-link
-        class="button"
-        v-bind:to="{ name: 'login' }"
-        v-if="$store.state.token === ''"
-      >Login</router-link>
-      <router-link
-        class="button"
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-      >Logout</router-link>
+    <div class="drop-down-text">
+      <dropdown>
+        <input id="toggle2" type="checkbox" />
+        <label for="toggle2" class="animate">
+          Menu
+         
+        </label>
+        <ul class="animate">
+          <li class="animate">
+            <router-link class="home-button button" v-bind:to="{ name: 'home' }">
+              <i class="fas fa-home"></i>
+            </router-link>
+           
+          </li>
+          <li class="animate">
+            <router-link
+              class="title-home-page button"
+              v-bind:to="{ name: 'the-landmarks'}"
+            >Landmarks</router-link>
+            
+          </li>
+          <li class="animate">
+            <router-link
+              class="button"
+              v-bind:to="{ name: 'login' }"
+              v-if="$store.state.token === ''"
+            >Login</router-link>
+            <router-link
+              class="button"
+              v-bind:to="{ name: 'logout' }"
+              v-if="$store.state.token != ''"
+            >Logout</router-link>
+            
+          </li>
+        </ul>
+      </dropdown>
     </div>
+
     <router-view />
   </div>
 </template>
@@ -37,9 +53,145 @@
 </script>
 
 <style>
-#nav {
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap');
+
+/* #nav {
   background-color: #b4c2c5;
   padding-top: 2rem;
+} */
+.drop-down-text {
+  color: gray;
+  display: flex;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  
+  box-sizing: border-box;
+}
+
+.float-right {
+  float: right;
+}
+
+.fa {
+  font-size: 0.8em;
+  line-height: 22px !important;
+}
+
+dropdown {
+  display: inline-block;
+  
+  /* margin: 20px 50px; */
+}
+
+dropdown label,
+dropdown ul li {
+  display: block;
+  width: 200px;
+  /* background: #ecf0f1; */
+  padding: 15px 20px;
+}
+
+dropdown label:hover,
+dropdown ul li:hover {
+  background: #1abc9c;
+  color: white;
+  cursor: pointer;
+}
+
+dropdown label {
+  color: saddlebrown;
+  border: 4px solid  saddlebrown;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+dropdown input {
+  display: none;
+  
+}
+
+dropdown input ~ ul {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -20px;
+  z-index: 1;
+}
+
+dropdown input:checked + label {
+  background: black;
+  color: white;
+  
+}
+
+dropdown input:checked ~ ul {
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+}
+
+/* dropdown ul li:nth-child(1) {
+  border-left: 4px solid #e74c3c;
+} */
+dropdown ul li:nth-child(1) .fa {
+  color: #e74c3c;
+}
+dropdown ul li:nth-child(1):hover {
+  background: #e74c3c;
+  color: white;
+}
+dropdown ul li:nth-child(1):hover .fa {
+  color: white;
+}
+
+dropdown ul li:nth-child(2) {
+  border-left: 4px solid #0072b5;
+}
+dropdown ul li:nth-child(2) .fa {
+  color: #0072b5;
+}
+dropdown ul li:nth-child(2):hover {
+  background: #0072b5;
+  color: white;
+}
+dropdown ul li:nth-child(2):hover .fa {
+  color: white;
+}
+
+dropdown ul li:nth-child(3) {
+  border-left: 4px solid #2c3e50;
+}
+dropdown ul li:nth-child(3) .fa {
+  color: #2c3e50;
+}
+dropdown ul li:nth-child(3):hover {
+  background: #2c3e50;
+  color: white;
+}
+dropdown ul li:nth-child(3):hover .fa {
+  color: white;
+}
+
+.animate {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
 }
 
 /*.title-home-page {
@@ -83,27 +235,27 @@ body {
 .button {
   color: black !important;
   text-transform: uppercase;
-  font-size: 17px;
-  padding: 15px;
-  border: 4px solid black !important;
+  font-size: 20px;
+  /* padding: 15px; */
+  /* border: 4px solid black !important; */
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
   text-decoration: none;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem;
+  margin-right: 1rem; */
 }
 
-.button:hover {
-  /* color: #494949 !important; */
+/* .button:hover {
+  color: #494949 !important;
   border-radius: 50px;
-  /* border-color: #494949 !important; */
+  border-color: #494949 !important;
   transition: all 0.3s ease 0s;
   text-decoration: none;
-  
-  color:#b4c2c5;
+
+  color: #b4c2c5;
   background: #fff;
-    
-    transition: .5s;
-}
+
+  transition: 0.5s;
+} */
 </style>

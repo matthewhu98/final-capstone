@@ -5,6 +5,7 @@
     </div>
 <div class="call-to-action">
   <h3>Plan a tour</h3>
+  <div></div>
 </div>
   </div>
 </template>
@@ -76,11 +77,12 @@ padding: 18px;
 border: 4px solid #494949 !important;
 display: inline-block;
 transition: all 0.4s ease 0s;
+border-radius: 10px;
 }
 .call-to-action:hover {
 color: #ffffff !important;
-background: #f6b93b;
-border-color: #f6b93b !important;
+background: #23b2dc;
+border-color: #23b2dc !important;
 transition: all 0.4s ease 0s;
 }
 html {
