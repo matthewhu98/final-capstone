@@ -4,7 +4,7 @@
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
     />
-    <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
+    <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID" >
       <div>
         <router-link
           class="itinerary-title"
