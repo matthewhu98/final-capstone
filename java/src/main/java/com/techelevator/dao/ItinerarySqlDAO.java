@@ -55,6 +55,7 @@ public class ItinerarySqlDAO implements ItineraryDAO {
 		jdbcTemplate.update(sql, id);
 		
 	}
+	
 
 	
 	private Itinerary mapRowToItinerary(SqlRowSet rs) {
@@ -66,6 +67,8 @@ public class ItinerarySqlDAO implements ItineraryDAO {
 		return it;
 		
 	}
+
+	
 
 	
 }

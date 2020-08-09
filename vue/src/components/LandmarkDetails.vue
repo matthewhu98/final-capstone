@@ -173,5 +173,6 @@ export default {
   --size: 100px;
   height: calc(var(--size) * 1.15);
   width: var(--size);
+  position: center;
 }
 </style>

@@ -55,6 +55,7 @@ public class serverController {
 		return landmarkDao.getLandmarksForItinerary(id);
 	}
 	
+	
 	@RequestMapping(path = "/itineraries/{id}", method = RequestMethod.POST)
 	public Itinerary createNewItinerary(@PathVariable long id , @RequestBody Itinerary itinerary) {
 		return itDao.createNewItinerary(id, itinerary);

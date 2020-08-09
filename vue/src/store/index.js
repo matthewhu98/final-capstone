@@ -28,6 +28,7 @@ export default new Vuex.Store({
             moreImgs: []
         },
         landmarksInItinerary: [],
+        activeItinerary: {},
         itineraries: [],
         token: currentToken || '',
         user: currentUser || {}
@@ -60,6 +61,9 @@ export default new Vuex.Store({
         },
         SET_LANDMARKS_IN_ITINERARY(state,data) {
             state.landmarksInItinerary = data;
+        },
+        SET_ACTIVE_ITINERARY(state, data){
+            state.activeItinerary = data;
         }
     }
 })

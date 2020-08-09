@@ -13,5 +13,5 @@ public interface ItineraryDAO {
 	
 	public void deleteItierary (long id);    // deleting a whole itinerary
 	
-	
+
 }
