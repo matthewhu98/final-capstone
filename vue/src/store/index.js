@@ -24,7 +24,8 @@ export default new Vuex.Store({
             name: '',
             summery: '',
             discription: '',
-            img: ''
+            img: '',
+            moreImgs: []
         },
         landmarksInItinerary: [],
         itineraries: [],

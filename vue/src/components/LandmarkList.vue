@@ -5,10 +5,10 @@
       <h1>List of Landmarks in Rome</h1>
       <div id="search">
         <!-- <label for="name">Where do you want to go?</label> -->
-        <input type="text" class="search-bar" placeholder="Where do you want to go?" v-model="this.filter.landmarkName" />
+        <input type="text" class="search-bar" placeholder="Where do you want to go?" v-model="name" />
         <i class="fas fa-search"></i>
-
       </div>
+
       <!-- <router-link
         class="itinerary-route"
         v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}"
@@ -20,8 +20,8 @@
     <div class="grid">
       <div
         class="objects container-panel"
-        v-for="landmark in this.$store.state.landmarks"
-        v-bind:key="landmark.name"
+        v-for="landmark in filterLandmark"
+        v-bind:key="landmark.id"
       >
         <div class="object">
           <router-link
@@ -79,9 +79,15 @@ export default {
   name: "landmark-list",
   data() {
     return {
-      filter: {
-        ladmarkName: "",
-      },
+      // filter: {
+      //    landmarkID: 0,
+            name: ''
+      //       summery: '',
+      //       discription: '',
+      //       img: '',
+      //       moreImgs: []
+
+      // },
     };
   },
 
@@ -97,15 +103,9 @@ export default {
   },
   computed: {
     filterLandmark() {
-      let filteredLocation = this.$store.state.landmarks;
-      if (this.filter.ladmarkName != "") {
-        filteredLocation = filteredLocation.filter((landmark) => {
-          landmark.name
-            .toLowerCase()
-            .includes(this.filter.landmarkName.toLowerCase());
-        });
-      }
-      return filteredLocation;
+      return this.$store.state.landmarks.filter(landmark => {
+              return this.name.toLowerCase() === '' ? true : landmark.name.toLowerCase().includes(this.name.toLowerCase());
+           });
     },
   },
 
