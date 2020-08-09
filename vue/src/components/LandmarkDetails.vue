@@ -29,7 +29,14 @@
     <div>
       <img class="single-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)">
     </div>
+    <div>
+      <div class="gallery gallery cf" v-for="singleImg in this.$store.state.activeLandmark.moreImgs" v-bind:key="singleImg.id">
+        <img class="single-in-gallery-image" v-bind:src="getImageUrl(singleImg)">
+      </div>
+    </div>
+
   </div>
+  
 </template>
 
 <script>
@@ -116,5 +123,55 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+
+
+/* this is for thw gallery */
+
+.gallery {
+  width: 790px;
+  margin: 0 auto;
+  padding: 5px;
+  background: #333;
+}
+
+.gallery {
+  position: relative;
+  float: left;
+  padding: 5px;
+}
+
+.gallery {
+  width: 250px;
+  transition: 0.1s transform;
+  transform: translateZ(0); /* hack */
+}
+
+.gallery :hover {
+  z-index: 1;
+  /* position:relative; */
+}
+
+.gallery :hover {
+  transform: scale(5, 5);
+  transition: 0.3s transform;
+}
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.single-in-gallery-image{
+  --size: 100px;
+  height: calc(var(--size) * 1.15);
+  width: var(--size);
 }
 </style>
