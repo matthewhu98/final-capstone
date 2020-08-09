@@ -79,15 +79,8 @@ export default {
   name: "landmark-list",
   data() {
     return {
-      // filter: {
-      //    landmarkID: 0,
-            name: ''
-      //       summery: '',
-      //       discription: '',
-      //       img: '',
-      //       moreImgs: []
-
-      // },
+     name: ''
+    
     };
   },
 
