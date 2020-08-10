@@ -1,6 +1,7 @@
 <template >
   <div class="landmark-explained">
     <link
+
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
    
     <div class="page-grid">
@@ -36,6 +37,7 @@
      </div>
   </div>
   
+
 </template>
 
 <script>
@@ -52,7 +54,7 @@ export default {
         landmarkId: this.landmarkID,
         itineraryId: 0
       },
-        
+
       showListOfItineraries: false
     };
   },
@@ -65,12 +67,17 @@ export default {
         this.$store.commit("SET_ITINERARIES", response.data);
       });
     },
-  
-    addLandmarkToIt(id){
+
+    addLandmarkToIt(id) {
       this.itineraryLandmark.itineraryId = id;
-      LandmarkService.addLandmarkToItinerary(this.landmarkID, this.itineraryLandmark).then(response => {
-        if(response.status === 201){
+      LandmarkService.addLandmarkToItinerary(
+        this.landmarkID,
+        this.itineraryLandmark
+      )
+        .then(response => {
+          if (response.status === 201) {
             alert("your landmark has been added");
+
         }
       })
       .catch(error => {
@@ -92,19 +99,15 @@ export default {
   //     }
   //   },
     
+
   },
   created() {
     LandmarkService.getLandmark(this.landmarkID).then(response => {
       this.$store.commit("SET_ACTIVE_LANDMARK", response.data);
     });
     this.getItinerary(this.$store.state.user.id);
-  },
-  
-  
+  }
 };
-
-  
-
 </script>
 
 <style  lang="css" scoped>
@@ -149,14 +152,16 @@ export default {
   flex-direction: row;
   justify-content: space-around;
 }
+
 .button-itinerary{
   grid-area: ITbtn;
   float:right;
+
   position: absolute;
   right: 10px;
   /* top: 5px; */
 }
-.itTable{
+.itTable {
   position: absolute;
   right: 20px;
   /* top: 80px; */
@@ -173,6 +178,8 @@ grid-area: card-gallery;
   
   
 }
+
+
 
 
 /* this is for the gallery */
@@ -198,7 +205,7 @@ grid-area: card-gallery;
 
 .gallery :hover {
   z-index: 1; */
-  /* position:relative; */
+/* position:relative; */
 /* }
 
 .gallery :hover {
@@ -228,7 +235,6 @@ grid-area: card-gallery;
   grid-area: h1;
 } */
 
-
 /* .card {
   grid-gap: 10px;
   color: white;
@@ -244,7 +250,7 @@ grid-area: card-gallery;
   filter: saturate(150%);
   
 } */
-.single-in-gallery-image{
+.single-in-gallery-image {
   --size: 400px;
   height: calc(var(--size) * 1.15);
   width: var(--size);
@@ -252,15 +258,16 @@ grid-area: card-gallery;
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
-  
 }
 /* repeat(auto-fill, minmax(20rem, 1fr)); */
 /* .grid {
   display: grid;
   grid-template-columns: 
   /* ". h1 h1 h1 h1" */
+
   /* ". description single-image single-image ."
   repeat(auto-fill, minmax(20rem, 1fr));
+
 
   grid-gap: 1rem;
   max-width: 80rem;
