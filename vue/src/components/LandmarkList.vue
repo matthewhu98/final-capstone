@@ -1,21 +1,11 @@
 <template >
   <div class="container">
-    
-   
-      <h1>List of Landmarks in Rome</h1>
-      <div id="search">
-        <!-- <label for="name">Where do you want to go?</label> -->
-        <input type="text" class="search-bar" placeholder="Where do you want to go?" v-model="name" />
-        <i class="fas fa-search"></i>
-      </div>
-
-      <!-- <router-link
-        class="itinerary-route"
-        v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}"
-      >
-        <i class="fas fa-clipboard-list"></i>
-      </router-link> -->
-    
+    <h1>List of Landmarks in Rome</h1>
+    <div id="search">
+      <!-- <label for="name">Where do you want to go?</label> -->
+      <input type="text" class="search-bar" placeholder="Where do you want to go?" v-model="name" />
+      <i class="fas fa-search"></i>
+    </div>
 
     <div class="grid">
       <div
@@ -30,12 +20,19 @@
           , params: {id: landmark.landmarkID}}"
           >
             <!-- {{landmark.name}} -->
+              
+
             <div class="card">
+              <!-- this is a drop down on each landmark -->
+
+              
+
+              <!-- this is the end -->
               <img class="image" v-bind:src="getImageUrl(landmark.img)" />
               {{landmark.name}}
-              
             </div>
-            <div></div>
+            <div>
+            </div>
           </router-link>
           <!-- <button v-on:click.prevent="getItinerary(this.$store.state.user.user_id)"></button> -->
         </div>
@@ -79,32 +76,39 @@ export default {
   name: "landmark-list",
   data() {
     return {
-     name: ''
-    
+      name: ""
     };
   },
 
   methods: {
     getLandmarks() {
-      LandmarkService.list().then((response) => {
+      LandmarkService.list().then(response => {
         this.$store.commit("SET_LANDMARKS", response.data);
       });
     },
     getImageUrl(pic) {
       return require("@/assets/" + pic);
     },
+    getItinerary(userId) {
+      LandmarkService.getItinerary(userId).then(response => {
+        this.$store.commit("SET_ITINERARIES", response.data);
+      });
+    }
   },
   computed: {
     filterLandmark() {
       return this.$store.state.landmarks.filter(landmark => {
-              return this.name.toLowerCase() === '' ? true : landmark.name.toLowerCase().includes(this.name.toLowerCase());
-           });
-    },
+        return this.name.toLowerCase() === ""
+          ? true
+          : landmark.name.toLowerCase().includes(this.name.toLowerCase());
+      });
+    }
   },
 
   created() {
     this.getLandmarks();
-  },
+    this.getItinerary(this.$store.state.user.id);
+  }
 };
 </script>
 
@@ -118,23 +122,18 @@ export default {
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
-  
- 
 }
 .card {
   grid-gap: 10px;
   color: white;
-  filter:grayscale(25%);
-  font-family: 'Open Sans', sans-serif;
-  
+  filter: grayscale(25%);
+  font-family: "Open Sans", sans-serif;
 }
 .card:hover {
-  
   text-decoration: underline;
-  
+
   filter: contrast(140%);
   filter: saturate(150%);
-  
 }
 
 /* body {
@@ -149,27 +148,22 @@ export default {
   
   grid-template-rows: 100px auto;
 } */
-.search-bar{
-  border:2px solid white;
+.search-bar {
+  border: 2px solid white;
   border-radius: 10%;
-  
-   height:1.5vw; 
-   width:20vw;
-    border-radius: var(--rad);
-  
-    transition: all var(--dur) var(--bez);
+
+  height: 1.5vw;
+  width: 20vw;
+  border-radius: var(--rad);
+
+  transition: all var(--dur) var(--bez);
   transition-property: width, border-radius;
-  height: 2.5vw;  
+  height: 2.5vw;
   background-color: #b4c2c5;
-  padding:10px;
+  padding: 10px;
   margin: 20px;
 
- 
-  
-  
   font-family: "Open Sans", sans-serif;
-  
-
 }
 .grid {
   display: grid;
@@ -203,9 +197,8 @@ h1 {
   margin: 10px;
 } */
 
-.title{
-  text-decoration:none;
+.title {
+  text-decoration: none;
   font-size: 35px;
 }
-
 </style>

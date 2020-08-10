@@ -15,7 +15,7 @@
       <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
         <td>{{itinerary.name}}</td>
         <td>
-        <input type="checkbox" v-bind:id="itinerary.itineraryID"  v-on:click="addLandmarkToIt(itinerary.itineraryID)"/>
+        <input type="checkbox" v-bind:id="itinerary.itineraryID" v-on:click="addLandmarkToIt(itinerary.itineraryID)"/>
         </td>
       </div>
     </tr>
@@ -53,9 +53,7 @@ export default {
       itineraryLandmark: {
         landmarkId: this.landmarkID,
         itineraryId: 0
-
       },
-        
         
       showListOfItineraries: false
     };
@@ -82,7 +80,12 @@ export default {
           this.$router.push("/not-found");
         }
       });
-  }
+  },
+  // actionButtonDisabled(){
+  //     if(this.itineraryLandmark.itineraryId !== 0){
+  //       alert("This Landmark Already Exists In Your Trip ");
+  //     }
+  //   },
     
   },
   created() {
@@ -90,7 +93,8 @@ export default {
       this.$store.commit("SET_ACTIVE_LANDMARK", response.data);
     });
     this.getItinerary(this.$store.state.user.id);
-  }, 
+  },
+  
   
 };
 

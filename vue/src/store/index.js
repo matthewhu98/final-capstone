@@ -65,5 +65,6 @@ export default new Vuex.Store({
         SET_ACTIVE_ITINERARY(state, data){
             state.activeItinerary = data;
         }
+        
     }
 })

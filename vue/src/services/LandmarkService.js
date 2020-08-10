@@ -24,6 +24,10 @@ export default {
 
     getItineraryDetails(itineraryId) {
       return axios.get(`/itinerarydetails/${itineraryId}`);
+    },
+
+    deleteItinerary(itineraryId){
+      return axios.delete(`/itineraries/${itineraryId}`)
     }
   
   }

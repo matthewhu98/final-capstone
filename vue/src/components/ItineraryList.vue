@@ -11,6 +11,9 @@
           v-bind:to="{name: 'itinerarydetails', params: {id: itinerary.itineraryID}}"
         >{{itinerary.name}}</router-link>
       </div>
+      <div>
+        <button class="delete-itinerary-button" v-on:click="deleteItiterary(itinerary.itineraryID)"> Delete Trip</button>
+      </div>
     </div>
     <div>
       <button v-on:click="showForm= !showForm">{{showForm === true ? "Cancel": "Create Itinerary"}}</button>
@@ -62,6 +65,15 @@ export default {
     },
     reloadPage() {
       window.location.reload();
+    },
+    deleteItiterary(id){
+      LandmarkService.deleteItinerary(id).then(response =>{
+        if(response.status === 200){
+          alert("Your Trip had Been Deleted");
+          this.reloadPage();
+
+        }
+      });
     }
   },
   created() {
