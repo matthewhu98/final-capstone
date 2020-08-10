@@ -7,7 +7,7 @@
       crossorigin="anonymous"
     />
     <aside class="drop-down-text">
-      <dropdown>
+      <nav class="dropdown">
         <input id="toggle2" type="checkbox" />
         <label for="toggle2" class="animate menu">Menu</label>
         <ul class="animate">
@@ -47,15 +47,20 @@
             >Logout</router-link>
           </li>
         </ul>
-      </dropdown>
+      </nav>
     </aside>
 
     <router-view />
   </div>
 </template>
 <script>
-// export default {
-// name: "App",
+export default {
+  name: "App",
+  components: {
+
+  }
+
+};
 </script>
 
 <style>
@@ -95,28 +100,28 @@
   line-height: 22px !important;
 }
 
-dropdown {
+.dropdown {
   display: inline-block;
 
   /* margin: 20px 50px; */
 }
 
-dropdown label,
-dropdown ul li {
+.dropdown label,
+.dropdown ul li {
   display: block;
   width: 200px;
   /* background: #ecf0f1; */
   padding: 15px 20px;
 }
 
-dropdown label:hover,
-dropdown ul li:hover {
+.dropdown label:hover,
+.dropdown ul li:hover {
   background: #5ba1b0;
   color: white;
   cursor: pointer;
 }
 
-dropdown label {
+.dropdown label {
   color: white;
   /* border: 4px solid saddlebrown;
   border-radius: 10px; */
@@ -124,11 +129,11 @@ dropdown label {
   z-index: 2;
 }
 
-dropdown input {
+.dropdown input {
   display: none;
 }
 
-dropdown input ~ ul {
+.dropdown input ~ ul {
   position: relative;
   visibility: hidden;
   opacity: 0;
@@ -136,7 +141,7 @@ dropdown input ~ ul {
   z-index: 1;
 }
 
-dropdown input:checked ~ ul {
+.dropdown input:checked ~ ul {
   visibility: visible;
   opacity: 1;
   top: 0;
@@ -147,21 +152,21 @@ dropdown input:checked ~ ul {
   border-left: 4px solid #e74c3c;
 } */
 
-dropdown ul li:nth-child(1):hover {
+.dropdown ul li:nth-child(1):hover {
   background: white;
   color: white;
 }
 
-dropdown ul li:nth-child(2):hover {
+.dropdown ul li:nth-child(2):hover {
   background: white;
   color: white;
 }
 
-dropdown ul li:nth-child(3):hover {
+.dropdown ul li:nth-child(3):hover {
   background: white;
   color: white;
 }
-dropdown ul li:nth-child(4):hover {
+.dropdown ul li:nth-child(4):hover {
   background: white;
   color: white;
 }
