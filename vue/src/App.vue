@@ -7,8 +7,8 @@
       crossorigin="anonymous"
     >
     <aside class="drop-down-text">
-      <dropdown>
-        <input id="toggle2" type="checkbox">
+      <nav class="dropdown">
+        <input id="toggle2" type="checkbox" />
         <label for="toggle2" class="animate menu">Menu</label>
         <ul class="animate">
           <li class="animate">
@@ -48,7 +48,7 @@
             >New User?</router-link>
           </li>
         </ul>
-      </dropdown>
+      </nav>
     </aside>
 
     <router-view/>
@@ -56,6 +56,13 @@
 </template>
 
 <script>
+export default {
+  name: "App",
+  components: {
+
+  }
+
+};
 </script>
 
 <style>
@@ -89,35 +96,35 @@
   line-height: 22px !important;
 }
 
-dropdown {
+.dropdown {
   display: inline-block;
 }
 
-dropdown label,
-dropdown ul li {
+.dropdown label,
+.dropdown ul li {
   display: block;
   width: 200px;
   padding: 15px 20px;
 }
 
-dropdown label:hover,
-dropdown ul li:hover {
+.dropdown label:hover,
+.dropdown ul li:hover {
   background: #5ba1b0;
   color: white;
   cursor: pointer;
 }
 
-dropdown label {
+.dropdown label {
   color: white;
   position: relative;
   z-index: 2;
 }
 
-dropdown input {
+.dropdown input {
   display: none;
 }
 
-dropdown input ~ ul {
+.dropdown input ~ ul {
   position: relative;
   visibility: hidden;
   opacity: 0;
@@ -125,34 +132,37 @@ dropdown input ~ ul {
   z-index: 1;
 }
 
-dropdown input:checked ~ ul {
+.dropdown input:checked ~ ul {
   visibility: visible;
   opacity: 1;
   top: 0;
   background: rgba(255, 255, 255, 0.386);
 }
 
-dropdown ul li:nth-child(1):hover {
+/* dropdown ul li:nth-child(1) {
+  border-left: 4px solid #e74c3c;
+} */
+
+.dropdown ul li:nth-child(1):hover {
   background: white;
   color: white;
 }
 
-dropdown ul li:nth-child(2):hover {
+.dropdown ul li:nth-child(2):hover {
   background: white;
   color: white;
 }
 
-dropdown ul li:nth-child(3):hover {
+.dropdown ul li:nth-child(3):hover {
+  background: white;
+  color: white;
+}
+.dropdown ul li:nth-child(4):hover {
   background: white;
   color: white;
 }
 
-dropdown ul li:nth-child(4):hover {
-  background: white;
-  color: white;
-}
-
-dropdown ul li:nth-child(5):hover {
+.dropdown ul li:nth-child(5):hover {
   background: white;
   color: white;
 }
@@ -172,37 +182,6 @@ dropdown ul li:nth-child(5):hover {
   /* Internet Explorer */
 }
 
-/*.title-home-page {
-  background: #fef9c7;
-  color: #026670;
-  border: 1px solid black; 
-  text-decoration: none;
-  font-size: 18px;
-  letter-spacing: 2px;
-  margin: 5px;
-  padding: 7px 10px 7px 10px;
-  border-radius: 5px 20px 5px;
-}
-
-.title-home-page:hover {
-  filter: drop-shadow(9px 9px 9px #026670);
-  border-radius: 5px 20px 5px;
-}
-.home-button {
-  color: #026670;
-}
-
-.home-button:hover {
-  color: black;
-}
-
-.itinerary-route {
-  color: #026670;
-}
-
-.itinerary-route:hover {
-  color: black;
-}*/
 h1 {
   color: white;
 }

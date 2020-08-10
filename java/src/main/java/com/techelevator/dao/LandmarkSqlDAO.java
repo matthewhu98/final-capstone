@@ -99,6 +99,7 @@ public class LandmarkSqlDAO implements LandmarkDAO {
         landmark.setDiscription(rs.getString("description"));
         landmark.setImg(rs.getString("img"));
         landmark.setAddressID(rs.getInt("address_id")); 
+        landmark.setmapLink(rs.getString("map_link"));
         return landmark;
     }
 
