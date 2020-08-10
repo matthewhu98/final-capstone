@@ -1,41 +1,39 @@
 <template >
   <div class="landmark-explained">
     <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
-      rel="stylesheet"
-    >
-    <div>
-      <button class="button-itinerary button"
-        v-on:click="showListOfItineraries = !showListOfItineraries"
-      >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
-    </div>
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
    
-   
-    <tr class="itTable" v-show="showListOfItineraries">
-      <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
-        <td>{{itinerary.name}}</td>
-        <td>
-        <input type="checkbox" v-bind:id="itinerary.itineraryID" v-on:click="addLandmarkToIt(itinerary.itineraryID)"/>
-        </td>
-      </div>
-    </tr>
+    <div class="page-grid">
+      
+        <h1 class="title">{{this.$store.state.activeLandmark.name}}</h1>
+        <p class="description">{{this.$store.state.activeLandmark.discription}}</p>
 
+        
+        <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)">
+        
+        <p class="map"> <iframe v-bind:src="getMap()" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
 
-<!-- v-if="showListOfItineraries === true" -->
-  <div class="grid">
-    <div>
-      <h1 class="title">{{this.$store.state.activeLandmark.name}}</h1>
-      <p class="description">{{this.$store.state.activeLandmark.discription}}</p>
-    </div>
-    <div>
-      <img class="single-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)">
-    </div>
-    <div class= "card">
-      <div class="gallery gallery cf" v-for="singleImg in this.$store.state.activeLandmark.moreImgs" v-bind:key="singleImg.id">
-        <img class="single-in-gallery-image" v-bind:src="getImageUrl(singleImg)">
-      </div>
-    </div>
-  </div>
+         
+          <button class="button-itinerary button"
+             v-on:click="showListOfItineraries = !showListOfItineraries">{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
+        
+              <tr class="itTable" v-show="showListOfItineraries">
+                 <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID">
+                  <td>{{itinerary.name}}</td>
+                <td>
+                   <input type="checkbox" v-bind:id="itinerary.itineraryID" v-on:click="addLandmarkToIt(itinerary.itineraryID)"/>
+                </td>
+                 </div>
+               </tr>
+       
+
+        
+        <!-- <div class= "card-gallery">
+            <div class="gallery gallery cf" v-for="singleImg in this.$store.state.activeLandmark.moreImgs" v-bind:key="singleImg.id">
+                <img class="single-in-gallery-image" v-bind:src="getImageUrl(singleImg)">
+           </div>
+        </div> -->
+     </div>
   </div>
   
 </template>
@@ -81,6 +79,13 @@ export default {
         }
       });
   },
+
+  getMap(){
+    
+      return this.$store.state.activeLandmark.mapLink;
+    }
+    
+  // }
   // actionButtonDisabled(){
   //     if(this.itineraryLandmark.itineraryId !== 0){
   //       alert("This Landmark Already Exists In Your Trip ");
@@ -102,28 +107,40 @@ export default {
 
 </script>
 
-<style>
+<style  lang="css" scoped>
 /* body{
   background-image: image;
 } */
-.single-image {
+
+
+
+.main-image {
   height: 40rem;
   margin: 2rem;
-  grid-area: single-image;
+  margin-top: 100px;
+  margin-left: 100px;
+  grid-area: main-image;
 }
 
 .title {
   font-family: "Nanum Pen Script", cursive;
   font-size: 70px;
+  grid-area: title;
+  margin-top: 50px;
 }
 
 .description {
   font-family: "Nanum Gothic", sans-serif;
   font-size: 45px;
   border: 1px solid saddlebrown;
-  margin: 3rem;
-  padding: 2rem;
+  /* margin: 3rem; */
+  padding-top: 1rem;
   grid-area: description;
+}
+
+.map{
+  grid-area:map;
+  margin-top: 100px;
 }
 
 .landmark-explained {
@@ -133,17 +150,29 @@ export default {
   justify-content: space-around;
 }
 .button-itinerary{
+  grid-area: ITbtn;
   float:right;
   position: absolute;
   right: 10px;
-  top: 5px;
+  /* top: 5px; */
 }
 .itTable{
   position: absolute;
   right: 20px;
-  top: 80px;
+  /* top: 80px; */
 }
-
+.card-gallery{
+grid-area: card-gallery;
+}
+.page-grid{
+  display: grid;
+  grid-template-columns: 0.2fr 1.5fr 2fr 2fr 0.1fr;
+  grid-template-areas:
+  "main-image main-image title map ."
+  "main-image main-image description map ."
+  
+  
+}
 
 
 /* this is for the gallery */
@@ -226,16 +255,16 @@ export default {
   
 }
 /* repeat(auto-fill, minmax(20rem, 1fr)); */
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: 
   /* ". h1 h1 h1 h1" */
-  ". description single-image single-image ."
+  /* ". description single-image single-image ."
   repeat(auto-fill, minmax(20rem, 1fr));
 
   grid-gap: 1rem;
   max-width: 80rem;
   margin: 5rem auto;
   padding: 10 5rem;
-}
+}  */
 </style>

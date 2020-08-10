@@ -25,7 +25,8 @@ export default new Vuex.Store({
             summery: '',
             discription: '',
             img: '',
-            moreImgs: []
+            moreImgs: [],
+            mapLink: ''
         },
         landmarksInItinerary: [],
         activeItinerary: {},

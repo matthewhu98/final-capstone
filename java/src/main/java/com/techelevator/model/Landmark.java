@@ -10,7 +10,9 @@ public class Landmark {
 	private String discription;
 	private String img;
 	private int addressID;
+	private String mapLink;
 	private List<String> moreImgs;
+	
 	
 	
 	
@@ -56,6 +58,14 @@ public class Landmark {
 	public void setMoreImgs(List<String> moreImgs) {
 		this.moreImgs = moreImgs;
 	}
+	public String getmapLink() {
+		return mapLink;
+	}
+	public void setmapLink(String mapLink) {
+		this.mapLink = mapLink;
+	}
+	
+	
 	
 	
 }
