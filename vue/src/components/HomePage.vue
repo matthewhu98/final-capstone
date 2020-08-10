@@ -1,10 +1,17 @@
 <template class="home">
+
   <div class="homepage">
+    <header>
+      test
+    </header>
+   <nav>
+     menu
+   </nav>
     <div class="content">
-      <h1 class="titlecard">ROME-ING IN ROAM</h1>
-      
+      <h1 class="titlecard">{{title}}</h1>
+      <h4>YOUR VIRTUAL TRAVEL PLANNER</h4>
     </div>
-    <h4>YOUR VIRTUAL TRAVEL PLANNER</h4>
+    
     <div class="call-to-action">
       <h3>Plan a tour</h3>
       <!-- <div></div> -->
@@ -24,7 +31,7 @@ export default {
 };
 </script>
 
-<style >
+<style lang="css" scoped>
 /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap"); */
 * {
   padding: 0;
@@ -43,11 +50,13 @@ export default {
   position: relative;
   text-align: center;
   font-size: 6vh;
+  
   margin: 20px;
 }
 .homepage {
-  display: block;
-  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  /* padding: 5rem; */
 }
 /* .header {
   background-color: 	#b4c2c5;   background color
@@ -64,26 +73,32 @@ export default {
   width:30%;
 } */
 .content {
-  display: flex;
+  /* display: flex; */
   /*height: auto;
   width: 100%;
   margin: 10px auto;
   margin-top: 100px;
   padding-top: 10px;
   padding: 50px; */
-  justify-content: space-around;
+  /* justify-content: center; */
 }
 .call-to-action {
   /*make this a router link*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #494949 !important;
   text-transform: uppercase;
   text-decoration: none;
   background: #ffffff;
-  padding: 18px;
+  padding: 15px;
+  width: 25%;
+  align-self: center;
   border: 4px solid #494949 !important;
-  display: inline-block;
-  transition: all 0.4s ease 0s;
+  /* display: inline-block; */
+  /* transition: all 0.4s ease 0s; */
   border-radius: 10px;
+
 }
 .call-to-action:hover {
   color: #ffffff !important;
@@ -92,7 +107,7 @@ export default {
   transition: all 0.4s ease 0s;
 }
 html {
-  background-image: url(../assets/background-home.jpg);
+  /* background-image: url(../assets/background-home.jpg); */
   filter: contrast(130%);
   /* background-image:url(../assets/homepage-image.jpg); */
   background-repeat: no-repeat;
