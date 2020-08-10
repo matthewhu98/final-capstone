@@ -44,10 +44,11 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100vw;
+  min-width: 420px;
   /* padding: 0 0 50% 0; */
 height: 100vh;
 width: 100vw;
-position: fixed;
+position: center;
   /* margin: 18%; */
   /* height: 100%;
   width: 100%; */

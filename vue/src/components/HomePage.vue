@@ -37,10 +37,12 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
+ 
 }
 .home {
-  display: block;
+  /* display: block;
   padding: 0;
+   background-color: 	#b4c2c5; */
 }
 
 /* font-family: 'Open Sans', sans-serif; */
@@ -52,6 +54,7 @@ export default {
   font-size: 6vh;
   
   margin: 20px;
+   /* background-color: 	#b4c2c5; this is the key bg-color */
 }
 .homepage {
   display: flex;
