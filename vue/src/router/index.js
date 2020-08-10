@@ -76,7 +76,7 @@ const router = new Router({
             name: 'itineraries',
             component: Itineraries,
             meta: {
-                requiresAuth: false
+                requiresAuth: true
             }
         },
         {
@@ -84,7 +84,7 @@ const router = new Router({
             name: 'itinerarydetails',
             component: ItineraryDetails,
             meta: {
-                requiresAuth: false
+                requiresAuth: true
             }
         }
     ]

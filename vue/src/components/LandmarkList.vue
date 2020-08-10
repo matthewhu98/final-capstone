@@ -13,60 +13,34 @@
         v-for="landmark in filterLandmark"
         v-bind:key="landmark.id"
       >
+
         <div class="object">
+
+            
+
           <router-link
             class="title"
             v-bind:to="{name: 'landmarkdetails' 
           , params: {id: landmark.landmarkID}}"
           >
             <!-- {{landmark.name}} -->
-              
 
             <div class="card">
-              <!-- this is a drop down on each landmark -->
-
-              
-
-              <!-- this is the end -->
               <img class="image" v-bind:src="getImageUrl(landmark.img)" />
+
+                
+
+
               {{landmark.name}}
             </div>
-            <div>
-            </div>
+            <div></div>
           </router-link>
+          
           <!-- <button v-on:click.prevent="getItinerary(this.$store.state.user.user_id)"></button> -->
         </div>
       </div>
     </div>
   </div>
-  <!--
-<div class="container">
-
-  <header>
-    <nav>
-      <search>
-      </search>
-
-      <itinerary-button>
-      </itinerary-button>
-    </nav>
-
-
-  </header>
-  <main>
-
-    <cards>
-
-
-    </cards>
-
-
-  </main>
-
-
-</div>
-
-  -->
 </template>
 
 <script>
@@ -76,7 +50,14 @@ export default {
   name: "landmark-list",
   data() {
     return {
-      name: ""
+      name: "",
+
+      itineraryLandmark: {
+        landmarkId: 0,
+        itineraryId: 0
+      },
+        
+      showListOfItineraries: false
     };
   },
 
@@ -89,11 +70,26 @@ export default {
     getImageUrl(pic) {
       return require("@/assets/" + pic);
     },
-    getItinerary(userId) {
-      LandmarkService.getItinerary(userId).then(response => {
-        this.$store.commit("SET_ITINERARIES", response.data);
+    // getItinerary(userId) {
+    //   LandmarkService.getItinerary(userId).then(response => {
+    //     this.$store.commit("SET_ITINERARIES", response.data);
+    //   });
+    // },
+    addLandmarkToIt(id, landID){
+      this.itineraryLandmark.itineraryId = id;
+      this.itineraryLandmark.landmarkId = landID;
+      LandmarkService.addLandmarkToItinerary(landID, this.itineraryLandmark).then(response => {
+        if(response.status === 201){
+            alert("your landmark has been added");
+        }
+      })
+      .catch(error => {
+        if (error.response.status == 404) {
+          this.$router.push("/not-found");
+        }
       });
-    }
+  },
+
   },
   computed: {
     filterLandmark() {
@@ -102,12 +98,15 @@ export default {
           ? true
           : landmark.name.toLowerCase().includes(this.name.toLowerCase());
       });
-    }
+    },
+
   },
 
   created() {
+
     this.getLandmarks();
-    this.getItinerary(this.$store.state.user.id);
+
+    // this.getItinerary(this.$store.state.user.id);
   }
 };
 </script>
@@ -116,9 +115,9 @@ export default {
 <style lang="css" scoped>
 .image {
   --size: 400px;
-  height: calc(var(--size) * 1.15);
+  height: calc(var(--size) * 1.3);
   width: var(--size);
-  border-radius: calc(var(--size) * 0.15);
+  /* border-radius: calc(var(--size) * 0.15); */
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
@@ -132,8 +131,8 @@ export default {
 .card:hover {
   text-decoration: underline;
 
-  filter: contrast(140%);
-  filter: saturate(150%);
+  filter: contrast(140%) saturate(150%)
+    drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
 }
 
 /* body {
@@ -172,6 +171,7 @@ export default {
   max-width: 80rem;
   margin: 5rem auto;
   padding: 10 5rem;
+  filter: grayscale(50%);
 }
 
 h1 {
@@ -201,4 +201,5 @@ h1 {
   text-decoration: none;
   font-size: 35px;
 }
+
 </style>
