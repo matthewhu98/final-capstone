@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="travel-list">
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
     />
-    <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID" >
+    <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID" class="list-of-trips">
       <div>
         <router-link
           class="itinerary-title"
@@ -12,7 +12,7 @@
         >{{itinerary.name}}</router-link>
       </div>
       <div>
-        <button class="delete-itinerary-button" v-on:click="deleteItiterary(itinerary.itineraryID)"> Delete Trip</button>
+        <button class="delete-itinerary-button" v-on:click="deleteItiterary(itinerary.itineraryID)"><i class="fas fa-trash-alt fa-2x"></i></button>
       </div>
     </div>
     <div>
@@ -82,8 +82,55 @@ export default {
 };
 </script>
 
-<style>
-.text {
+<style scoped>
+
+.list-of-trips {
+ 
+ display: grid;
+  grid-template-columns:  0.5rem 0.1rem;
+  grid-template: ". itinerary-title";
+  padding: 10px;
+  margin: 10px;
+    
+   
+
+}
+.itinerary-title {
+  /* grid-area: itinerary-title; */
+  text-decoration: none ;
+   font-family: "Poiret One", cursive;
+  font-size: 25px;
+  font-weight:900;
+  padding:10px;
+  color: white;
+
+}
+.itinerary-title:hover {
+  color: saddlebrown;
+}
+.travel-list {
+  
   color: black;
+  font-family: "Open Sans", sans-serif;
+  width: 75%;
+  margin: 100px auto auto auto;
+  justify-content: center;
+}
+
+button{
+  /* border-radius: 18%;
+  padding: 9px; */
+  /* margin: 20px; */
+
+}
+.fa-trash-alt {
+  /* size: 100px; */
+  
+ 
+  /* padding:5px; */
+}
+.fa-trash-alt:hover {
+  filter:drop-shadow(5px 5px 5px rgba(255, 255, 255, 0.564));
+  color:red;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section class="itinerary">
-    <h1 class="text">Your Itineraries List</h1>
+    <h1 class="text">Your Itineraries</h1>
 
     <div>
       <itinerary-list  ></itinerary-list>
