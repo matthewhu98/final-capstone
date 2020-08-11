@@ -120,7 +120,7 @@ export default {
 }
 
 .itinerary-title:hover {
-  color: #5ba1b0;
+  color: #494949 !important;
 }
 
 .delete-itinerary-button {
@@ -141,7 +141,7 @@ export default {
 }
 
 .fa-trash-alt:hover {
-  color: #5ba1b0;
+  color: #494949 !important;
 }
 
 .itinerary-header {

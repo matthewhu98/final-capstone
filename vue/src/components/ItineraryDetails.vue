@@ -1,20 +1,25 @@
 <template>
-  <div>
-   <h3 v-bind:value="getItineraryName(this.itineraryID)"> {{this.name}} </h3>
+  <div class="details-backgroung">
+   <div class="itinerary-name"  v-bind:value="getItineraryName(this.itineraryID)"> {{this.name}} </div>
      <div class="IT-Container">
-       <div 
+       <div class="objects container-panel" 
          v-for="landmark in this.$store.state.landmarksInItinerary"
          v-bind:key="landmark.landmarkID">
     
        <!-- <h1>{{landmark.name}}</h1> -->
-       <div class="img-container">
-            <img class="single-image-IT" v-bind:src="getImageUrl(landmark.img)" />
-       </div>
-       <h1>{{landmark.name}}</h1>
-    </div>
+       <div class="object">
+           <div class="img-container">
+               <img class="single-image-IT" v-bind:src="getImageUrl(landmark.img)" />
+           </div>
+           <div class="land-title">{{landmark.name}}</div>
+
+           <div>
+             <button class="delete-land-button" v-bind:id="landmark.landmarkID" v-on:click="deleteLand(landmark.landmarkID)"><i class="fas fa-trash-alt fa-2x"></i></button>
+           </div>
+        </div>
+      </div>
    </div>
-    <!-- <div>Itinerary Details</div> -->
-    <!-- <div>{{this.$store.state.itineraries.name}}</div> -->
+    
   </div>
 </template>
 
@@ -29,7 +34,12 @@ export default {
   },
   data() {
     return {
-     name: ''
+     name: '',
+     itineraryLandmark:{
+       itineraryId: this.itineraryID,
+       landmarkId: 0
+       
+     }
     };
   },
   
@@ -48,6 +58,24 @@ export default {
           this.name = single.name;
         }
       });
+    },
+    reloadPage() {
+      window.location.reload();
+    },
+
+    deleteLand(lId){
+      this.itineraryLandmark.landmarkId = lId;
+      LandmarkService.deleteLandmarkInItinerary(this.itineraryID,this.itineraryLandmark).then(response =>{
+        if (response.status === 200){
+          this.reloadPage();
+          
+        }
+      })
+      .catch(error => {
+        if (error.response.status == 404) {
+          this.$router.push("/not-found");
+        }
+      });
     }
   },
   created() {
@@ -61,7 +89,7 @@ export default {
 
 <style>
 
-.It-container{
+.IT-Container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: 1rem;
@@ -78,6 +106,7 @@ export default {
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
+  
 }
 .img-container{
   grid-gap: 10px;
@@ -90,6 +119,42 @@ export default {
 
   filter: contrast(140%) saturate(150%)
     drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
+}
+.land-title{
+  color:white;
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;
+  bottom: 10px;
+  z-index: 3;
+  font-family: 'Rock Salt', cursive;
+}
+.itinerary-name{
+  font-family: "Poiret One", cursive;
+  
+  font-size: 5vw;
+}
+.fa-trash-alt:hover {
+  color: #5ba1b0;
+}
+.delete-land-button{
+  border: none;
+  background: none;
+  color: #b18f69;
+}
+
+.details-backgroung{
+  
+  background-image: url(../assets/itinerary-details-page.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: 50vw; */
+  max-width: 100%;
+  max-height: 100%;
+  /* width: 100vw; */
+  background-size:cover ;
+  background-attachment: fixed;
+
 }
 
 </style>

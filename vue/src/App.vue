@@ -8,7 +8,7 @@
     >
     <aside class="drop-down-text">
       <nav class="dropdown">
-        <input id="toggle2" type="checkbox" />
+        <input id="toggle2" type="checkbox">
         <label for="toggle2" class="animate menu">Menu</label>
         <ul class="animate">
           <li class="animate">
@@ -42,30 +42,28 @@
           </li>
 
           <li class="animate">
-            <router-link
-              class="register button"
-              v-bind:to="{name: 'register'}"
-            >New User?</router-link>
+            <router-link class="register button" v-bind:to="{name: 'register'}">New User?</router-link>
           </li>
         </ul>
       </nav>
     </aside>
     <header>
-      Welcome back, {{this.$store.state.user.username}} !
+      <div class="welcome-back">{{typeof getUsers.username !== 'undefined' ? "Welcome back, " + this.$store.state.user.username + "!"  : "Sign in to start your journey!"}}</div>
     </header>
-  
     <router-view/>
-    <div class="container">team golf LLC</div>
+    <div class="container">Team Golf LLC</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "App",
-  components: {
-
+  components: {},
+  computed: {
+    getUsers() {
+      return this.$store.state.user;
+    }
   }
-
 };
 </script>
 
@@ -76,19 +74,21 @@ export default {
   color: #b08555;
   font-family: "Open Sans", sans-serif;
 }
+
+.welcome-back {
+  color: white;
+}
+
 header {
-  
   padding: 25px;
   display: flex;
   justify-content: flex-end;
-  
+
   background-color: #5ba1b0;
   font-size: 25px;
-  
-  
 }
 nav {
-  padding:20px;
+  padding: 20px;
 }
 .drop-down-text {
   display: flex;
@@ -108,8 +108,7 @@ nav {
 /* .float-right {
   float: right;
 } */
-test
-.fa {
+test .fa {
   font-size: 0.8em;
   line-height: 22px !important;
 }

@@ -28,6 +28,10 @@ export default {
 
     deleteItinerary(itineraryId){
       return axios.delete(`/itineraries/${itineraryId}`)
+    },
+
+    deleteLandmarkInItinerary(itineraryId, itineraryLandmark){
+      return axios.delete(`/itinerarydetails/${itineraryId}`, itineraryLandmark)
     }
   
   }
