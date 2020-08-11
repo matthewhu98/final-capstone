@@ -1,6 +1,7 @@
 <template>
+<div class="itinerary-background">
   <div class="travel-list">
-    <div class="itinerary-header">Your Itineraries</div>
+    <h1 class="itinerary-header">Your Itineraries</h1>
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
@@ -27,6 +28,7 @@
         </div>
       </form>
     </div>
+  </div>
   </div>
 </template>
 
@@ -136,7 +138,7 @@ export default {
 .travel-list {
   visibility: visible;
   opacity: 1;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   width: 600px;
   padding: 60px;
   margin: auto;
@@ -178,6 +180,29 @@ export default {
   /* Firefox */
   -ms-backface-visibility: hidden;
   /* Internet Explorer */
+}
+
+.login-background,
+.register-background {
+ background-image: url(../assets/background-bridge.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vw;
+  min-width: 420px;
+  height: 100vh;
+  width: 100vw;
+  position: center;
+}
+
+.itinerary-background {
+ background-image: url(../assets/background-bridge.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vw;
+  min-width: 420px;
+  height: 100vh;
+  width: 100vw;
+  position: center;
 }
 
 
