@@ -103,45 +103,45 @@ export default {
 
 .list-of-trips {
  display: grid;
-  grid-template-columns:  0.5rem 0.1rem;
-  grid-template: ". itinerary-title";
+  grid-template-columns:  1rem 1rem;
+  grid-template: "itinerary-title delete-itinerary-button";
   padding: 10px;
-  margin: 10px;
-    
+  margin: 10px;  
 }
 .itinerary-title {
   color: #b18f69;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 25px;
   padding: 15px;
   border-radius: 6px;
   display: inline-block;
   text-decoration: none;
-
+  float: left;
 }
+
 .itinerary-title:hover {
   color: #5ba1b0;
 }
 
+.delete-itinerary-button {
+  float: right;
+  border: none;
+  background: none;
+  color: #b18f69;
+  position: relative;
+  top: 20px;
+}
+
 .travel-list {
-  color: black;
   font-family: "Open Sans", sans-serif;
-  width: 75%;
-  margin: auto auto auto auto;
-  justify-content: center;
-}
-
-.fa-trash-alt:hover {
-  color: #5ba1b0;
-}
-
-.travel-list {
-  visibility: visible;
-  opacity: 1;
   background: rgba(255, 255, 255, 0.8);
   width: 600px;
   padding: 60px;
   margin: auto;
+}
+
+.fa-trash-alt:hover {
+  color: #5ba1b0;
 }
 
 .itinerary-header {
@@ -184,18 +184,6 @@ export default {
   /* Internet Explorer */
 }
 
-.login-background,
-.register-background {
- background-image: url(../assets/background-bridge.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100vw;
-  min-width: 420px;
-  height: 100vh;
-  width: 100vw;
-  position: center;
-}
-
 .itinerary-background {
  background-image: url(../assets/background-itinerary.jpg);
   background-repeat: no-repeat;
@@ -204,8 +192,7 @@ export default {
   min-width: 420px;
   height: 100vh;
   width: 100vw;
-  position: center;
+  position: fixed;
 }
-
 
 </style>
