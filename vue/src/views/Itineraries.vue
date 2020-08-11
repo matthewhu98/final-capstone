@@ -1,7 +1,5 @@
 <template>
   <section class="itinerary">
-    <h1 class="text">Your Itineraries</h1>
-
     <div>
       <itinerary-list  ></itinerary-list>
     </div>
