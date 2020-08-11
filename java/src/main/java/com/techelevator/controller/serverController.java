@@ -16,6 +16,7 @@ import com.techelevator.model.Itinerary;
 import com.techelevator.model.ItineraryLandmark;
 import com.techelevator.model.Landmark;
 
+
 @RestController
 @CrossOrigin
 public class serverController {
