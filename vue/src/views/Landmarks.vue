@@ -1,5 +1,5 @@
 <template>
-  <div class="title container landmark-page">
+  <div class="title container landmark-page search-background">
     <div class="card">
       
       <landmark-list class="landmark-card"></landmark-list>
@@ -18,15 +18,14 @@ export default {
 </script>
 
 <style>
-
-
-/* .title {
-  color: black;
+.search-background {
+ background-image: url(../assets/background-search.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vw;
+  min-width: 420px;
+  height: 100vh;
+  width: 100vw;
+  position: center;
 }
-
-.landmark-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-} */
 </style>
