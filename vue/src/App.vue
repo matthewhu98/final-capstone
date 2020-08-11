@@ -50,8 +50,14 @@
         </ul>
       </nav>
     </aside>
-
+    <header>
+      Welcome back, {{this.$store.state.user.username}} !
+    </header>
+   <nav>
+     menu
+   </nav>
     <router-view/>
+    <div></div>
   </div>
 </template>
 
@@ -71,6 +77,17 @@ export default {
 .menu {
   color: #b08555;
   font-family: "Open Sans", sans-serif;
+}
+header {
+  padding: 31px;
+  display: flex;
+  justify-content: flex-end;
+  
+  background-color: #5ba1b0;
+  font-size: 25px;
+}
+nav {
+  padding:20px;
 }
 .drop-down-text {
   display: flex;
