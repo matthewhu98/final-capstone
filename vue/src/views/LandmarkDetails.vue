@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="landmark-details">
       <landmark-details v-bind:landmarkID="parseInt($route.params.id)"/>
   </div>
 </template>
@@ -15,5 +15,14 @@ export default {
 </script>
 
 <style>
-
+.landmark-details {
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vw;
+  min-width: 420px;
+  height: 100vh;
+  width: 100vw;
+  position: center;
+}
 </style>

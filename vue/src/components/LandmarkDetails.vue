@@ -12,7 +12,7 @@
         
         <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)">
         
-        <p class="map"> <iframe v-bind:src="getMap()" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
+        <p class="map"> <iframe v-bind:src="getMap()" width="600" height="650" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
 
          
           <button class="button-itinerary button"
@@ -52,12 +52,15 @@ export default {
     return {
       itineraryLandmark: {
         landmarkId: this.landmarkID,
-        itineraryId: 0
+        itineraryId: 0,
+
       },
+      
 
       showListOfItineraries: false
     };
   },
+
   methods: {
     getImageUrl(pic) {
       return require(`@/assets/${pic}`);
@@ -87,6 +90,7 @@ export default {
       });
   },
 
+
   getMap(){
     
       return this.$store.state.activeLandmark.mapLink;
@@ -106,7 +110,13 @@ export default {
       this.$store.commit("SET_ACTIVE_LANDMARK", response.data);
     });
     this.getItinerary(this.$store.state.user.id);
-  }
+  },
+  //     computed: {
+  //   backgroundURL: getImageUrl() {
+  //     return 'url(this.$store.state.activeLandmark.img)';
+  //   }
+
+  // }
 };
 </script>
 
@@ -116,25 +126,33 @@ export default {
 } */
 .page-grid{
   display: grid;
-  grid-template-columns: 0.7fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 0.7fr 1fr 1fr 1fr 1fr 0.7fr;
   grid-template-areas:
-  ".main-image main-image title title"
-  ".main-image main-image map map"
-  ". ITbtn ITbtn  description description";
+  ".title title . . ."
+  ".main-image main-image map map ."
+  ".main-image main-image map map ."
+  ".main-image main-image map map ."
+  ".main-image main-image description description ."
+  ". ITbtn ITbtn          description description ."
+  ". . . . . ."
+  ". . . . . .";
+  grid-gap: 25px;
   
   
 }
+
 
 
 .main-image {
-  height: 40rem;
+  height: 70vh;
   width: 100%;
-
+  
   grid-area: main-image;
+  border:white solid 10px;
 }
 
 .title {
-  font-family: "Nanum Pen Script", cursive;
+  /* font-family: "Nanum Pen Script", cursive; */
   font-size: 70px;
   grid-area: title;
   /* margin-top: 25px;
@@ -155,13 +173,18 @@ export default {
   max-height: 100px;
   line-height: 40px;
   vertical-align:middle; */
-  height: 20%;
-  border: 1px solid saddlebrown;
+  font-size: 25px;
+  text-align: left;
+  font-weight: bolder;
+
+  /* border: 1px solid saddlebrown; */
   
 }
 
 .map{
   grid-area:map;
+  
+  /* size: 600px; */
   /* margin-top: 100px; */
 }
 
@@ -174,6 +197,7 @@ export default {
 
 .button-itinerary{
   grid-area: ITbtn;
+  margin: 0 50px 50px 50px;
   /* float:right;
 
   position: absolute;
