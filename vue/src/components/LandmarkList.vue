@@ -15,33 +15,39 @@
         v-bind:key="landmark.id"
       >
         <div class="object">
-          <div class="card" ref="landmarkDetails">
-            <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)" />
+          <div class="card">
             <button
-              v-bind:key="landmark.id"
               class="button-itinerary button"
               v-on:click="landmarkToShow = index; "
             >{{landmarkToShow === index ? "Cancel": "Add"}}</button>
-            <tr class="itTable bring-forward" v-show="landmarkToShow === index">
-              <p>Hellow world</p>
-              <div v-for="itinerary in itineraries" v-bind:key="itinerary.itineraryID">
-                <td>{{itinerary.name}}</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    v-bind:id="itinerary.itineraryID"
-                    v-on:click="openLandmarkDetails(itinerary.itineraryID)"
-                  />
-                </td>
-              </div>
-            </tr>
+            <div class="bring-forward">
+              <tr class="itTable" v-show="landmarkToShow === index">
+                <h4>Your Itineraries</h4>
+                <div
+                  ref="landmarkDetails"
+                  v-for="itinerary in itineraries"
+                  v-bind:key="itinerary.itineraryID"
+                >
+                  <td>{{itinerary.name}}</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      v-bind:id="itinerary.itineraryID"
+                      v-on:click="addLandmarkToIt(itinerary.itineraryID, landmark.landmarkID)"
+                    />
+                  </td>
+                </div>
+              </tr>
+            </div>
+
+            <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)" />
+            <router-link
+              class="title"
+              v-bind:to="{name: 'landmarkdetails', params: {id: landmark.landmarkID}}"
+            >
+              <h3>{{landmark.name}}</h3>
+            </router-link>
           </div>
-          <router-link
-            class="title"
-            v-bind:to="{name: 'landmarkdetails', params: {id: landmark.landmarkID}}"
-          >
-            <h3>{{landmark.name}}</h3>
-          </router-link>
         </div>
       </div>
     </div>
@@ -76,8 +82,20 @@ export default {
     getImageUrl(pic) {
       return require("@/assets/" + pic);
     },
-    openLandmarkDetails(id) {
-      this.$refs.landmarkDetails.addLandmarkToIt(id);
+    addLandmarkToIt(id, lid) {
+      this.itineraryLandmark.itineraryId = id;
+      this.itineraryLandmark.landmarkId = lid;
+      LandmarkService.addLandmarkToItinerary(lid, this.itineraryLandmark)
+        .then(response => {
+          if (response.status === 201) {
+            alert("your landmark has been added");
+          }
+        })
+        .catch(error => {
+          if (error.response.status == 404) {
+            this.$router.push("/not-found");
+          }
+        });
     }
   },
   computed: {
@@ -89,7 +107,6 @@ export default {
       });
     },
     itineraries() {
-      console.log(this);
       return this.$store.state.itineraries;
     }
   },
@@ -102,6 +119,8 @@ export default {
 
 
 <style lang="css" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 .image {
   --size: 400px;
   height: calc(var(--size) * 1.3);
@@ -110,15 +129,18 @@ export default {
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
+  border: 1rem solid white;
+  border-bottom: 3.5rem solid white;
 }
 .card {
   grid-gap: 10px;
   color: white;
   filter: grayscale(25%);
   font-family: "Open Sans", sans-serif;
+  /* background: white; */
 }
 .card:hover {
-  text-decoration: underline;
+  text-decoration: gray;
 
   filter: contrast(140%) saturate(150%)
     drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
@@ -163,7 +185,32 @@ h1 {
 }
 
 .title {
+  color: black;
   text-decoration: none;
-  font-size: 35px;
+  font-size: 23px;
+  position: relative;
+  bottom: 79px;
+  z-index: 3;
+  font-family: 'Rock Salt', cursive;
+}
+
+.button-itinerary {
+  padding: .5rem;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  top: 3.5rem;
+  left: 8.4rem;
+  z-index: 3;
+}
+
+.bring-forward {
+  /* filter: opacity(50%); */
+  position: absolute;
+  top: 6.3rem;
+  left: 275px;
+  z-index: 4;
+  width: 30%;
 }
 </style>

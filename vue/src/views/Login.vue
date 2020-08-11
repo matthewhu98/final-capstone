@@ -175,6 +175,6 @@ export default {
   min-width: 420px;
   height: 100vh;
   width: 100vw;
-  position: center;
+  position: fixed;
 }
 </style>
