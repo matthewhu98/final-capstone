@@ -16,18 +16,14 @@
       >
         <div class="object">
           <div class="card">
-            <button
-              class="button-itinerary button"
-              v-on:click="landmarkToShow = index; "
-            >{{landmarkToShow === index ? "Cancel": "Add"}}</button>
-            <div class="bring-forward">
-              <tr class="itTable" v-show="landmarkToShow === index">
+            <div class="bring-forward back">
+              <button class="button-itinerary button" v-on:click="landmarkToShow = index; ">
+                <i class="fas fa-thumbtack"></i>
+              </button>
+
+              <tr class="itTable">
                 <h4>Your Itineraries</h4>
-                <div
-                  ref="landmarkDetails"
-                  v-for="itinerary in itineraries"
-                  v-bind:key="itinerary.itineraryID"
-                >
+                <div v-for="itinerary in itineraries" v-bind:key="itinerary.itineraryID">
                   <td>{{itinerary.name}}</td>
                   <td>
                     <input
@@ -40,13 +36,15 @@
               </tr>
             </div>
 
-            <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)" />
-            <router-link
-              class="title"
-              v-bind:to="{name: 'landmarkdetails', params: {id: landmark.landmarkID}}"
-            >
-              <h3>{{landmark.name}}</h3>
-            </router-link>
+            <div class="front">
+              <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)" />
+              <router-link
+                class="title"
+                v-bind:to="{name: 'landmarkdetails', params: {id: landmark.landmarkID}}"
+              >
+                <h3>{{landmark.name}}</h3>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -119,7 +117,7 @@ export default {
 
 
 <style lang="css" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
 
 .image {
   --size: 400px;
@@ -132,18 +130,47 @@ export default {
   border: 1rem solid white;
   border-bottom: 3.5rem solid white;
 }
+
+.front:hover {
+  opacity: 0.5;
+}
+
+.back {
+  display: none;
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+  z-index: 4;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.objects:hover .back {
+  position: fixed;
+  display: block;
+  text-align: center;
+  display: inline-block;
+  transition: opacity 1s ease;
+}
+
 .card {
   grid-gap: 10px;
   color: white;
   filter: grayscale(25%);
   font-family: "Open Sans", sans-serif;
   /* background: white; */
+  transition: transform 1s;
+  transform-style: preserve-3d;
 }
 .card:hover {
   text-decoration: gray;
-
   filter: contrast(140%) saturate(150%)
     drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
+}
+
+.object:hover .card {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
 }
 
 .search-bar {
@@ -187,30 +214,22 @@ h1 {
 .title {
   color: black;
   text-decoration: none;
-  font-size: 23px;
+  font-size: 20px;
   position: relative;
-  bottom: 79px;
+  bottom: 75px;
   z-index: 3;
-  font-family: 'Rock Salt', cursive;
+  font-family: "Rock Salt", cursive;
 }
 
 .button-itinerary {
-  padding: .5rem;
+  color: #d50102;
+  padding: 0.5rem;
   font-size: 15px;
   border: none;
   border-radius: 10px;
   position: relative;
-  top: 3.5rem;
-  left: 8.4rem;
-  z-index: 3;
-}
-
-.bring-forward {
-  /* filter: opacity(50%); */
-  position: absolute;
-  top: 6.3rem;
-  left: 275px;
-  z-index: 4;
-  width: 30%;
+  /* top: 3.5rem;
+  left: 10rem; */
+  z-index: 5;
 }
 </style>

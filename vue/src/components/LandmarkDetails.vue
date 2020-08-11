@@ -12,7 +12,7 @@
         
         <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)">
         
-        <p class="map"> <iframe v-bind:src="getMap()" width="600" height="650" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
+        <p class="map"> <iframe v-bind:src="getMap()" width="450" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
 
          
           <button class="button-itinerary button"
@@ -128,15 +128,14 @@ export default {
   display: grid;
   grid-template-columns: 0.7fr 1fr 1fr 1fr 1fr 0.7fr;
   grid-template-areas:
-  ".title title . . ."
-  ".main-image main-image map map ."
-  ".main-image main-image map map ."
-  ".main-image main-image map map ."
-  ".main-image main-image description description ."
-  ". ITbtn ITbtn          description description ."
-  ". . . . . ."
+  ". . title title ITbtn ."
+  ". main-image main-image description description ."
+  ". main-image main-image map map ."
+  ". main-image main-image map map ."
   ". . . . . .";
   grid-gap: 25px;
+  /* margin: 35px; */
+
   
   
 }
@@ -144,11 +143,11 @@ export default {
 
 
 .main-image {
-  height: 70vh;
-  width: 100%;
+   width: 100%;
+  height: auto;
   
   grid-area: main-image;
-  border:white solid 10px;
+  border:white solid 25px 10px 0 10px;
 }
 
 .title {
@@ -183,7 +182,9 @@ export default {
 
 .map{
   grid-area:map;
-  
+  justify-content: center;
+  align-self: center;
+  align-items: center;
   /* size: 600px; */
   /* margin-top: 100px; */
 }
@@ -197,7 +198,7 @@ export default {
 
 .button-itinerary{
   grid-area: ITbtn;
-  margin: 0 50px 50px 50px;
+  margin: 10px;
   /* float:right;
 
   position: absolute;
