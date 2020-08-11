@@ -21,7 +21,7 @@
                 <i class="fas fa-thumbtack"></i>
               </button>
 
-              <tr class="itTable" v-show="landmarkToShow === index">
+              <tr class="itTable">
                 <h4>Your Itineraries</h4>
                 <div v-for="itinerary in itineraries" v-bind:key="itinerary.itineraryID">
                   <td>{{itinerary.name}}</td>
@@ -131,13 +131,16 @@ export default {
   border-bottom: 3.5rem solid white;
 }
 
+.front:hover {
+  opacity: 0.5;
+}
+
 .back {
   display: none;
+  position: relative;
   margin: auto;
-
+  margin-top: 20px;
   z-index: 4;
-  /* width: 30%; */
-  /* background: #03446a; */
   color: white;
   transform: rotateY(180deg);
 }
@@ -147,6 +150,7 @@ export default {
   display: block;
   text-align: center;
   display: inline-block;
+  transition: opacity 1s ease;
 }
 
 .card {
@@ -160,7 +164,6 @@ export default {
 }
 .card:hover {
   text-decoration: gray;
-
   filter: contrast(140%) saturate(150%)
     drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
 }
