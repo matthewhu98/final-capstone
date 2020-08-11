@@ -34,7 +34,7 @@
       </div>
       <div class="form" v-if="showForm === true">
         <form v-on:submit.prevent>
-          <input class="itinerary-name" type="text" name="title" v-model="itinerary.name">
+          <input class="itinerary-naming" type="text" name="title" v-model="itinerary.name">
           <div class="actions">
             <button
               type="submit"
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style scoped>
-.itinerary-name {
+.itinerary-naming {
   border: 2px solid white;
   border-radius: 10%;
   height: 1.5vw;

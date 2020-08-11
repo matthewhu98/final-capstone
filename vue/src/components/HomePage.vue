@@ -60,7 +60,7 @@ export default {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: ".our-mission .about-us .join-team-golf";
   background: rgba(255, 255, 255, 0.8);
-  margin: 80px;
+  margin: 100px;
   border-radius: 4px;
 }
 
@@ -95,16 +95,15 @@ img {
   letter-spacing: 2px;
   text-align: center;
   font-size: 90px;
-  margin: 20px;
   font-weight: bold;
   filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
+  margin: 30px;
 }
 
 .subtext {
   color: #494949;
   text-transform: uppercase;
   font-size: 25px;
-  padding: 20px;
   display: inline-block;
   text-decoration: none;
 }
@@ -114,6 +113,7 @@ img {
   text-transform: uppercase;
   font-size: 25px;
   padding: 20px;
+  margin: 60px;
   display: inline-block;
   text-decoration: none;
   border: none;
