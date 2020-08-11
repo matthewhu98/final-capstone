@@ -60,12 +60,12 @@ export default new Vuex.Store({
         SET_ITINERARIES(state, data) {
             state.itineraries = data;
         },
-        SET_LANDMARKS_IN_ITINERARY(state,data) {
+        SET_LANDMARKS_IN_ITINERARY(state, data) {
             state.landmarksInItinerary = data;
         },
-        SET_ACTIVE_ITINERARY(state, data){
+        SET_ACTIVE_ITINERARY(state, data) {
             state.activeItinerary = data;
         }
-        
+
     }
 })

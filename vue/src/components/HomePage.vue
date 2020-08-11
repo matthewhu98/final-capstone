@@ -5,8 +5,8 @@
       <h4 class="subtext">Your virtual travel planner</h4>
     </div>
 
-    <div class="call-to-action">
-      <h3>Plan a tour</h3>
+    <div>
+      <router-link class="call-to-action" v-bind:to="{ name: 'the-landmarks'}">Plan a Tour</router-link>
     </div>
     <div class="text-grid">
       <div class="our-mission">
@@ -25,7 +25,7 @@
       </div>
       <div class="join-team-golf">
         <img class="img" src="../assets/join-team-golf.jpg">
-        <h3>Join Team Golf</h3>
+        <h3>Join our Team</h3>
         <p
           class="text"
         >If you are looking for the vacation of a lifetime, or looking for new career opportunities, we want to hear from you!</p>
@@ -69,6 +69,7 @@ img {
   width: 200px;
   margin: 20px;
   border-radius: 3px;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
 }
 
 .our-mission,

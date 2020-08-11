@@ -12,7 +12,7 @@
         <label for="toggle2" class="animate menu">Menu</label>
         <ul class="animate">
           <li class="animate">
-            <router-link class="home-button button" v-bind:to="{ name: 'home' }">Home</router-link>
+            <router-link class="home-button button" v-bind:to="{ name: 'home'}">Home</router-link>
           </li>
           <li class="animate">
             <router-link
@@ -48,10 +48,13 @@
       </nav>
     </aside>
     <header>
-      <div class="header-text">Roaming in Rome</div>
-      <div
-        class="welcome-back"
-      >{{typeof getUsers.username !== 'undefined' ? "Welcome back, " + this.$store.state.user.username + "!" : "Sign in to start your journey!"}}</div>
+      <div class="nav-grid">
+        <router-link class="header-text" v-bind:to="{ name: 'home'}">Roaming in Rome</router-link>
+        <router-link
+          class="welcome-back"
+          v-bind:to="{ name: 'login'}"
+        >{{typeof getUsers.username !== 'undefined' ? "Welcome back, " + this.$store.state.user.username + "!" : "Sign in to start your journey!"}}</router-link>
+      </div>
     </header>
     <router-view/>
     <div class="container">Team Golf LLC</div>
@@ -73,36 +76,39 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap");
 
-.menu {
-  color: #b08555;
-  font-family: "Open Sans", sans-serif;
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "header-text welcome-back";
 }
 
 .welcome-back {
+  text-decoration: none;
   font-size: 20px;
   color: white;
-  text-align: right;
   position: relative;
-  bottom: 28px;
-  right: 50px;
+  top: 15px;
 }
 
 .header-text {
-  text-align: center;
+  text-decoration: none;
   color: white;
   font-family: "Poiret One", cursive;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 35px;
   font-weight: bold;
-  filter:
-  drop-shadow(5px 5px 5px black);
-  position: relative;
-  top: 5px;
+  filter: drop-shadow(5px 5px 5px black);
+}
+
+.menu {
+  color: #b08555;
+  font-family: "Open Sans", sans-serif;
 }
 
 header {
   padding-top: 20px;
+  padding-bottom: 27px;
   background-color: #5ba1b0;
 }
 
