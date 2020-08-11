@@ -1,17 +1,30 @@
 <template class="home">
-
   <div class="homepage">
-
     <div class="content">
       <h1 class="titlecard">{{title}}</h1>
-      <h4>YOUR VIRTUAL TRAVEL PLANNER</h4>
+      <h4 class="subtext">Your virtual travel planner</h4>
     </div>
-    
+
     <div class="call-to-action">
       <h3>Plan a tour</h3>
-      <!-- <div></div> -->
     </div>
-    
+    <div class="text-grid">
+    <div class="our-mission">
+        <img class="img" src="../assets/our-mission.jpg">
+      <h3>Our Mission</h3>
+      <p class="text">Team Golf is a powerful trip planning tool that helps families and individuals achieve their dream vacation.</p>
+    </div>
+    <div class="about-us">
+        <img class="img" src="../assets/home-about-us.jpg">
+      <h3>About Us</h3>
+      <p class="text">Team Golf was founded when a group of adult prodigies got together and discovered their mutual passion for all things coding/Rome-related.</p>
+    </div>
+    <div class="join-team-golf">
+        <img class="img" src="../assets/join-team-golf.jpg">
+      <h3>Join Team Golf</h3>
+      <p class="text">If you are looking for the vacation of a lifetime, or looking for new career opportunities, we want to hear from you! </p>
+    </div>
+        </div>
   </div>
 </template>
 
@@ -21,9 +34,9 @@ export default {
   name: "home-page",
   data() {
     return {
-      title: "ROAMING IN ROME",
+      title: "Roaming in Rome"
     };
-  },
+  }
 };
 </script>
 
@@ -33,99 +46,87 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
- 
-}
-.home {
-  /* display: block;
-  padding: 0;
-   background-color: 	#b4c2c5; */
 }
 
-/* font-family: 'Open Sans', sans-serif; */
+.text-grid{
+  display: grid;
+  align-items: center top;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  ".our-mission .about-us .join-team-golf";
+  background: rgba(255, 255, 255, 0.8);
+  margin: 80px;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+}
+
+.our-mission,
+.about-us,
+.join-team-golf {
+  padding: 30px;
+}
+
+.our-mission:hover,
+.about-us:hover,
+.join-team-golf:hover {
+  background: white;
+}
+
+.text {
+  text-align: left;
+}
+
 .titlecard {
   font-family: "Poiret One", cursive;
-  letter-spacing: 2px;
-  position: relative;
-  text-align: center;
-  font-size: 6vh;
-  
-  margin: 20px;
-   /* background-color: 	#b4c2c5; this is the key bg-color */
-}
-.homepage {
-  display: flex;
-  flex-direction: column;
-  justify-content: last baseline;
-  /* padding: 5rem; */
-}
-/* .header {
-  background-color: 	#b4c2c5;   background color
-  float: left;
-  clear: none;
-  height: 100px;
-  width: 100%;
-} */
-/* .left-menu {
-  background-color: black;
-  float:left;
-  clear: none;
-  height: 600px;
-  width:30%;
-} */
-.content {
-  /* display: flex; */
-  /*height: auto;
-  width: 100%;
-  margin: 10px auto;
-  margin-top: 100px;
-  padding-top: 10px;
-  padding: 50px; */
-  /* justify-content: center; */
-}
-.call-to-action {
-  /*make this a router link*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #494949 !important;
   text-transform: uppercase;
-  text-decoration: none;
-  background: #ffffff;
-  padding: 15px;
-  width: 25%;
-  align-self: center;
-  border: 4px solid #494949 !important;
-  /* display: inline-block; */
-  /* transition: all 0.4s ease 0s; */
-  border-radius: 10px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 70px;
+  margin: 20px;
+  font-weight: bold;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
+}
 
+.subtext {
+  color: #494949;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 15px;
+  display: inline-block;
+  text-decoration: none;
 }
+
+.call-to-action {
+  color: #e6b054;
+  text-transform: uppercase;
+  font-size: 25px;
+  padding: 20px;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  background: white;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
+}
+
 .call-to-action:hover {
-  color: #ffffff !important;
-  background: #23b2dc;
-  border-color: #23b2dc !important;
-  transition: all 0.4s ease 0s;
-}
-.test {
-  padding:100px;
-}
-html {
-  /* background-image: url(../assets/background-home.jpg); */
-  filter: contrast(130%);
-  /* background-image:url(../assets/homepage-image.jpg); */
-  background-repeat: no-repeat;
-  background-position: center;
-  /* background-size: cover; */
-  height: auto;
-  width: 100%;
-  min-width: 100%;
-  /* position: fixed; */
-  min-height: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: #b4c2c5;
-  
+  background: #e2a92d;
+  color: white;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
+  filter: none;
 }
 </style>
