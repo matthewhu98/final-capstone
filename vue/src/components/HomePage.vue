@@ -9,22 +9,28 @@
       <h3>Plan a tour</h3>
     </div>
     <div class="text-grid">
-    <div class="our-mission">
+      <div class="our-mission">
         <img class="img" src="../assets/our-mission.jpg">
-      <h3>Our Mission</h3>
-      <p class="text">Team Golf is a powerful trip planning tool that helps families and individuals achieve their dream vacation.</p>
-    </div>
-    <div class="about-us">
+        <h3>Our Mission</h3>
+        <p
+          class="text"
+        >Team Golf is a powerful trip planning tool that helps families and individuals achieve their dream vacation.</p>
+      </div>
+      <div class="about-us">
         <img class="img" src="../assets/home-about-us.jpg">
-      <h3>About Us</h3>
-      <p class="text">Team Golf was founded when a group of adult prodigies got together and discovered their mutual passion for all things coding/Rome-related.</p>
-    </div>
-    <div class="join-team-golf">
+        <h3>About Us</h3>
+        <p
+          class="text"
+        >Team Golf was founded when a group of adult prodigies got together and discovered their mutual passion for all things coding/Rome-related.</p>
+      </div>
+      <div class="join-team-golf">
         <img class="img" src="../assets/join-team-golf.jpg">
-      <h3>Join Team Golf</h3>
-      <p class="text">If you are looking for the vacation of a lifetime, or looking for new career opportunities, we want to hear from you! </p>
+        <h3>Join Team Golf</h3>
+        <p
+          class="text"
+        >If you are looking for the vacation of a lifetime, or looking for new career opportunities, we want to hear from you!</p>
+      </div>
     </div>
-        </div>
   </div>
 </template>
 
@@ -48,32 +54,35 @@ export default {
   border: 0;
 }
 
-.text-grid{
+.text-grid {
   display: grid;
   align-items: center top;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-  ".our-mission .about-us .join-team-golf";
+  grid-template-areas: ".our-mission .about-us .join-team-golf";
   background: rgba(255, 255, 255, 0.8);
   margin: 80px;
+  border-radius: 4px;
 }
 
 img {
   height: 200px;
   width: 200px;
   margin: 20px;
+  border-radius: 3px;
 }
 
 .our-mission,
 .about-us,
 .join-team-golf {
   padding: 30px;
+  border-radius: 4px;
 }
 
 .our-mission:hover,
 .about-us:hover,
 .join-team-golf:hover {
   background: white;
+  border-radius: 4px;
 }
 
 .text {
@@ -85,7 +94,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  font-size: 70px;
+  font-size: 90px;
   margin: 20px;
   font-weight: bold;
   filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
@@ -94,8 +103,8 @@ img {
 .subtext {
   color: #494949;
   text-transform: uppercase;
-  font-size: 20px;
-  padding: 15px;
+  font-size: 25px;
+  padding: 20px;
   display: inline-block;
   text-decoration: none;
 }
@@ -110,6 +119,7 @@ img {
   border: none;
   background: white;
   filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
+  border-radius: 4px;
 }
 
 .call-to-action:hover {

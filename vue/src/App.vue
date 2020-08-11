@@ -163,11 +163,15 @@ test .fa {
 .dropdown ul li:nth-child(1):hover {
   background: white;
   color: white;
+    border-radius: 4px;
+
 }
 
 .dropdown ul li:nth-child(2):hover {
   background: white;
   color: white;
+    border-radius: 4px;
+
 }
 
 .dropdown ul li:nth-child(3):hover {
@@ -177,11 +181,15 @@ test .fa {
 .dropdown ul li:nth-child(4):hover {
   background: white;
   color: white;
+    border-radius: 4px;
+
 }
 
 .dropdown ul li:nth-child(5):hover {
   background: white;
   color: white;
+    border-radius: 4px;
+
 }
 
 .animate {
@@ -197,6 +205,8 @@ test .fa {
   /* Firefox */
   -ms-backface-visibility: hidden;
   /* Internet Explorer */
+    border-radius: 4px;
+
 }
 
 h1 {
