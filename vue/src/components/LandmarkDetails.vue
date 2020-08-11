@@ -129,27 +129,32 @@ export default {
   font-family: "Nanum Pen Script", cursive;
   font-size: 70px;
   grid-area: title;
-  margin-top: 25px;
+  /* margin-top: 25px;
+  height: 20%; */
 }
 
 .description {
-  font-family: "Nanum Gothic", sans-serif;
-  font-size: 30px;
-  border: 1px solid saddlebrown;
-  /* margin: 2rem; */
-  margin-bottom: 8rem;
-  padding-top: 1rem;
+  /* font-family: "Nanum Gothic", sans-serif;
+  font-size: 25px;
+  
+  margin: 2rem;
+  margin-bottom: 0rem;
+  padding-top: 1rem; */
   grid-area: description;
-  color: black;
+  /* color: black;
   position: relative;
   min-height:500px;
   max-height: 100px;
+  line-height: 40px;
+  vertical-align:middle; */
+  height: 20%;
+  border: 1px solid saddlebrown;
   
 }
 
 .map{
   grid-area:map;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 
 /* .landmark-explained { */
@@ -161,10 +166,10 @@ export default {
 
 .button-itinerary{
   grid-area: ITbtn;
-  float:right;
+  /* float:right;
 
   position: absolute;
-  right: 10px;
+  right: 10px; */
   /* top: 5px; */
 }
 .itTable {
@@ -172,15 +177,16 @@ export default {
   right: 20px;
   /* top: 80px; */
 }
-.card-gallery{
+/* .card-gallery{
 grid-area: card-gallery;
-}
+} */
 .page-grid{
   display: grid;
   grid-template-columns: 0.2fr 1.5fr 2fr 2fr 0.1fr;
   grid-template-areas:
   "main-image main-image title map ."
   "main-image main-image description map ."
+  ". . ITbtn  . .";
   
   
 }
@@ -256,7 +262,7 @@ grid-area: card-gallery;
   filter: saturate(150%);
   
 } */
-.single-in-gallery-image {
+/* .single-in-gallery-image {
   --size: 400px;
   height: calc(var(--size) * 1.15);
   width: var(--size);
@@ -264,7 +270,7 @@ grid-area: card-gallery;
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 /* repeat(auto-fill, minmax(20rem, 1fr)); */
 /* .grid {
   display: grid;
