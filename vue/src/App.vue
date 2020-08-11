@@ -186,7 +186,8 @@ h1 {
   color: white;
 }
 body {
-  padding: 30px;
+  /* padding: 30px; */
+  background-color: #b4c2c5;
 }
 
 .button {
