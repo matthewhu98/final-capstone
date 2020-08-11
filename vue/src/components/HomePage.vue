@@ -11,7 +11,7 @@
       <h3>Plan a tour</h3>
       <!-- <div></div> -->
     </div>
-    <div class="test"></div>
+    
   </div>
 </template>
 
@@ -55,6 +55,7 @@ export default {
 .homepage {
   display: flex;
   flex-direction: column;
+  justify-content: last baseline;
   /* padding: 5rem; */
 }
 /* .header {

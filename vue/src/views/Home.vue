@@ -1,6 +1,7 @@
 <template>
   <div class="homepage-background">
     <div class="home-page">
+      <div class="buffer"></div>
       <home-page></home-page>
       
     </div>
@@ -27,9 +28,15 @@ export default {
   color: white;
   /* margin-top: 60px; */
 }
+.buffer {
+  margin:15vh;
+}
 
 .home-page {
   color: black;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
   /* padding: 5rem; */
  
  
@@ -40,14 +47,14 @@ export default {
   /* background-color: #b4c2c5; */
 }
 .homepage-background {
- background-image: url(../assets/background-home.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100vw;
-  min-width: 420px;
+background-image: url(../assets/background-home-cropped.jpg);
+background-repeat: no-repeat;
+background-position: top;
+background-size: 100vw;
+min-width: 420px;
   /* padding: 0 0 50% 0; */
 height: 100vh;
-width: 100vw;
+width: auto;
 position: center;
   /* margin: 18%; */
   /* height: 100%;

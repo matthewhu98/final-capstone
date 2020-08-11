@@ -77,12 +77,15 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 header {
-  padding: 31px;
+  
+  padding: 25px;
   display: flex;
   justify-content: flex-end;
   
   background-color: #5ba1b0;
   font-size: 25px;
+  
+  
 }
 nav {
   padding:20px;
