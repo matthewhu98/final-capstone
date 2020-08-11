@@ -103,7 +103,7 @@ export default {
 #register-container {
   visibility: visible;
   opacity: 1;
-  background: rgba(255, 255, 255, 0.386);
+  background: rgba(255, 255, 255, 0.5);
   width: 600px;
   padding: 60px;
   margin: auto;
@@ -120,15 +120,6 @@ export default {
   color: #5ba1b0;
 }
 
-.login-button,
-.register-button {
-  color: #b18f69;
-  text-transform: uppercase;
-  font-size: 20px;
-  padding: 15px;
-  display: inline-block;
-  text-decoration: none;
-}
 .need-account,
 .have-account {
   color: #b18f69;
@@ -143,6 +134,16 @@ export default {
 .need-account:hover,
 .have-account:hover {
   color: #494949 !important;
+}
+
+.login-button,
+.register-button {
+  color: #b18f69;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 15px;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .login-button:hover,

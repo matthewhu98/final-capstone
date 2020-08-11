@@ -1,5 +1,6 @@
 <template>
   <div class="travel-list">
+    <div class="itinerary-header">Your Itineraries</div>
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
@@ -16,14 +17,13 @@
       </div>
     </div>
     <div>
-      <button v-on:click="showForm= !showForm">{{showForm === true ? "Cancel": "Create Itinerary"}}</button>
+      <button class="create-button" v-on:click="showForm= !showForm">{{showForm === true ? "Cancel": "Create Itinerary"}}</button>
     </div>
     <div class="form" v-if="showForm === true">
       <form v-on:submit.prevent>
-        <label for="title">Itinerary Title</label>
-        <input type="text" name="title" v-model="itinerary.name" />
+        <input class="itinerary-name" type="text" name="title" v-model="itinerary.name" />
         <div class="actions">
-          <button type="submit" v-on:click="saveItinerary()">Submit Itinerary</button>
+          <button type="submit" class="submit-button" v-on:click="saveItinerary()">Submit Itinerary</button>
         </div>
       </form>
     </div>
@@ -84,53 +84,101 @@ export default {
 
 <style scoped>
 
+.itinerary-name {
+  border: 2px solid white;
+  border-radius: 10%;
+  height: 1.5vw;
+  width: 20vw;
+  border-radius: var(--rad);
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  height: 2.5vw;
+  background-color: #b4c2c5;
+  padding: 10px;
+  margin: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
 .list-of-trips {
- 
  display: grid;
   grid-template-columns:  0.5rem 0.1rem;
   grid-template: ". itinerary-title";
   padding: 10px;
   margin: 10px;
     
-   
-
 }
 .itinerary-title {
-  /* grid-area: itinerary-title; */
-  text-decoration: none ;
-   font-family: "Poiret One", cursive;
-  font-size: 25px;
-  font-weight:900;
-  padding:10px;
-  color: white;
+  color: #b18f69;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 6px;
+  display: inline-block;
+  text-decoration: none;
 
 }
 .itinerary-title:hover {
-  color: saddlebrown;
+  color: #5ba1b0;
 }
+
 .travel-list {
-  
   color: black;
   font-family: "Open Sans", sans-serif;
   width: 75%;
-  margin: 100px auto auto auto;
+  margin: auto auto auto auto;
   justify-content: center;
 }
 
-button{
-  /* border-radius: 18%;
-  padding: 9px; */
-  /* margin: 20px; */
-
-}
-.fa-trash-alt {
-  /* size: 100px; */
-  
- 
-  /* padding:5px; */
-}
 .fa-trash-alt:hover {
-  filter:drop-shadow(5px 5px 5px rgba(255, 255, 255, 0.564));
-  color:red;
+  color: #5ba1b0;
 }
+
+.travel-list {
+  visibility: visible;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.5);
+  width: 600px;
+  padding: 60px;
+  margin: auto;
+}
+
+.itinerary-header {
+  font-family: "Poiret One", cursive;
+  letter-spacing: 2px;
+  position: relative;
+  text-align: center;
+  font-size: 6vh;
+  margin: 20px;
+  color: #5ba1b0;
+}
+
+.create-button,
+.submit-button {
+  color: #b18f69;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 15px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.create-button:hover,
+.submit-button:hover {
+  background: #5ba1b0;
+  color: white;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
+}
+
+
 </style>
