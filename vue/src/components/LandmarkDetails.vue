@@ -114,14 +114,22 @@ export default {
 /* body{
   background-image: image;
 } */
-
+.page-grid{
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  ".main-image main-image title title"
+  ".main-image main-image map map"
+  ". ITbtn ITbtn  description description";
+  
+  
+}
 
 
 .main-image {
   height: 40rem;
-  margin: 2rem;
-  margin-top: 100px;
-  margin-left: 100px;
+  width: 100%;
+
   grid-area: main-image;
 }
 
@@ -180,16 +188,7 @@ export default {
 /* .card-gallery{
 grid-area: card-gallery;
 } */
-.page-grid{
-  display: grid;
-  grid-template-columns: 0.2fr 1.5fr 2fr 2fr 0.1fr;
-  grid-template-areas:
-  "main-image main-image title map ."
-  "main-image main-image description map ."
-  ". . ITbtn  . .";
-  
-  
-}
+
 
 
 
