@@ -54,21 +54,7 @@ export default {
       this.$store.commit("SET_LANDMARKS_IN_ITINERARY", response.data);
     });
     this.getItinerary(this.$store.state.user.id);
-  },
-
-  // computed: {
-  //   activeItinerary(){
-  //     this.$store.state.itineraries.map(single =>{
-  //       if(single.itineraryID === this.itineraryID){
-  //         this.name = single.name;
-  //         return thname;
-  //       }
-        
-  //     })
-  //     return this.name;
-      
-  //   }
-  // }
+  }
 };
 </script>
 

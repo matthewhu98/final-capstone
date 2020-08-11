@@ -53,11 +53,9 @@
     <header>
       Welcome back, {{this.$store.state.user.username}} !
     </header>
-   <nav>
-     menu
-   </nav>
+  
     <router-view/>
-    <div></div>
+    <div class="container">team golf LLC</div>
   </div>
 </template>
 
@@ -107,7 +105,7 @@ nav {
 /* .float-right {
   float: right;
 } */
-
+test
 .fa {
   font-size: 0.8em;
   line-height: 22px !important;
@@ -153,7 +151,7 @@ nav {
   visibility: visible;
   opacity: 1;
   top: 0;
-  background: rgba(255, 255, 255, 0.386);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 /* dropdown ul li:nth-child(1) {
@@ -213,7 +211,6 @@ body {
   font-size: 20px;
   padding: 15px;
   /* border: 4px solid black !important; */
-  border-radius: 6px;
   display: inline-block;
   text-decoration: none;
 }

@@ -1,7 +1,7 @@
 <template>
-  <div id="login" class="text-center">
+  <div id="login" class="login-background">
     <form id="login-container" class="form-signin" @submit.prevent="login">
-      <h1 id="login-header" class="h3 mb-3 font-weight-normal">Sign in to start roaming!</h1>
+      <h1 id="login-header">Sign in to start Roaming!</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -103,7 +103,7 @@ export default {
 #register-container {
   visibility: visible;
   opacity: 1;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   width: 600px;
   padding: 60px;
   margin: auto;
@@ -144,6 +144,8 @@ export default {
   padding: 15px;
   display: inline-block;
   text-decoration: none;
+  border: none;
+  background: white;
 }
 
 .login-button:hover,
@@ -162,5 +164,17 @@ export default {
   /* Firefox */
   -ms-backface-visibility: hidden;
   /* Internet Explorer */
+}
+
+.login-background,
+.register-background {
+ background-image: url(../assets/background-bridge.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vw;
+  min-width: 420px;
+  height: 100vh;
+  width: 100vw;
+  position: center;
 }
 </style>
