@@ -129,16 +129,22 @@ export default {
   font-family: "Nanum Pen Script", cursive;
   font-size: 70px;
   grid-area: title;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .description {
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 45px;
+  font-size: 30px;
   border: 1px solid saddlebrown;
-  /* margin: 3rem; */
+  /* margin: 2rem; */
+  margin-bottom: 8rem;
   padding-top: 1rem;
   grid-area: description;
+  color: black;
+  position: relative;
+  min-height:500px;
+  max-height: 100px;
+  
 }
 
 .map{
@@ -146,12 +152,12 @@ export default {
   margin-top: 100px;
 }
 
-.landmark-explained {
-  color: black;
-  display: flex;
+/* .landmark-explained { */
+  /* color: black; */
+  /* display: flex;
   flex-direction: row;
-  justify-content: space-around;
-}
+  justify-content: space-around; */
+/* } */
 
 .button-itinerary{
   grid-area: ITbtn;
