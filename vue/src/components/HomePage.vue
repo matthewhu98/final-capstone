@@ -1,12 +1,7 @@
 <template class="home">
 
   <div class="homepage">
-    <header>
-      test
-    </header>
-   <nav>
-     menu
-   </nav>
+
     <div class="content">
       <h1 class="titlecard">{{title}}</h1>
       <h4>YOUR VIRTUAL TRAVEL PLANNER</h4>
@@ -16,6 +11,7 @@
       <h3>Plan a tour</h3>
       <!-- <div></div> -->
     </div>
+    <div class="test"></div>
   </div>
 </template>
 
@@ -108,6 +104,9 @@ export default {
   background: #23b2dc;
   border-color: #23b2dc !important;
   transition: all 0.4s ease 0s;
+}
+.test {
+  padding:100px;
 }
 html {
   /* background-image: url(../assets/background-home.jpg); */
