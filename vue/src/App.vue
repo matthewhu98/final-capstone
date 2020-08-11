@@ -211,7 +211,6 @@ body {
   font-size: 20px;
   padding: 15px;
   /* border: 4px solid black !important; */
-  border-radius: 6px;
   display: inline-block;
   text-decoration: none;
 }
