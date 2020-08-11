@@ -48,7 +48,10 @@
       </nav>
     </aside>
     <header>
-      <div class="welcome-back">{{typeof getUsers.username !== 'undefined' ? "Welcome back, " + this.$store.state.user.username + "!"  : "Sign in to start your journey!"}}</div>
+      <div class="header-text">Roaming in Rome</div>
+      <div
+        class="welcome-back"
+      >{{typeof getUsers.username !== 'undefined' ? "Welcome back, " + this.$store.state.user.username + "!" : "Sign in to start your journey!"}}</div>
     </header>
     <router-view/>
     <div class="container">Team Golf LLC</div>
@@ -76,19 +79,35 @@ export default {
 }
 
 .welcome-back {
+  font-size: 20px;
   color: white;
+  text-align: right;
+  position: relative;
+  bottom: 28px;
+  right: 50px;
+}
+
+.header-text {
+  text-align: center;
+  color: white;
+  font-family: "Poiret One", cursive;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 35px;
+  font-weight: bold;
+  filter:
+  drop-shadow(5px 5px 5px black);
+  position: relative;
+  top: 5px;
 }
 
 header {
-  padding: 25px;
-  display: flex;
-  justify-content: flex-end;
-
+  padding-top: 20px;
   background-color: #5ba1b0;
-  font-size: 25px;
 }
+
 nav {
-  padding: 20px;
+  padding: 24px;
 }
 .drop-down-text {
   display: flex;
@@ -163,11 +182,13 @@ test .fa {
 .dropdown ul li:nth-child(1):hover {
   background: white;
   color: white;
+  border-radius: 4px;
 }
 
 .dropdown ul li:nth-child(2):hover {
   background: white;
   color: white;
+  border-radius: 4px;
 }
 
 .dropdown ul li:nth-child(3):hover {
@@ -177,11 +198,13 @@ test .fa {
 .dropdown ul li:nth-child(4):hover {
   background: white;
   color: white;
+  border-radius: 4px;
 }
 
 .dropdown ul li:nth-child(5):hover {
   background: white;
   color: white;
+  border-radius: 4px;
 }
 
 .animate {
@@ -197,6 +220,7 @@ test .fa {
   /* Firefox */
   -ms-backface-visibility: hidden;
   /* Internet Explorer */
+  border-radius: 4px;
 }
 
 h1 {

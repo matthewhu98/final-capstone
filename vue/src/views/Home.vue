@@ -13,8 +13,8 @@ import HomePage from "@/components/HomePage.vue";
 export default {
   name: "home",
   components: {
-    HomePage,
-  },
+    HomePage
+  }
 };
 </script>
 
@@ -26,21 +26,20 @@ export default {
 }
 
 .buffer {
-  margin:12vh;
+  margin: 12vh;
 }
 
 .home-page {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
 .homepage-background {
-background-image: url(../assets/background-home-2.jpg);
-background-repeat: no-repeat;
-background-attachment: fixed;
-max-width: 100%;
-background-size: cover;
-
+  background-image: url(../assets/background-home-2.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  max-width: 100%;
+  background-size: cover;
 }
 </style>

@@ -107,6 +107,9 @@ export default {
   width: 600px;
   padding: 60px;
   margin: auto;
+  border-radius: 4px;
+  position: relative;
+  top: 100px;
 }
 
 #register-header,
@@ -146,6 +149,7 @@ export default {
   text-decoration: none;
   border: none;
   background: white;
+  border-radius: 4px;
 }
 
 .login-button:hover,
@@ -168,13 +172,15 @@ export default {
 
 .login-background,
 .register-background {
- background-image: url(../assets/background-bridge.jpg);
+  background-image: url(../assets/background-bridge.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100vw;
   min-width: 420px;
   height: 100vh;
   width: 100vw;
-  position: fixed;
+  background-attachment: fixed;
+  max-width: 100%;
+  background-size: cover;
 }
 </style>

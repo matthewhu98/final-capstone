@@ -1,34 +1,50 @@
 <template>
-<div class="itinerary-background">
-  <div class="travel-list">
-    <h1 class="itinerary-header">Your Itineraries</h1>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
-      rel="stylesheet"
-    />
-    <div v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryID" class="list-of-trips">
-      <div>
-        <router-link
-          class="itinerary-title"
-          v-bind:to="{name: 'itinerarydetails', params: {id: itinerary.itineraryID}}"
-        >{{itinerary.name}}</router-link>
-      </div>
-      <div>
-        <button class="delete-itinerary-button" v-on:click="deleteItiterary(itinerary.itineraryID)"><i class="fas fa-trash-alt fa-2x"></i></button>
-      </div>
-    </div>
-    <div>
-      <button class="create-button" v-on:click="showForm= !showForm">{{showForm === true ? "Cancel": "Create Itinerary"}}</button>
-    </div>
-    <div class="form" v-if="showForm === true">
-      <form v-on:submit.prevent>
-        <input class="itinerary-name" type="text" name="title" v-model="itinerary.name" />
-        <div class="actions">
-          <button type="submit" class="submit-button" v-on:click="saveItinerary()">Submit Itinerary</button>
+  <div class="itinerary-background">
+    <div class="travel-list">
+      <h1 class="itinerary-header">Your Itineraries</h1>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet"
+      >
+      <div
+        v-for="itinerary in this.$store.state.itineraries"
+        v-bind:key="itinerary.itineraryID"
+        class="list-of-trips"
+      >
+        <div>
+          <router-link
+            class="itinerary-title"
+            v-bind:to="{name: 'itinerarydetails', params: {id: itinerary.itineraryID}}"
+          >{{itinerary.name}}</router-link>
         </div>
-      </form>
+        <div>
+          <button
+            class="delete-itinerary-button"
+            v-on:click="deleteItiterary(itinerary.itineraryID)"
+          >
+            <i class="fas fa-trash-alt fa-2x"></i>
+          </button>
+        </div>
+      </div>
+      <div>
+        <button
+          class="create-button"
+          v-on:click="showForm= !showForm"
+        >{{showForm === true ? "Cancel": "Create Itinerary"}}</button>
+      </div>
+      <div class="form" v-if="showForm === true">
+        <form v-on:submit.prevent>
+          <input class="itinerary-naming" type="text" name="title" v-model="itinerary.name">
+          <div class="actions">
+            <button
+              type="submit"
+              class="submit-button"
+              v-on:click="saveItinerary()"
+            >Submit Itinerary</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -68,12 +84,11 @@ export default {
     reloadPage() {
       window.location.reload();
     },
-    deleteItiterary(id){
-      LandmarkService.deleteItinerary(id).then(response =>{
-        if(response.status === 200){
+    deleteItiterary(id) {
+      LandmarkService.deleteItinerary(id).then(response => {
+        if (response.status === 200) {
           alert("Your Trip had Been Deleted");
           this.reloadPage();
-
         }
       });
     }
@@ -85,8 +100,7 @@ export default {
 </script>
 
 <style scoped>
-
-.itinerary-name {
+.itinerary-naming {
   border: 2px solid white;
   border-radius: 10%;
   height: 1.5vw;
@@ -102,11 +116,11 @@ export default {
 }
 
 .list-of-trips {
- display: grid;
-  grid-template-columns:  1rem 1rem;
+  display: grid;
+  grid-template-columns: 1rem 1rem;
   grid-template: "itinerary-title delete-itinerary-button";
   padding: 10px;
-  margin: 10px;  
+  margin: 10px;
 }
 .itinerary-title {
   color: #b18f69;
@@ -138,6 +152,9 @@ export default {
   width: 600px;
   padding: 60px;
   margin: auto;
+  border-radius: 4px;
+  position: relative;
+  top: 100px;
 }
 
 .fa-trash-alt:hover {
@@ -164,6 +181,7 @@ export default {
   text-decoration: none;
   border: none;
   background: white;
+  border-radius: 4px;
 }
 
 .create-button:hover,
@@ -185,14 +203,15 @@ export default {
 }
 
 .itinerary-background {
- background-image: url(../assets/background-itinerary.jpg);
+  background-image: url(../assets/background-itinerary.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100vw;
   min-width: 420px;
   height: 100vh;
   width: 100vw;
-  position: fixed;
+  background-attachment: fixed;
+  max-width: 100%;
+  background-size: cover;
 }
-
 </style>
