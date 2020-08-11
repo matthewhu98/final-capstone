@@ -162,6 +162,8 @@ export default {
   padding: 15px;
   display: inline-block;
   text-decoration: none;
+  border: none;
+  background: white;
 }
 
 .create-button:hover,
@@ -195,7 +197,7 @@ export default {
 }
 
 .itinerary-background {
- background-image: url(../assets/background-bridge.jpg);
+ background-image: url(../assets/background-itinerary.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100vw;

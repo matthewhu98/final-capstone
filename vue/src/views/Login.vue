@@ -144,6 +144,8 @@ export default {
   padding: 15px;
   display: inline-block;
   text-decoration: none;
+  border: none;
+  background: white;
 }
 
 .login-button:hover,
