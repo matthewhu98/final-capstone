@@ -1,7 +1,17 @@
 <template>
-  <div class="details-backgroung">
-   <div class="itinerary-name"  v-bind:value="getItineraryName(this.itineraryID)"> {{this.name}} </div>
+  <div>
+   <div class="itinerary-name itinerary-title-color"  v-bind:value="getItineraryName(this.itineraryID)"> {{this.name}} </div>
+   <router-link class="add-more-lands" v-bind:to="{ name: 'the-landmarks'}">
+        Add More Attractions
+      </router-link>
      <div class="IT-Container">
+
+       <!-- <router-link
+              class="title-home-page button"
+              v-bind:to="{ name: 'the-landmarks'}"
+            >Landmarks</router-link> -->
+      
+
        <div class="objects container-panel" 
          v-for="landmark in this.$store.state.landmarksInItinerary"
          v-bind:key="landmark.landmarkID">
@@ -19,7 +29,9 @@
         </div>
       </div>
    </div>
-    
+    <div class="page-footer">
+
+  </div>
   </div>
 </template>
 
@@ -140,21 +152,23 @@ export default {
 .delete-land-button{
   border: none;
   background: none;
-  color: #b18f69;
+  color: white;
 }
 
-.details-backgroung{
-  
-  background-image: url(../assets/itinerary-details-page.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  /* background-size: 50vw; */
-  max-width: 100%;
-  max-height: 100%;
-  /* width: 100vw; */
-  background-size:cover ;
-  background-attachment: fixed;
 
+.add-more-lands{
+  position: center;
+  /* right: 40px;
+  top: 120px; */
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
+.page-footer{
+  height: 50px;
+}
+.itinerary-title-color{
+  color: white;
 }
 
 </style>
