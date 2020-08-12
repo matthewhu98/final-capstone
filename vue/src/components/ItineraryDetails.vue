@@ -111,13 +111,15 @@ export default {
   filter: grayscale(50%);
 }
 .single-image-IT{
-  --size: 250px;
+  --size: 300px;
   height: calc(var(--size) * 1.3);
   width: var(--size);
-  /* border-radius: calc(var(--size) * 0.15); */
+  border-radius: 5px;
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
+    border: 1.3rem solid white;
+  border-bottom: 3.5rem solid white;
   
 }
 .img-container{
@@ -125,6 +127,7 @@ export default {
   color: white;
   filter: grayscale(25%);
   font-family: "Open Sans", sans-serif;
+
 }
 .img-container:hover{
   text-decoration: underline;
@@ -133,13 +136,14 @@ export default {
     drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
 }
 .land-title{
-  color:white;
+  color: black;
   text-decoration: none;
   font-size: 15px;
   position: relative;
-  bottom: 10px;
+  bottom: 50px;
   z-index: 3;
   font-family: 'Rock Salt', cursive;
+  right: 20px;
 }
 .itinerary-name{
   font-family: "Poiret One", cursive;
@@ -152,7 +156,10 @@ export default {
 .delete-land-button{
   border: none;
   background: none;
-  color: white;
+  color: black;
+  position: relative;
+  bottom: 75px;
+  left:100px;
 }
 
 
