@@ -23,8 +23,17 @@ public class ItineraryLandmarkSqlDAO implements ItineraryLandmarkDAO{
 	}
 
 
+//	@Override
+//	public void deleteLandmarkInItinerary(int itineraryID, int landmarkID) {
+//		String sql = "delete from itinerary_landmarks where itinerary_id = ? and landmark_id = ?";
+//		jdbcTemplate.update(sql, itineraryID, landmarkID);
+//		
+//	}
+
+
 	@Override
 	public void deleteLandmarkInItinerary(ItineraryLandmark itineraryLandmark) {   //deleting landmark from specific itinerary
+		
 		
 		String sql = "delete from itinerary_landmarks where itinerary_id = ? and landmark_id = ?";
 		jdbcTemplate.update(sql, itineraryLandmark.getItineraryId(), itineraryLandmark.getLandmarkId());

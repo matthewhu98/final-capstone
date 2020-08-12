@@ -1,7 +1,17 @@
 <template>
-  <div class="details-backgroung">
-   <div class="itinerary-name"  v-bind:value="getItineraryName(this.itineraryID)"> {{this.name}} </div>
+  <div>
+   <div class="itinerary-name itinerary-title-color"  v-bind:value="getItineraryName(this.itineraryID)"> {{this.name}} </div>
+   <router-link class="add-more-lands" v-bind:to="{ name: 'the-landmarks'}">
+        Add More Attractions
+      </router-link>
      <div class="IT-Container">
+
+       <!-- <router-link
+              class="title-home-page button"
+              v-bind:to="{ name: 'the-landmarks'}"
+            >Landmarks</router-link> -->
+      
+
        <div class="objects container-panel" 
          v-for="landmark in this.$store.state.landmarksInItinerary"
          v-bind:key="landmark.landmarkID">
@@ -19,7 +29,9 @@
         </div>
       </div>
    </div>
-    
+    <div class="page-footer">
+
+  </div>
   </div>
 </template>
 
@@ -99,13 +111,15 @@ export default {
   filter: grayscale(50%);
 }
 .single-image-IT{
-  --size: 250px;
+  --size: 300px;
   height: calc(var(--size) * 1.3);
   width: var(--size);
-  /* border-radius: calc(var(--size) * 0.15); */
+  border-radius: 5px;
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
+    border: 1.3rem solid white;
+  border-bottom: 3.5rem solid white;
   
 }
 .img-container{
@@ -113,6 +127,7 @@ export default {
   color: white;
   filter: grayscale(25%);
   font-family: "Open Sans", sans-serif;
+
 }
 .img-container:hover{
   text-decoration: underline;
@@ -121,13 +136,14 @@ export default {
     drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
 }
 .land-title{
-  color:white;
+  color: black;
   text-decoration: none;
   font-size: 15px;
   position: relative;
-  bottom: 10px;
+  bottom: 50px;
   z-index: 3;
   font-family: 'Rock Salt', cursive;
+  right: 20px;
 }
 .itinerary-name{
   font-family: "Poiret One", cursive;
@@ -140,21 +156,26 @@ export default {
 .delete-land-button{
   border: none;
   background: none;
-  color: #b18f69;
+  color: black;
+  position: relative;
+  bottom: 75px;
+  left:100px;
 }
 
-.details-backgroung{
-  
-  background-image: url(../assets/itinerary-details-page.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  /* background-size: 50vw; */
-  max-width: 100%;
-  max-height: 100%;
-  /* width: 100vw; */
-  background-size:cover ;
-  background-attachment: fixed;
 
+.add-more-lands{
+  position: center;
+  /* right: 40px;
+  top: 120px; */
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
+.page-footer{
+  height: 50px;
+}
+.itinerary-title-color{
+  color: white;
 }
 
 </style>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.dao.ItineraryDAO;
@@ -72,9 +73,15 @@ public class serverController {
 		itDao.deleteItierary(id);
 	}
 	
-	// this method is to delete i specific landmark from Itinerary
-	@RequestMapping(path = "/itinerarydetails/{id}", method = RequestMethod.DELETE)    // itinerary ID 
+//	 this method is to delete i specific landmark from Itinerary
+	@RequestMapping(path = "/itinerarydetails/landmark/{id}", method = RequestMethod.POST)    // itinerary ID 
 	public void deleteLandmarkInItinerary(@RequestBody ItineraryLandmark itineraryLandmark) {
 		itlDao.deleteLandmarkInItinerary(itineraryLandmark);
 	}
+	
+	
+//	@RequestMapping(path = "/itinerarydetails/{id}", method = RequestMethod.DELETE)
+//	public void deleteLandmarkInItinerary(@PathVariable int itineraryID, @RequestParam int landmarkID){
+//		itlDao.deleteLandmarkInItinerary( itineraryID, landmarkID);
+//	}
 }
