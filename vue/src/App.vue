@@ -6,47 +6,6 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     >
-    <aside class="drop-down-text">
-      <nav class="dropdown">
-        <input id="toggle2" type="checkbox">
-        <label for="toggle2" class="animate menu menu-title">Menu</label>
-        <ul class="animate">
-          <li class="animate">
-            <router-link class="home-button button" v-bind:to="{ name: 'home'}">Home</router-link>
-          </li>
-          <li class="animate">
-            <router-link
-              class="title-home-page button"
-              v-bind:to="{ name: 'the-landmarks'}"
-            >Landmarks</router-link>
-          </li>
-
-          <li class="animate">
-            <router-link
-              class="itinerary button"
-              v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}"
-            >Itinerary</router-link>
-          </li>
-
-          <li class="animate">
-            <router-link
-              class="button"
-              v-bind:to="{ name: 'login' }"
-              v-if="$store.state.token === ''"
-            >Login</router-link>
-            <router-link
-              class="button"
-              v-bind:to="{ name: 'logout' }"
-              v-if="$store.state.token != ''"
-            >Logout</router-link>
-          </li>
-
-          <li class="animate">
-            <router-link class="register button" v-bind:to="{name: 'register'}">New User?</router-link>
-          </li>
-        </ul>
-      </nav>
-    </aside>
     <header>
       <div class="nav-grid">
         <router-link class="header-text" v-bind:to="{ name: 'home'}">Roaming in Rome</router-link>
@@ -55,11 +14,52 @@
           v-bind:to="{ name: 'login'}"
         >{{typeof getUsers.username !== 'undefined' ? "Welcome back, " + this.$store.state.user.username + "!" : "Sign in to start your journey!"}}</router-link>
       </div>
+      <aside class="drop-down-text">
+        <nav class="dropdown">
+          <input id="toggle2" type="checkbox">
+          <label for="toggle2" class="animate menu">Menu</label>
+          <ul class="animate">
+            <li class="animate">
+              <router-link class="home-button button" v-bind:to="{ name: 'home'}">Home</router-link>
+            </li>
+            <li class="animate">
+              <router-link
+                class="title-home-page button"
+                v-bind:to="{ name: 'the-landmarks'}"
+              >Landmarks</router-link>
+            </li>
+
+            <li class="animate">
+              <router-link
+                class="itinerary button"
+                v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}"
+              >Itinerary</router-link>
+            </li>
+
+            <li class="animate">
+              <router-link
+                class="button"
+                v-bind:to="{ name: 'login' }"
+                v-if="$store.state.token === ''"
+              >Login</router-link>
+              <router-link
+                class="button"
+                v-bind:to="{ name: 'logout' }"
+                v-if="$store.state.token != ''"
+              >Logout</router-link>
+            </li>
+
+            <li class="animate">
+              <router-link class="register button" v-bind:to="{name: 'register'}">New User?</router-link>
+            </li>
+          </ul>
+        </nav>
+      </aside>
     </header>
     <router-view/>
     <div class="team-golf">
-    <div class="team-golf-text">Team Golf LLC</div>
-    <i class="fas fa-golf-ball"></i>
+      <div class="team-golf-text">Team Golf LLC</div>
+      <i class="fas fa-golf-ball"></i>
     </div>
   </div>
 </template>
@@ -135,8 +135,8 @@ export default {
 .menu {
   color: #b08555;
   font-family: "Open Sans", sans-serif;
-    position: fixed;
-  z-index: 2;
+  position: relative;
+  z-index: 11;
 }
 
 header {
@@ -145,11 +145,13 @@ header {
   background-color: #5ba1b0;
   width: 100vw;
   position: fixed;
-  z-index: 1;
+  z-index: 9;
 }
 
 nav {
   padding: 24px;
+  position: fixed;
+  bottom: 204px;
 }
 
 .drop-down-text {
@@ -225,13 +227,11 @@ test .fa {
 .dropdown ul li:nth-child(1):hover {
   background: white;
   color: white;
-  border-radius: 4px;
 }
 
 .dropdown ul li:nth-child(2):hover {
   background: white;
   color: white;
-  border-radius: 4px;
 }
 
 .dropdown ul li:nth-child(3):hover {
@@ -241,13 +241,11 @@ test .fa {
 .dropdown ul li:nth-child(4):hover {
   background: white;
   color: white;
-  border-radius: 4px;
 }
 
 .dropdown ul li:nth-child(5):hover {
   background: white;
   color: white;
-  border-radius: 4px;
 }
 
 .animate {
@@ -263,7 +261,7 @@ test .fa {
   /* Firefox */
   -ms-backface-visibility: hidden;
   /* Internet Explorer */
-  border-radius: 4px;
+  border-radius: 0px 0px 4px 4px;
 }
 
 h1 {
