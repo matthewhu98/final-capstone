@@ -9,7 +9,7 @@
     <aside class="drop-down-text">
       <nav class="dropdown">
         <input id="toggle2" type="checkbox">
-        <label for="toggle2" class="animate menu">Menu</label>
+        <label for="toggle2" class="animate menu menu-title">Menu</label>
         <ul class="animate">
           <li class="animate">
             <router-link class="home-button button" v-bind:to="{ name: 'home'}">Home</router-link>
@@ -135,17 +135,23 @@ export default {
 .menu {
   color: #b08555;
   font-family: "Open Sans", sans-serif;
+    position: fixed;
+  z-index: 2;
 }
 
 header {
   padding-top: 20px;
   padding-bottom: 27px;
   background-color: #5ba1b0;
+  width: 100vw;
+  position: fixed;
+  z-index: 1;
 }
 
 nav {
   padding: 24px;
 }
+
 .drop-down-text {
   display: flex;
   justify-content: left;
@@ -190,7 +196,7 @@ test .fa {
 .dropdown label {
   color: white;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .dropdown input {
