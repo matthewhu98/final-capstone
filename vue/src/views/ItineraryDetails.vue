@@ -19,7 +19,7 @@ export default {
 <style>
 .details-backgroung{
   
-  background-image: url(../assets/background-itinerary-datials.jpg);
+  background-image: url(../assets/background-itinerary-details.jpg);
   background-repeat: no-repeat;
   /* background-position: center; */
   /* background-size: 50vw; */

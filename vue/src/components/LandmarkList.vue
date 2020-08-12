@@ -199,6 +199,10 @@ h1 {
   font-family: "Rock Salt", cursive;
 }
 
+.card:hover .title {
+  color: #d50102;
+}
+
 .button-itinerary {
   color: #d50102;
   padding: 0.5rem;

@@ -82,31 +82,29 @@
           </section>
 
           <section class="st-panel" id="st-panel-5">
-            <div data-icon></div>
             <h2>Add to Itinerary</h2>
-            <div class="button-and-menu">
-              <button
-                class="button-itinerary"
-                v-on:click="showListOfItineraries = !showListOfItineraries"
-              >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
-              <div class="itTable">
-                <tr v-show="showListOfItineraries">
-                  <div
-                    v-for="itinerary in this.$store.state.itineraries"
-                    v-bind:key="itinerary.itineraryID"
-                  >
-                    <td>{{itinerary.name}}</td>
-                    <td>
-                      <input
-                        type="checkbox"
-                        v-bind:id="itinerary.itineraryID"
-                        v-on:click="addLandmarkToIt(itinerary.itineraryID)"
-                      >
-                    </td>
+            <button
+              class="button-itinerary"
+              v-on:click="showListOfItineraries = !showListOfItineraries"
+            >{{showListOfItineraries === true ? "Done": "Add to Trips"}}</button>
+            <div class="itTable">
+              <div v-show="showListOfItineraries">
+                <div
+                  v-for="itinerary in this.$store.state.itineraries"
+                  v-bind:key="itinerary.itineraryID"
+                >
+                  <div>{{itinerary.name}}</div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      v-bind:id="itinerary.itineraryID"
+                      v-on:click="addLandmarkToIt(itinerary.itineraryID)"
+                    >
                   </div>
-                </tr>
+                </div>
               </div>
             </div>
+            <div class="button-and-menu"></div>
           </section>
         </div>
         <!-- // st-scroll -->
@@ -702,18 +700,15 @@ a {
 }
 
 .itTable {
-  position: absolute;
-  margin: auto;
+  margin: 60px;
   align-self: center !important;
   font-size: 30px;
-  top: 500px;
-  left: 670px;
-
+  margin-top: 25vh;
+  text-transform: uppercase;
 }
 
 .button-itinerary {
-  margin-top: 300px;
-  position: relative;
+  margin-top: 20vh;
   z-index: 1;
   color: #b18f69;
   text-transform: uppercase;
