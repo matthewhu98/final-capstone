@@ -137,14 +137,13 @@ export default {
 
 .card {
   color: white;
-  filter: grayscale(50%);
+  filter: grayscale(100%);
   font-family: "Open Sans", sans-serif;
 }
 
 .card:hover {
   filter: grayscale(0%);
-  filter: contrast(130%) saturate(130%)
-  drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
   transform: scale(1.02);
 }
 
