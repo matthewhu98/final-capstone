@@ -3,33 +3,32 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
-    />
-          
+    >
 
     <!-- <div class="page-grid"> -->
     <div class="container">
       <div class="st-container">
-        <input type="radio" name="radio-set" checked="checked" id="st-control-1" />
+        <input type="radio" name="radio-set" checked="checked" id="st-control-1">
         <a href="#st-panel-1">
           <h2 class="title">{{this.$store.state.activeLandmark.name}}</h2>
         </a>
 
-        <input type="radio" name="radio-set" id="st-control-2" />
+        <input type="radio" name="radio-set" id="st-control-2">
         <a href="#st-panel-2">
           <h2 class="title">Photos</h2>
         </a>
 
-        <input type="radio" name="radio-set" id="st-control-3" />
+        <input type="radio" name="radio-set" id="st-control-3">
         <a href="#st-panel-3">
           <h2 class="title">Summary</h2>
         </a>
 
-        <input type="radio" name="radio-set" id="st-control-4" />
+        <input type="radio" name="radio-set" id="st-control-4">
         <a href="#st-panel-4">
           <h2 class="title">Map</h2>
         </a>
 
-        <input type="radio" name="radio-set" id="st-control-5" />
+        <input type="radio" name="radio-set" id="st-control-5">
         <a href="#st-panel-5">
           <h2 class="title">Add to Itinerary</h2>
         </a>
@@ -42,46 +41,48 @@
             <h2>
               <h1 class="title landmark-name">{{this.$store.state.activeLandmark.name}}</h1>
             </h2>
-            <p class="description tagline">{{this.$store.state.activeLandmark.summery}}</p>
-            <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" />
+            <p class="tagline">{{this.$store.state.activeLandmark.summery}}</p>
+            <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)">
           </section>
 
           <section class="st-panel st-color" id="st-panel-2">
-            <div class="st-deco" data-icon></div>
+            <div data-icon></div>
             <!-- <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" /> -->
-            <div class= "card-gallery ">
-                    <div class="gallery gallery cf" v-for="singleImg in this.$store.state.activeLandmark.moreImgs" v-bind:key="singleImg.id">
-                        <img class="single-in-gallery-image card" v-bind:src="getImageUrl(singleImg)">
-                      </div>
+            <div class="collection">
+              <div
+                class="gallery"
+                v-for="singleImg in this.$store.state.activeLandmark.moreImgs"
+                v-bind:key="singleImg.id"
+              >
+                <img class="single-in-gallery-image" v-bind:src="getImageUrl(singleImg)">
               </div>
+            </div>
           </section>
 
           <section class="st-panel" id="st-panel-3">
-            <div class="st-deco" data-icon></div>
+            <div data-icon></div>
             <h2 class="title">{{this.$store.state.activeLandmark.name}}</h2>
             <p class="description">{{this.$store.state.activeLandmark.discription}}</p>
           </section>
 
           <section class="st-panel st-color" id="st-panel-4">
-            <div class="st-deco " data-icon="">
-             
-            </div>
-            <p class="map">
+            <div data-icon></div>
+            <div class="map">
               <iframe
                 v-bind:src="getMap()"
-                width="750"
-                height="700"
+                width="800"
+                height="500"
                 frameborder="0"
                 style="border:0;"
                 allowfullscreen
                 aria-hidden="false"
                 tabindex="0"
               ></iframe>
-            </p>
+            </div>
           </section>
 
           <section class="st-panel" id="st-panel-5">
-            <div class="st-deco" data-icon></div>
+            <div data-icon></div>
             <h2>add to Itinerary</h2>
             <button
               class="button-itinerary button"
@@ -99,7 +100,7 @@
                     type="checkbox"
                     v-bind:id="itinerary.itineraryID"
                     v-on:click="addLandmarkToIt(itinerary.itineraryID)"
-                  />
+                  >
                 </td>
               </div>
             </tr>
@@ -146,16 +147,16 @@ export default {
   name: "landmark-details",
   image: "getImageUrl(this.$store.state.activeLandmark.img)",
   props: {
-    landmarkID: Number,
+    landmarkID: Number
   },
   data() {
     return {
       itineraryLandmark: {
         landmarkId: this.landmarkID,
-        itineraryId: 0,
+        itineraryId: 0
       },
 
-      showListOfItineraries: false,
+      showListOfItineraries: false
     };
   },
 
@@ -164,7 +165,7 @@ export default {
       return require(`@/assets/${pic}`);
     },
     getItinerary(userId) {
-      LandmarkService.getItinerary(userId).then((response) => {
+      LandmarkService.getItinerary(userId).then(response => {
         this.$store.commit("SET_ITINERARIES", response.data);
       });
     },
@@ -175,12 +176,12 @@ export default {
         this.landmarkID,
         this.itineraryLandmark
       )
-        .then((response) => {
+        .then(response => {
           if (response.status === 201) {
             alert("your landmark has been added");
           }
         })
-        .catch((error) => {
+        .catch(error => {
           if (error.response.status == 404) {
             this.$router.push("/not-found");
           }
@@ -189,7 +190,7 @@ export default {
 
     getMap() {
       return this.$store.state.activeLandmark.mapLink;
-    },
+    }
 
     // }
     // actionButtonDisabled(){
@@ -199,11 +200,11 @@ export default {
     //   },
   },
   created() {
-    LandmarkService.getLandmark(this.landmarkID).then((response) => {
+    LandmarkService.getLandmark(this.landmarkID).then(response => {
       this.$store.commit("SET_ACTIVE_LANDMARK", response.data);
     });
     this.getItinerary(this.$store.state.user.id);
-  },
+  }
   //     computed: {
   //   backgroundURL: getImageUrl() {
   //     return 'url(this.$store.state.activeLandmark.img)';
@@ -214,39 +215,42 @@ export default {
 </script>
 
 <style  lang="css" scoped>
-@import url("//fonts.googleapis.com/css?family=Josefin+Slab:400,700");
 body {
   overflow: hidden;
 }
+
 a {
   text-decoration: none;
 }
-h1{
+
+.landmark-name {
+  font-size: 80px;
   font-family: "Poiret One", cursive;
+  filter: drop-shadow(5px 5px 5px black);
 }
 
 .tagline {
-  font-size:30px;
+  text-align: center !important;
+  color: #494949 !important;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  margin: 30px;
 }
-.landmark-name {
-  font-size: 120px;
-  font-weight: 900;
-}
+
 .main-image {
+  position: relative;
   background-repeat: no-repeat;
   background-attachment: fixed;
   max-width: 100%;
   height: auto;
   background-size: cover;
 }
+
 .st-container {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  /* font-family: "Poiret One", cursive; */
-  font-family: "Josefin Slab", "Myriad Pro", Arial, sans-serif;
 }
 
 .st-container > input,
@@ -255,7 +259,9 @@ h1{
   bottom: 0px;
   width: 20%;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
   height: 34px;
   line-height: 34px;
 }
@@ -268,10 +274,9 @@ h1{
 .st-container > a {
   z-index: 10;
   font-weight: 700;
-  background: #B0604E;
-  color: #fff;
+  background: white;
+  color: #494949;
   text-align: center;
-  text-shadow: 1px 1px 1px rgba(151, 24, 64, 0.2);
 }
 
 /* "Fix" for percentage rounding: add a background bar pseudo element with the same color like the labels */
@@ -312,10 +317,11 @@ h1{
 
 .st-container > input:checked + a,
 .st-container > input:checked:hover + a {
-  background:  #4e9eb0;
+  background: #4e9eb0;
+    color: white;
 }
 
-.st-container > input:checked + a:after,
+/* .st-container > input:checked + a:after,
 .st-container > input:checked:hover + a:after {
   bottom: 100%;
   border: solid transparent;
@@ -324,18 +330,18 @@ h1{
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color:  #5ba1b0;
+  border-bottom-color: #5ba1b0;
   border-width: 20px;
   left: 50%;
   margin-left: -20px;
-}
+} */
 
 .st-container > input:hover + a {
-  background: #ad244f;
+  background:#dce2e1;
 }
 
 .st-container > input:hover + a:after {
-  border-bottom-color: #ad244f;
+  border-bottom-color: #b18f69;
 }
 
 .st-scroll,
@@ -362,7 +368,6 @@ h1{
 }
 
 .st-panel {
-  background: rgb(220, 220, 220);
   overflow: hidden;
 }
 
@@ -404,33 +409,17 @@ h1{
 
 /* Content elements */
 
-.st-deco {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  margin-left: -100px;
-  background:  #5ba1b0;
-  -webkit-transform: translateY(-50%) rotate(45deg);
-  -moz-transform: translateY(-50%) rotate(45deg);
-  -o-transform: translateY(-50%) rotate(45deg);
-  -ms-transform: translateY(-50%) rotate(45deg);
-  transform: translateY(-50%) rotate(45deg);
-}
-
 [data-icon]:after {
-    content: attr(data-icon);
-    
-    color: #fff;
-  text-shadow: 1px 1px 1px rgba(151,24,64,0.2);
+  content: attr(data-icon);
+
+  color: #fff;
   position: absolute;
   width: 200px;
   height: 200px;
   line-height: 200px;
   text-align: center;
   font-size: 90px;
-  font-family: "Josefin Slab", "Myriad Pro", Arial, sans-serif;
+  font-family: "Poiret One", cursive;
   top: 50%;
   left: 50%;
   margin: -100px 0 0 -100px;
@@ -442,14 +431,15 @@ h1{
 }
 
 .st-panel h2 {
-  color:  #69bacd;
-  text-shadow: 1px 1px 1px rgba(151, 24, 64, 0.2);
+  font-family: "Poiret One", cursive;
+  color: white;
   position: absolute;
   font-size: 54px;
   font-weight: 900;
   width: 80%;
   left: 10%;
   text-align: center;
+  z-index: 2;
   line-height: 50px;
   margin: -70px 0 0 0;
   padding: 0;
@@ -469,6 +459,11 @@ h1{
   -ms-animation: moveDown 0.6s ease-in-out 0.2s backwards;
   animation: moveDown 0.6s ease-in-out 0.2s backwards;
 }
+
+#st-panel-2 {
+  padding: 160px 60px 60px 60px;
+}
+
 @-webkit-keyframes moveDown {
   0% {
     -webkit-transform: translateY(-40px);
@@ -526,11 +521,11 @@ h1{
 
 .st-panel p {
   position: absolute;
-  text-align: center;
-  font-size: 50px;
+  text-align: left;
   line-height: 40px;
   color: #797979;
-  background: rgba(255, 255, 255, 0.755);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.8);
   z-index: 2;
   padding: 10px;
   width: 50%;
@@ -609,23 +604,21 @@ h1{
 
 /* Colored sections */
 
-.st-color,
-.st-deco {
-  background:  #5ba1b0;
+.st-color {
+  background: #5ba1b0;
 }
 .st-color [data-icon]:after {
-  color: #fa96b5;
+  color: #d8caae;
 }
-.st-color .st-deco {
-  background: #fff;
+.st-color {
+  background: #d8caae;
 }
 .st-color h2 {
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  color: #d8caae;
 }
 .st-color p {
-  color: #fff;
-  color: rgba(255, 255, 255, 0.8);
+  color: #d8caae;
+  color: #dce2e1;
 }
 
 @media screen and (max-width: 520px) {
@@ -646,12 +639,6 @@ h1{
 @media screen and (max-width: 360px) {
   .st-container > a {
     font-size: 10px;
-  }
-
-  .st-deco {
-    width: 120px;
-    height: 120px;
-    margin-left: -60px;
   }
 
   [data-icon]:after {
@@ -693,28 +680,10 @@ h1{
   grid-area: title;
   
 } */
-
-.description {
- 
-  grid-area: description;
-  /* font-size: 35px; */
-  text-align: left;
-  
-
-  
-  
-}
 .map {
   position: center;
+  padding-top: 160px;
 }
-
-/* .map{
-  grid-area:map;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
- 
-} */
 
 /* .landmark-explained { */
 /* color: black; */
@@ -723,98 +692,52 @@ h1{
   justify-content: space-around; */
 /* } */
 
-.button-itinerary{
-  position:center absolute;
+.button-itinerary {
+  position: center absolute;
   margin: 250px;
-
 }
 
 .itTable {
   position: center;
   padding: 50px;
-  margin:50px;
+  margin: 50px;
   font-size: 25px;
   /* right: 20px; */
-
- 
-} 
-
-.card-gallery{
- display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-  grid-gap: 15rem;
-  
-  max-width: 80rem;
-  margin: 9rem auto;
-  padding: 10 5rem;
-}
-
-/* this is for the gallery */
-
-.gallery {
-  width: 790px;
-  margin: 0 auto;
-  padding: 5px;
-  
 }
 
 .gallery {
+  display: grid;
   position: relative;
+  align-content: center;
   float: left;
-  padding: 5px;
   width: 250px;
   transition: 0.1s transform;
   transform: translateZ(0);
+  margin: 0 10px 45px 10px;
 }
 
-.gallery {
-   /* hack */
- }
-
-
-
-
-
-
-.single-in-gallery-image{
-  --size: 100px;
-  height: calc(var(--size) * 1.15);
-  width: var(--size);
-  position: center;
-} 
- h1{
+h1 {
   grid-area: h1;
-} 
-.card {
-  grid-gap: 10px;
-  color: white;
-  filter:grayscale(25%);
-  font-family: 'Open Sans', sans-serif;
-  grid-area: card;
 }
 
- .single-in-gallery-image {
-  --size: 400px;
-  height: calc(var(--size) * 1.15);
-  width: var(--size);
-  border-radius: calc(var(--size) * 0.15);
+.collection {
+  padding-left: 200px;
+}
+
+.single-in-gallery-image {
+  height: 225px;
+  width: 225px;
+  object-fit: cover;
+  border: 0.5rem solid white;
+  border-radius: 3px;
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
+  transition: transform 200ms ease-out;
 }
-/* repeat(auto-fill, minmax(20rem, 1fr)); */
-/* .grid {
-  display: grid;
-  grid-template-columns: 
-  /* ". h1 h1 h1 h1" */
 
-/* ". description single-image single-image ."
-  repeat(auto-fill, minmax(20rem, 1fr));
-
-
-  grid-gap: 1rem;
-  max-width: 80rem;
-  margin: 5rem auto;
-  padding: 10 5rem;
-}  */
+.single-in-gallery-image:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
+}
 </style>

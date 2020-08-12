@@ -114,6 +114,7 @@ img {
   font-weight: bold;
   filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
   margin: 30px;
+  padding-top: 60px;
 }
 
 .subtext {
