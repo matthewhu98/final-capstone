@@ -4,7 +4,7 @@
 
     <div id="search">
       <!-- <label for="name">Where do you want to go?</label> -->
-      <input type="text" class="search-bar" placeholder="Where do you want to go?" v-model="name" />
+      <input type="text" class="search-bar" placeholder="Where do you want to go?" v-model="name">
       <i class="fas fa-search"></i>
     </div>
 
@@ -28,20 +28,20 @@
                     v-for="itinerary in itineraries"
                     v-bind:key="itinerary.itineraryID"
                   >
-                    <td>{{itinerary.name}}: </td>
+                    <td>{{itinerary.name}}:</td>
                     <td>
                       <input
                         type="checkbox"
                         v-bind:id="itinerary.itineraryID"
                         v-on:click="addLandmarkToIt(itinerary.itineraryID, landmark.landmarkID)"
-                      />
+                      >
                     </td>
                   </div>
                 </div>
               </tr>
             </div>
 
-            <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)" />
+            <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)">
             <router-link
               class="title"
               v-bind:to="{name: 'landmarkdetails', params: {id: landmark.landmarkID}}"
@@ -126,68 +126,67 @@ export default {
   --size: 400px;
   height: calc(var(--size) * 1.3);
   width: var(--size);
-  /* border-radius: calc(var(--size) * 0.15); */
+  object-fit: cover;
+  border-radius: none;
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
-  border: 1.3rem solid white;
-  border-bottom: 3.5rem solid white;
-  border-radius: 5px;
+  border: 1.2rem solid white;
+  border-bottom: 4rem solid white;
 }
+
 .card {
-  grid-gap: 10px;
   color: white;
-  filter: grayscale(25%);
+  filter: grayscale(50%);
   font-family: "Open Sans", sans-serif;
-  /* background: white; */
 }
+
 .card:hover {
-  text-decoration: gray;
-
-  filter: contrast(140%) saturate(150%)
-    drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
-}
-
-.list-of-landmarks {
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  filter: grayscale(0%);
+  filter: contrast(130%) saturate(130%)
+  drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+  transform: scale(1.02);
 }
 
 .search-bar {
   border: 2px solid white;
   border-radius: 10%;
-
   height: 1.5vw;
   width: 20vw;
   border-radius: var(--rad);
-
   transition: all var(--dur) var(--bez);
   transition-property: width, border-radius;
   height: 2.5vw;
   background-color: #b4c2c5;
   padding: 10px;
   margin: 20px;
-
   font-family: "Open Sans", sans-serif;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   max-width: 80rem;
-  margin: 5rem auto;
+  margin: auto;
   padding: 10 5rem;
-  filter: grayscale(50%);
 }
 
 h1 {
   font-family: "Poiret One", cursive;
   font-size: 5vw;
+  padding: 30px;
 }
+
 #search {
-  font-family: "Poiret One", cursive;
-  font-size: 1.5vw;
+  font-size: 2vw;
   font-weight: bold;
   color: white;
+}
+
+.fa-search {
+  position: relative;
+  top: 5px;
 }
 
 .title {
@@ -213,7 +212,6 @@ h1 {
 }
 
 .bring-forward {
-  /* filter: opacity(50%); */
   margin: auto;
   position: absolute;
   top: 45%;
@@ -225,7 +223,7 @@ h1 {
 }
 
 .itTable2 {
-    padding: 20px;
+  padding: 20px;
   overflow: hidden;
 }
 
@@ -235,8 +233,7 @@ input {
 }
 
 .your-itineraries {
-border-bottom: 1px solid white;
-padding-bottom: 3px
-
+  border-bottom: 1px solid white;
+  padding-bottom: 3px;
 }
 </style>

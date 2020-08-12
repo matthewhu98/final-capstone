@@ -1,5 +1,5 @@
 <template>
-  <div class="title container landmark-page search-background">
+  <div class="search-background">
     <div class="card">
       
       <landmark-list class="landmark-card"></landmark-list>
@@ -19,13 +19,11 @@ export default {
 
 <style>
 .search-background {
- background-image: url(../assets/background-search.jpg);
+  background-image: url(../assets/background-search.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100vw;
-  min-width: 420px;
-  height: 100vh;
-  width: 100vw;
-  position: center;
+  background-attachment: fixed;
+  max-width: 100%;
+  background-size: cover;
 }
 </style>
