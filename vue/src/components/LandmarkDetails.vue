@@ -4,6 +4,7 @@
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap"
       rel="stylesheet"
     />
+          
 
     <!-- <div class="page-grid"> -->
     <div class="container">
@@ -37,16 +38,22 @@
           <!-- Placeholder text from http://hipsteripsum.me/ -->
 
           <section class="st-panel" id="st-panel-1">
-            <div class="st-deco" data-icon></div>
+            <!-- <div class="st-deco" data-icon></div> -->
             <h2>
-              <h1 class="title">{{this.$store.state.activeLandmark.name}}</h1>
+              <h1 class="title landmark-name">{{this.$store.state.activeLandmark.name}}</h1>
             </h2>
-            <p class="description">{{this.$store.state.activeLandmark.summery}}</p>
+            <p class="description tagline">{{this.$store.state.activeLandmark.summery}}</p>
+            <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" />
           </section>
 
           <section class="st-panel st-color" id="st-panel-2">
             <div class="st-deco" data-icon></div>
-            <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" />
+            <!-- <img class="main-image" v-bind:src="getImageUrl(this.$store.state.activeLandmark.img)" /> -->
+            <div class= "card-gallery ">
+                    <div class="gallery gallery cf" v-for="singleImg in this.$store.state.activeLandmark.moreImgs" v-bind:key="singleImg.id">
+                        <img class="single-in-gallery-image card" v-bind:src="getImageUrl(singleImg)">
+                      </div>
+              </div>
           </section>
 
           <section class="st-panel" id="st-panel-3">
@@ -56,7 +63,9 @@
           </section>
 
           <section class="st-panel st-color" id="st-panel-4">
-            <div class="st-deco" data-icon></div>
+            <div class="st-deco " data-icon="">
+             
+            </div>
             <p class="map">
               <iframe
                 v-bind:src="getMap()"
@@ -79,7 +88,7 @@
               v-on:click="showListOfItineraries = !showListOfItineraries"
             >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
 
-            <tr class="itTable" v-show="showListOfItineraries">
+            <tr class="itTable button" v-show="showListOfItineraries">
               <div
                 v-for="itinerary in this.$store.state.itineraries"
                 v-bind:key="itinerary.itineraryID"
@@ -212,12 +221,31 @@ body {
 a {
   text-decoration: none;
 }
+h1{
+  font-family: "Poiret One", cursive;
+}
+
+.tagline {
+  font-size:30px;
+}
+.landmark-name {
+  font-size: 120px;
+  font-weight: 900;
+}
+.main-image {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+}
 .st-container {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  /* font-family: "Poiret One", cursive; */
   font-family: "Josefin Slab", "Myriad Pro", Arial, sans-serif;
 }
 
@@ -329,6 +357,8 @@ a {
   /* Let's enforce some hardware acceleration */
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .st-panel {
@@ -390,16 +420,17 @@ a {
 }
 
 [data-icon]:after {
-  content: attr(data-icon);
-  font-family: "FontAwesome";
-  color: #fff;
-  text-shadow: 1px 1px 1px #4e9eb0;
+    content: attr(data-icon);
+    
+    color: #fff;
+  text-shadow: 1px 1px 1px rgba(151,24,64,0.2);
   position: absolute;
   width: 200px;
   height: 200px;
   line-height: 200px;
   text-align: center;
   font-size: 90px;
+  font-family: "Josefin Slab", "Myriad Pro", Arial, sans-serif;
   top: 50%;
   left: 50%;
   margin: -100px 0 0 -100px;
@@ -424,6 +455,7 @@ a {
   padding: 0;
   top: 50%;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 #st-control-1:checked ~ .st-scroll #st-panel-1 h2,
@@ -495,16 +527,18 @@ a {
 .st-panel p {
   position: absolute;
   text-align: center;
-  font-size: 16px;
-  line-height: 22px;
-  color: #a4a4a4;
+  font-size: 50px;
+  line-height: 40px;
+  color: #797979;
+  background: rgba(255, 255, 255, 0.755);
   z-index: 2;
-  padding: 0;
+  padding: 10px;
   width: 50%;
   left: 25%;
   top: 50%;
   margin: 10px 0 0 0;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 #st-control-1:checked ~ .st-scroll #st-panel-1 p,
 #st-control-2:checked ~ .st-scroll #st-panel-2 p,
@@ -663,12 +697,15 @@ a {
 .description {
  
   grid-area: description;
-  font-size: 35px;
+  /* font-size: 35px; */
   text-align: left;
-  font-weight: bolder;
+  
 
   
   
+}
+.map {
+  position: center;
 }
 
 /* .map{
@@ -686,90 +723,77 @@ a {
   justify-content: space-around; */
 /* } */
 
-/* .button-itinerary{
-  grid-area: ITbtn;
-  margin: 10px;
+.button-itinerary{
+  position:center absolute;
+  margin: 250px;
 
 }
-.itTable {
-  position: absolute;
-  right: 20px;
- 
-}  */
 
-/* .card-gallery{
-grid-area: card-gallery;
-} */
+.itTable {
+  position: center;
+  padding: 50px;
+  margin:50px;
+  font-size: 25px;
+  /* right: 20px; */
+
+ 
+} 
+
+.card-gallery{
+ display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-gap: 15rem;
+  
+  max-width: 80rem;
+  margin: 9rem auto;
+  padding: 10 5rem;
+}
 
 /* this is for the gallery */
 
-/* .gallery {
+.gallery {
   width: 790px;
   margin: 0 auto;
   padding: 5px;
-  background: #333;
+  
 }
 
 .gallery {
   position: relative;
   float: left;
   padding: 5px;
+  width: 250px;
+  transition: 0.1s transform;
+  transform: translateZ(0);
 }
 
 .gallery {
-  width: 250px;
-  transition: 0.1s transform;
-  transform: translateZ(0); /* hack */
-/* }
+   /* hack */
+ }
 
-.gallery :hover {
-  z-index: 1; */
-/* position:relative; */
-/* }
 
-.gallery :hover {
-  transform: scale(5, 5);
-  transition: 0.3s transform;
-}
 
-.cf:before,
-.cf:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
 
-.cf:after {
-  clear: both;
-}
+
 
 .single-in-gallery-image{
   --size: 100px;
   height: calc(var(--size) * 1.15);
   width: var(--size);
   position: center;
-} */
-
-/* h1{
+} 
+ h1{
   grid-area: h1;
-} */
-
-/* .card {
+} 
+.card {
   grid-gap: 10px;
   color: white;
   filter:grayscale(25%);
   font-family: 'Open Sans', sans-serif;
   grid-area: card;
 }
-.card:hover {
-  
-  text-decoration: underline;
-  
-  filter: contrast(140%);
-  filter: saturate(150%);
-  
-} */
-/* .single-in-gallery-image {
+
+ .single-in-gallery-image {
   --size: 400px;
   height: calc(var(--size) * 1.15);
   width: var(--size);
@@ -777,7 +801,7 @@ grid-area: card-gallery;
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
-} */
+}
 /* repeat(auto-fill, minmax(20rem, 1fr)); */
 /* .grid {
   display: grid;
