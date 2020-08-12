@@ -115,7 +115,8 @@ export default {
   color: white;
   position: relative;
   top: 14px;
-  text-align: center;
+  right: 60px;
+  text-align: right;
   grid-area: welcome-back;
 }
 

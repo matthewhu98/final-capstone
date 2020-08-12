@@ -274,8 +274,8 @@ a {
 .st-container > a {
   z-index: 10;
   font-weight: 700;
-  background: #b18f69;
-  color: #fff;
+  background: white;
+  color: #494949;
   text-align: center;
 }
 
@@ -318,9 +318,10 @@ a {
 .st-container > input:checked + a,
 .st-container > input:checked:hover + a {
   background: #4e9eb0;
+    color: white;
 }
 
-.st-container > input:checked + a:after,
+/* .st-container > input:checked + a:after,
 .st-container > input:checked:hover + a:after {
   bottom: 100%;
   border: solid transparent;
@@ -333,10 +334,10 @@ a {
   border-width: 20px;
   left: 50%;
   margin-left: -20px;
-}
+} */
 
 .st-container > input:hover + a {
-  background: #b18f69;
+  background:#dce2e1;
 }
 
 .st-container > input:hover + a:after {
