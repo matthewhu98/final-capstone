@@ -14,23 +14,27 @@
         <h3>Our Mission</h3>
         <p
           class="text"
-        >Team Golf is a powerful trip planning tool that helps families and individuals achieve their dream vacation.</p>
+        >Roaming in Rome is a powerful trip planning tool that helps families and individuals achieve their customized dream vacation.</p>
       </div>
       <div class="about-us">
         <img class="img" src="../assets/home-about-us.jpg">
         <h3>About Us</h3>
         <p
           class="text"
-        >Team Golf was founded when a group of adult prodigies got together and discovered their mutual passion for all things coding/Rome-related.</p>
+        >Our company was founded when a group of adult prodigies got together and discovered their mutual passion for all things coding/Rome-related.</p>
       </div>
       <div class="join-team-golf">
         <img class="img" src="../assets/join-team-golf.jpg">
         <h3>Join our Team</h3>
         <p
           class="text"
-        >If you are looking for the vacation of a lifetime, or looking for new career opportunities, we want to hear from you!</p>
+        >Whether you are looking for the vacation of a lifetime, or for new career opportunities, we can't wait to hear from you!</p>
       </div>
     </div>
+    <i class="fab fa-twitter-square icon fa-2x"></i>
+    <i class="fab fa-facebook-square icon fa-2x"></i>
+    <i class="fab fa-youtube-square icon fa-2x"></i>
+    <i class="fab fa-linkedin icon fa-2x"></i>
   </div>
 </template>
 
@@ -54,13 +58,24 @@ export default {
   border: 0;
 }
 
+.icon {
+  color: white;
+  margin-right: 20px;
+  margin-left: 15px;
+  margin-bottom: 50px;
+  size: 3x;
+}
+.icon:hover {
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.6));
+}
+
 .text-grid {
   display: grid;
   align-items: center top;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: ".our-mission .about-us .join-team-golf";
   background: rgba(255, 255, 255, 0.8);
-  margin: 100px;
+  margin: 80px;
   border-radius: 4px;
 }
 

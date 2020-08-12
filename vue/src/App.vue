@@ -57,7 +57,10 @@
       </div>
     </header>
     <router-view/>
-    <div class="container">Team Golf LLC</div>
+    <div class="team-golf">
+    <div class="team-golf-text">Team Golf LLC</div>
+    <i class="fas fa-golf-ball"></i>
+    </div>
   </div>
 </template>
 
@@ -78,8 +81,32 @@ export default {
 
 .nav-grid {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: ". header-text welcome-back";
+}
+
+.team-golf {
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "header-text welcome-back";
+  grid-template-areas: "golf team-golf ";
+}
+
+.fa-golf-ball {
+  grid-area: golf;
+  text-align: right;
+  margin: 2px;
+  position: relative;
+  right: 50px;
+  top: 7px;
+}
+
+.team-golf-text {
+  grid-area: team-golf;
+  text-align: left;
+  margin: 2px;
+  position: relative;
+  right: 50px;
+  top: 5px;
 }
 
 .welcome-back {
@@ -87,7 +114,9 @@ export default {
   font-size: 20px;
   color: white;
   position: relative;
-  top: 15px;
+  top: 14px;
+  text-align: center;
+  grid-area: welcome-back;
 }
 
 .header-text {
@@ -99,6 +128,8 @@ export default {
   font-size: 35px;
   font-weight: bold;
   filter: drop-shadow(5px 5px 5px black);
+  text-align: center;
+  grid-area: header-text;
 }
 
 .menu {
