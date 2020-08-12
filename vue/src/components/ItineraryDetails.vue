@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class =itineray-page>
    <div class="itinerary-name itinerary-title-color"  v-bind:value="getItineraryName(this.itineraryID)"> {{this.name}} </div>
    <router-link class="add-more-lands" v-bind:to="{ name: 'the-landmarks'}">
         Add More Attractions
@@ -101,6 +101,8 @@ export default {
 
 <style>
 
+
+
 .IT-Container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
@@ -144,6 +146,7 @@ export default {
   z-index: 3;
   font-family: 'Rock Salt', cursive;
   right: 20px;
+  margin-top: 50px;
 }
 .itinerary-name{
   font-family: "Poiret One", cursive;
