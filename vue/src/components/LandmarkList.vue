@@ -1,6 +1,6 @@
 <template >
   <div class="container">
-    <h1>List of Landmarks in Rome</h1>
+    <h1 class="list-of-landmarks">Popular Places to Visit</h1>
 
     <div id="search">
       <!-- <label for="name">Where do you want to go?</label> -->
@@ -16,35 +16,38 @@
       >
         <div class="object">
           <div class="card">
-            <div class="bring-forward back">
-              <button class="button-itinerary button" v-on:click="landmarkToShow = index; ">
-                <i class="fas fa-thumbtack"></i>
-              </button>
-
-              <tr class="itTable">
-                <h4>Your Itineraries</h4>
-                <div v-for="itinerary in itineraries" v-bind:key="itinerary.itineraryID">
-                  <td>{{itinerary.name}}</td>
-                  <td>
-                    <input
-                      type="checkbox"
-                      v-bind:id="itinerary.itineraryID"
-                      v-on:click="addLandmarkToIt(itinerary.itineraryID, landmark.landmarkID)"
-                    />
-                  </td>
+            <button class="button-itinerary button" v-on:click="landmarkToShow = index; ">
+              <i class="fas fa-thumbtack"></i>
+            </button>
+            <div class="bring-forward">
+              <tr class="itTable" v-show="landmarkToShow === index">
+                <div class="itTable2">
+                  <h3 class="your-itineraries">Your Itineraries</h3>
+                  <div
+                    ref="landmarkDetails"
+                    v-for="itinerary in itineraries"
+                    v-bind:key="itinerary.itineraryID"
+                  >
+                    <td>{{itinerary.name}}: </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        v-bind:id="itinerary.itineraryID"
+                        v-on:click="addLandmarkToIt(itinerary.itineraryID, landmark.landmarkID)"
+                      />
+                    </td>
+                  </div>
                 </div>
               </tr>
             </div>
 
-            <div class="front">
-              <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)" />
-              <router-link
-                class="title"
-                v-bind:to="{name: 'landmarkdetails', params: {id: landmark.landmarkID}}"
-              >
-                <h3>{{landmark.name}}</h3>
-              </router-link>
-            </div>
+            <img @click="landmarkToShow=-1" class="image" v-bind:src="getImageUrl(landmark.img)" />
+            <router-link
+              class="title"
+              v-bind:to="{name: 'landmarkdetails', params: {id: landmark.landmarkID}}"
+            >
+              <h3>{{landmark.name}}</h3>
+            </router-link>
           </div>
         </div>
       </div>
@@ -127,50 +130,26 @@ export default {
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
-  border: 1rem solid white;
+  border: 1.3rem solid white;
   border-bottom: 3.5rem solid white;
+  border-radius: 5px;
 }
-
-.front:hover {
-  opacity: 0.5;
-}
-
-.back {
-  display: none;
-  position: relative;
-  margin: auto;
-  margin-top: 20px;
-  z-index: 4;
-  color: white;
-  transform: rotateY(180deg);
-}
-
-.objects:hover .back {
-  position: fixed;
-  display: block;
-  text-align: center;
-  display: inline-block;
-  transition: opacity 1s ease;
-}
-
 .card {
   grid-gap: 10px;
   color: white;
   filter: grayscale(25%);
   font-family: "Open Sans", sans-serif;
   /* background: white; */
-  transition: transform 1s;
-  transform-style: preserve-3d;
 }
 .card:hover {
   text-decoration: gray;
+
   filter: contrast(140%) saturate(150%)
     drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.475));
 }
 
-.object:hover .card {
-  transform: rotateY(180deg);
-  transition: transform 0.5s;
+.list-of-landmarks {
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .search-bar {
@@ -228,8 +207,36 @@ h1 {
   border: none;
   border-radius: 10px;
   position: relative;
-  /* top: 3.5rem;
-  left: 10rem; */
+  top: 3.7rem;
+  left: 10rem;
   z-index: 5;
+}
+
+.bring-forward {
+  /* filter: opacity(50%); */
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 8rem;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.itTable2 {
+    padding: 20px;
+  overflow: hidden;
+}
+
+input {
+  margin-left: 3px;
+  margin-top: 1px;
+}
+
+.your-itineraries {
+border-bottom: 1px solid white;
+padding-bottom: 3px
+
 }
 </style>
