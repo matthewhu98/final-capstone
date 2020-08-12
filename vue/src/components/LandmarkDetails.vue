@@ -83,27 +83,30 @@
 
           <section class="st-panel" id="st-panel-5">
             <div data-icon></div>
-            <h2>add to Itinerary</h2>
-            <button
-              class="button-itinerary button"
-              v-on:click="showListOfItineraries = !showListOfItineraries"
-            >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
-
-            <tr class="itTable button" v-show="showListOfItineraries">
-              <div
-                v-for="itinerary in this.$store.state.itineraries"
-                v-bind:key="itinerary.itineraryID"
-              >
-                <td>{{itinerary.name}}</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    v-bind:id="itinerary.itineraryID"
-                    v-on:click="addLandmarkToIt(itinerary.itineraryID)"
+            <h2>Add to Itinerary</h2>
+            <div class="button-and-menu">
+              <button
+                class="button-itinerary"
+                v-on:click="showListOfItineraries = !showListOfItineraries"
+              >{{showListOfItineraries === true ? "Cancel": "Add to Itineraries"}}</button>
+              <div class="itTable">
+                <tr v-show="showListOfItineraries">
+                  <div
+                    v-for="itinerary in this.$store.state.itineraries"
+                    v-bind:key="itinerary.itineraryID"
                   >
-                </td>
+                    <td>{{itinerary.name}}</td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        v-bind:id="itinerary.itineraryID"
+                        v-on:click="addLandmarkToIt(itinerary.itineraryID)"
+                      >
+                    </td>
+                  </div>
+                </tr>
               </div>
-            </tr>
+            </div>
           </section>
         </div>
         <!-- // st-scroll -->
@@ -318,7 +321,7 @@ a {
 .st-container > input:checked + a,
 .st-container > input:checked:hover + a {
   background: #4e9eb0;
-    color: white;
+  color: white;
 }
 
 /* .st-container > input:checked + a:after,
@@ -337,7 +340,7 @@ a {
 } */
 
 .st-container > input:hover + a {
-  background:#dce2e1;
+  background: #dce2e1;
 }
 
 .st-container > input:hover + a:after {
@@ -692,17 +695,51 @@ a {
   justify-content: space-around; */
 /* } */
 
-.button-itinerary {
-  position: center absolute;
-  margin: 250px;
+.button-and-menu {
+  align-content: center !important;
+  margin-top: 120px;
+  position: center;
 }
 
 .itTable {
-  position: center;
-  padding: 50px;
-  margin: 50px;
-  font-size: 25px;
-  /* right: 20px; */
+  position: absolute;
+  margin: auto;
+  align-self: center !important;
+  font-size: 30px;
+  top: 500px;
+  left: 670px;
+
+}
+
+.button-itinerary {
+  margin-top: 300px;
+  position: relative;
+  z-index: 1;
+  color: #b18f69;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 15px;
+  text-decoration: none;
+  border: none;
+  background: white;
+  border-radius: 4px;
+}
+
+.button-itinerary:hover {
+  background: #5ba1b0;
+  color: white;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
 }
 
 .gallery {
