@@ -215,8 +215,6 @@ export default {
 </script>
 
 <style  lang="css" scoped>
-@import url("//fonts.googleapis.com/css?family=Josefin+Slab:400,700");
-
 body {
   overflow: hidden;
 }
@@ -232,6 +230,7 @@ a {
 }
 
 .tagline {
+  text-align: center !important;
   color: #494949 !important;
   font-size: 30px;
   text-transform: uppercase;
@@ -260,7 +259,9 @@ a {
   bottom: 0px;
   width: 20%;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
   height: 34px;
   line-height: 34px;
 }
@@ -273,7 +274,7 @@ a {
 .st-container > a {
   z-index: 10;
   font-weight: 700;
-  background: #b0604e;
+  background: #b18f69;
   color: #fff;
   text-align: center;
 }
@@ -335,11 +336,11 @@ a {
 }
 
 .st-container > input:hover + a {
-  background: #ad244f;
+  background: #b18f69;
 }
 
 .st-container > input:hover + a:after {
-  border-bottom-color: #ad244f;
+  border-bottom-color: #b18f69;
 }
 
 .st-scroll,
@@ -407,7 +408,6 @@ a {
 
 /* Content elements */
 
-
 [data-icon]:after {
   content: attr(data-icon);
 
@@ -418,7 +418,7 @@ a {
   line-height: 200px;
   text-align: center;
   font-size: 90px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poiret One", cursive;
   top: 50%;
   left: 50%;
   margin: -100px 0 0 -100px;
@@ -520,7 +520,7 @@ a {
 
 .st-panel p {
   position: absolute;
-  text-align: center;
+  text-align: left;
   line-height: 40px;
   color: #797979;
   border-radius: 3px;
@@ -607,17 +607,17 @@ a {
   background: #5ba1b0;
 }
 .st-color [data-icon]:after {
-  color: #fa96b5;
+  color: #d8caae;
 }
 .st-color {
-  background: #fff;
+  background: #d8caae;
 }
 .st-color h2 {
-  color: #fff;
+  color: #d8caae;
 }
 .st-color p {
-  color: #fff;
-  color: rgba(255, 255, 255, 0.8);
+  color: #d8caae;
+  color: #dce2e1;
 }
 
 @media screen and (max-width: 520px) {
@@ -681,9 +681,8 @@ a {
 } */
 .map {
   position: center;
-  bottom: 200px;
+  padding-top: 160px;
 }
-
 
 /* .landmark-explained { */
 /* color: black; */
@@ -721,7 +720,7 @@ h1 {
 }
 
 .collection {
-padding-left: 200px;
+  padding-left: 200px;
 }
 
 .single-in-gallery-image {
@@ -738,5 +737,6 @@ padding-left: 200px;
 
 .single-in-gallery-image:hover {
   transform: scale(1.3);
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
 }
 </style>

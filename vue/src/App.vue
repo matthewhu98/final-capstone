@@ -150,8 +150,8 @@ header {
 
 nav {
   padding: 24px;
-  position: fixed;
-  bottom: 204px;
+  position: relative;
+  bottom: 61px;
 }
 
 .drop-down-text {
@@ -249,11 +249,12 @@ test .fa {
 }
 
 .animate {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
+  text-transform: uppercase;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   /* Chrome and Safari */
@@ -274,7 +275,6 @@ body {
 
 .button {
   color: #b18f69;
-  text-transform: uppercase;
   font-size: 20px;
   padding: 15px;
   /* border: 4px solid black !important; */

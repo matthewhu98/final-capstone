@@ -144,7 +144,7 @@ export default {
 .card:hover {
   filter: grayscale(0%);
   filter: contrast(130%) saturate(130%)
-  drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+    drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
   transform: scale(1.02);
 }
 
@@ -175,7 +175,8 @@ export default {
 h1 {
   font-family: "Poiret One", cursive;
   font-size: 5vw;
-  padding: 30px;
+  padding: 120px 0 30px 0;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
 }
 
 #search {

@@ -109,7 +109,7 @@ export default {
   margin: auto;
   border-radius: 4px;
   position: relative;
-  top: 100px;
+  top: 160px;
 }
 
 #register-header,
