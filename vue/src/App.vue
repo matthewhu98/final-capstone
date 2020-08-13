@@ -33,7 +33,7 @@
               <router-link
                 class="itinerary button"
                 v-bind:to="{name: 'itineraries' , params: {id: this.$store.state.user.id}}"
-              >Itinerary</router-link>
+              >Your Trips</router-link>
             </li>
 
             <li class="animate">

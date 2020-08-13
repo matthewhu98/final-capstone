@@ -97,6 +97,7 @@
                   <div>
                     <input
                       type="checkbox"
+                      class="checkbox"
                       v-bind:id="itinerary.itineraryID"
                       v-on:click="addLandmarkToIt(itinerary.itineraryID)"
                     >
@@ -686,13 +687,6 @@ a {
   padding-top: 160px;
 }
 
-/* .landmark-explained { */
-/* color: black; */
-/* display: flex;
-  flex-direction: row;
-  justify-content: space-around; */
-/* } */
-
 .button-and-menu {
   align-content: center !important;
   margin-top: 120px;
@@ -707,8 +701,13 @@ a {
   text-transform: uppercase;
 }
 
+
+.checkbox {
+  margin-bottom:40px;
+}
+
 .button-itinerary {
-  margin-top: 20vh;
+  margin-top: 22vh;
   z-index: 1;
   color: #b18f69;
   text-transform: uppercase;
@@ -772,4 +771,5 @@ h1 {
   transform: scale(1.3);
   filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
 }
+
 </style>

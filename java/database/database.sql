@@ -83,14 +83,17 @@ INSERT INTO landmark (name, summary, description, img, address_id, map_link) VAL
 ('Victor Emmanuel', 'White marble memorial monument', 'The Victor Emmanuel II National Monument or Vittoriano, called Altare della Patria, is a national monument built in honour of Victor Emmanuel II, the first king of a unified Italy, located in Rome, Italy.','victor-emmanuel-monument-main.jpg', 9,'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1484.9566323685779!2d12.481915008276415!3d41.89472239480519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f604d1b805de3%3A0x21154807a7b83fe1!2sAltar%20of%20the%20Fatherland!5e0!3m2!1sen!2sus!4v1597093909087!5m2!1sen!2sus');
 
 INSERT INTO itinerary(name, user_id) VALUES
-('trip 1', 1),
-('trip 2', 1);
+('Historic Ruins', 1),
+('Cool Public Spaces', 1);
 
 INSERT INTO itinerary_landmarks(itinerary_id, landmark_id) VALUES
-(1, 2),
-(1, 3),
-(2, 1),
-(2, 2);
+(1, 1),
+(1, 4),
+(1, 5),
+(2, 2),
+(2, 3),
+(2, 6),
+(2, 7);
 
 INSERT INTO images(landmark_id, image_name) VALUES
 (1, 'colosseum-1.jpg'),

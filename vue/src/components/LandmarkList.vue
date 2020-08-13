@@ -186,7 +186,7 @@ h1 {
 
 .fa-search {
   position: relative;
-  top: 5px;
+  top: 8px;
 }
 
 .title {
@@ -208,7 +208,7 @@ h1 {
   padding: 0.5rem;
   font-size: 15px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   position: relative;
   top: 3.7rem;
   left: 10rem;

@@ -148,6 +148,7 @@ export default {
 
 .itinerary-name {
   font-family: "Poiret One", cursive;
+    filter: drop-shadow(5px 5px 5px black);
   font-size: 5vw;
   padding: 120px 0 30px 0;;
 }
